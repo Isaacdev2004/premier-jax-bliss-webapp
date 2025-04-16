@@ -10,7 +10,6 @@ const MobileNavLinks = () => {
   const navItems = [
     { name: "Home", path: "/" },
     { name: "About", path: "/about" },
-    { name: "Our Services", path: "/services" }, // Updated label
     { name: "Patient Resources", path: "/patient-resources" },
     { name: "Contact", path: "/contact" },
   ];
