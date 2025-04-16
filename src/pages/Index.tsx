@@ -1,39 +1,40 @@
+
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Calendar, Star, Users, Heart, Activity, ShieldCheck } from "lucide-react";
 import SectionHeader from "@/components/SectionHeader";
 import ServiceCard from "@/components/ServiceCard";
 import CallToAction from "@/components/CallToAction";
+
 const Home = () => {
   return <>
       {/* Hero Section */}
       <section className="relative bg-white overflow-hidden">
-        <div className="container mx-auto px-4 py-12 md:py-16">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6 animate-fade-in">
-              <h1 className="text-4xl md:text-5xl font-semibold text-gray-800 leading-tight">
+        <div className="relative h-[600px] flex items-center justify-center bg-cover bg-center" 
+             style={{ backgroundImage: "url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1920&q=80')" }}>
+          <div className="absolute inset-0 bg-black/40"></div>
+          <div className="container mx-auto px-4 py-12 md:py-16 relative z-10">
+            <div className="max-w-3xl mx-auto text-center space-y-6 animate-fade-in">
+              <h1 className="text-4xl md:text-5xl font-semibold text-white leading-tight">
                 Welcome to JAX Premier Health Center
               </h1>
-              <p className="text-xl text-gray-600">
+              <p className="text-xl text-white">
                 Comprehensive internal medicine and luxury med spa services in one convenient location.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button className="bg-jax-primary hover:bg-jax-primary/90" size="lg" asChild>
                   <Link to="/contact">Book Appointment</Link>
                 </Button>
-                <Button variant="outline" size="lg" asChild>
+                <Button variant="outline" size="lg" className="bg-white/10 text-white hover:bg-white/20 border-white" asChild>
                   <Link to="/contact">Request Consultation</Link>
                 </Button>
               </div>
-              <div className="flex items-center space-x-4 text-gray-500">
+              <div className="flex items-center space-x-4 text-white justify-center">
                 <div className="flex">
                   {[...Array(5)].map((_, i) => <Star key={i} size={18} className="fill-jax-primary text-jax-primary" />)}
                 </div>
                 <span>Trusted by over 1,000+ patients</span>
               </div>
-            </div>
-            <div className="relative rounded-2xl overflow-hidden shadow-xl">
-              <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" alt="Doctor with patient" className="w-full h-full object-cover" />
             </div>
           </div>
         </div>
@@ -184,4 +185,5 @@ const Home = () => {
       <CallToAction title="Ready to Get Started?" description="Schedule your appointment or consultation today and take the first step toward better health and wellness." primaryButtonText="Book Appointment" primaryButtonLink="/contact" secondaryButtonText="Request Consultation" secondaryButtonLink="/contact" />
     </>;
 };
+
 export default Home;
