@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { FileText, ExternalLink, AlertCircle, Download, Shield, CreditCard } from "lucide-react";
@@ -246,10 +245,8 @@ const PatientResources = () => {
       <CallToAction
         title="Have More Questions?"
         description="Our team is here to help. Contact us for any questions about your care, insurance, or appointments."
-        primaryButtonText="Contact Us"
+        primaryButtonText="Request Consultation"
         primaryButtonLink="/contact"
-        secondaryButtonText="Access Patient Portal"
-        secondaryButtonLink="https://patientportal.example.com"
       />
     </>
   );

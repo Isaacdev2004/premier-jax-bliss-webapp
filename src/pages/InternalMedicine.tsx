@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Calendar, ShieldCheck, Activity, HeartPulse, Stethoscope, PenTool } from "lucide-react";
@@ -221,8 +220,6 @@ const InternalMedicine = () => {
         description="Our internal medicine team is available Monday through Friday. Book your in-person or telehealth appointment today."
         primaryButtonText="Request Consultation"
         primaryButtonLink="/contact"
-        secondaryButtonText="Learn About Telehealth"
-        secondaryButtonLink="/internal-medicine#telehealth"
       />
     </>
   );

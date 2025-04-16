@@ -1,4 +1,3 @@
-
 import PageHeader from "@/components/PageHeader";
 import SectionHeader from "@/components/SectionHeader";
 import CallToAction from "@/components/CallToAction";
@@ -144,11 +143,9 @@ const About = () => {
 
       <CallToAction
         title="Experience the JAX Premier Difference"
-        description="Schedule your appointment or consultation today and discover comprehensive care for your health and wellness needs."
-        primaryButtonText="Book Appointment"
+        description="Schedule your consultation today and discover comprehensive care for your health and wellness needs."
+        primaryButtonText="Request Consultation"
         primaryButtonLink="/contact"
-        secondaryButtonText="Request Consultation"
-        secondaryButtonLink="/contact"
       />
     </>
   );

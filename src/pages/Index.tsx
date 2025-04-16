@@ -178,7 +178,12 @@ const Home = () => {
         </div>
       </section>
 
-      <CallToAction title="Ready to Get Started?" description="Schedule your appointment or consultation today and take the first step toward better health and wellness." primaryButtonText="Book Appointment" primaryButtonLink="/contact" secondaryButtonText="Request Consultation" secondaryButtonLink="/contact" />
+      <CallToAction 
+        title="Ready to Get Started?" 
+        description="Schedule your consultation today and take the first step toward better health and wellness." 
+        primaryButtonText="Request Consultation" 
+        primaryButtonLink="/contact" 
+      />
     </>;
 };
 
