@@ -67,9 +67,6 @@ const Navbar = () => {
             <Button variant="outline" size="sm" asChild className="justify-center">
               <Link to="/contact?type=appointment">Book Appointment</Link>
             </Button>
-            <Button size="sm" className="bg-jax-primary hover:bg-jax-primary/90 justify-center">
-              <Link to="/contact">Request Consultation</Link>
-            </Button>
           </div>
         </div>
       </div>

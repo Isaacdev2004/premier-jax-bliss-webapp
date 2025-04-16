@@ -12,11 +12,6 @@ const NavbarActions = () => {
           <span className="hidden lg:inline">Book Appointment</span>
         </Link>
       </Button>
-      <Button size="sm" className="bg-jax-primary hover:bg-jax-primary/90">
-        <Link to="/contact" className="flex items-center">
-          Request Consultation
-        </Link>
-      </Button>
     </div>
   );
 };
