@@ -15,9 +15,11 @@ const InternalMedicine = () => {
         subtitle="Comprehensive primary care for adults focused on prevention, diagnosis, and treatment of diseases."
         className="bg-jax-medical/10"
       >
-        <Button className="bg-jax-medical hover:bg-jax-medical/90 mt-4" size="lg" asChild>
-          <Link to="/contact">Book Appointment</Link>
-        </Button>
+        <div className="flex justify-center mt-4">
+          <Button className="bg-jax-medical hover:bg-jax-medical/90" size="lg" asChild>
+            <Link to="/contact">Request Consultation</Link>
+          </Button>
+        </div>
       </PageHeader>
 
       {/* Overview */}
@@ -197,9 +199,11 @@ const InternalMedicine = () => {
                   <span>Mental health check-ins</span>
                 </li>
               </ul>
-              <Button className="bg-jax-medical hover:bg-jax-medical/90" asChild>
-                <Link to="/contact">Schedule Telehealth Visit</Link>
-              </Button>
+              <div className="flex justify-center">
+                <Button className="bg-jax-medical hover:bg-jax-medical/90" asChild>
+                  <Link to="/contact">Schedule Telehealth Visit</Link>
+                </Button>
+              </div>
             </div>
             <div className="order-1 md:order-2">
               <img
@@ -215,7 +219,7 @@ const InternalMedicine = () => {
       <CallToAction
         title="Ready to Schedule Your Appointment?"
         description="Our internal medicine team is available Monday through Friday. Book your in-person or telehealth appointment today."
-        primaryButtonText="Book Appointment"
+        primaryButtonText="Request Consultation"
         primaryButtonLink="/contact"
         secondaryButtonText="Learn About Telehealth"
         secondaryButtonLink="/internal-medicine#telehealth"
