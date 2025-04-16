@@ -1,14 +1,14 @@
 
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Phone } from "lucide-react";
+import { Calendar } from "lucide-react";
 
 const NavbarActions = () => {
   return (
     <div className="hidden md:flex items-center space-x-4">
       <Button variant="outline" size="sm" asChild>
-        <Link to="/contact" className="flex items-center gap-1">
-          <Phone size={16} />
+        <Link to="/contact?type=appointment" className="flex items-center gap-1">
+          <Calendar size={16} />
           <span className="hidden lg:inline">Book Appointment</span>
         </Link>
       </Button>

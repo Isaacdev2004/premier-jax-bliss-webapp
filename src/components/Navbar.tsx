@@ -65,7 +65,7 @@ const Navbar = () => {
           </nav>
           <div className="flex flex-col space-y-3">
             <Button variant="outline" size="sm" asChild className="justify-center">
-              <Link to="/contact">Book Appointment</Link>
+              <Link to="/contact?type=appointment">Book Appointment</Link>
             </Button>
             <Button size="sm" className="bg-jax-primary hover:bg-jax-primary/90 justify-center">
               <Link to="/contact">Request Consultation</Link>
