@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Calendar, Star, Users, Heart, Activity, ShieldCheck } from "lucide-react";
@@ -21,11 +20,8 @@ const Home = () => {
               <p className="text-xl text-white">
                 Comprehensive internal medicine and luxury med spa services in one convenient location.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <div className="flex justify-center">
                 <Button className="bg-jax-primary hover:bg-jax-primary/90" size="lg" asChild>
-                  <Link to="/contact">Book Appointment</Link>
-                </Button>
-                <Button variant="outline" size="lg" className="bg-white/10 text-white hover:bg-white/20 border-white" asChild>
                   <Link to="/contact">Request Consultation</Link>
                 </Button>
               </div>
