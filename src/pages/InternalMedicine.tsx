@@ -1,0 +1,227 @@
+
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import { Calendar, ShieldCheck, Activity, HeartPulse, Stethoscope, PenTool } from "lucide-react";
+import PageHeader from "@/components/PageHeader";
+import SectionHeader from "@/components/SectionHeader";
+import ServiceCard from "@/components/ServiceCard";
+import CallToAction from "@/components/CallToAction";
+
+const InternalMedicine = () => {
+  return (
+    <>
+      <PageHeader
+        title="Internal Medicine"
+        subtitle="Comprehensive primary care for adults focused on prevention, diagnosis, and treatment of diseases."
+        className="bg-jax-medical/10"
+      >
+        <Button className="bg-jax-medical hover:bg-jax-medical/90 mt-4" size="lg" asChild>
+          <Link to="/contact">Book Appointment</Link>
+        </Button>
+      </PageHeader>
+
+      {/* Overview */}
+      <section className="py-16">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div>
+              <img
+                src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+                alt="Doctor consulting with patient"
+                className="rounded-2xl shadow-lg"
+              />
+            </div>
+            <div className="space-y-6">
+              <SectionHeader
+                title="Comprehensive Internal Medicine Care"
+                align="left"
+                className="mb-6"
+              />
+              <p className="text-gray-600">
+                Our internal medicine practice provides comprehensive primary care for adults with a 
+                focus on prevention, diagnosis, and treatment of adult diseases. We believe in 
+                a proactive approach to healthcare, addressing concerns before they become serious 
+                health issues.
+              </p>
+              <p className="text-gray-600">
+                Our physicians are dedicated to building long-term relationships with patients, 
+                providing continuity of care, and developing personalized treatment plans that 
+                address individual health goals.
+              </p>
+              <p className="text-gray-600">
+                We offer both in-person appointments during weekdays and convenient telehealth 
+                options for patients who prefer remote consultations.
+              </p>
+              <div className="flex items-center space-x-2 text-jax-medical">
+                <Calendar size={20} />
+                <span>Available Monday-Friday, 9am-5pm</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Services */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <SectionHeader
+            title="Our Internal Medicine Services"
+            subtitle="We provide a wide range of services to address your healthcare needs."
+          />
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              {
+                icon: <ShieldCheck size={24} />,
+                title: "Preventive Care",
+                description: "Annual physical exams, immunizations, and screenings to keep you healthy and catch issues early.",
+                link: "/contact"
+              },
+              {
+                icon: <Activity size={24} />,
+                title: "Chronic Disease Management",
+                description: "Comprehensive care for conditions like diabetes, hypertension, asthma, and thyroid disorders.",
+                link: "/contact"
+              },
+              {
+                icon: <HeartPulse size={24} />,
+                title: "Cardiovascular Health",
+                description: "Management of heart disease, high cholesterol, and other cardiovascular conditions.",
+                link: "/contact"
+              },
+              {
+                icon: <Calendar size={24} />,
+                title: "Telehealth Consultations",
+                description: "Convenient virtual visits for follow-ups and minor conditions from the comfort of your home.",
+                link: "/contact"
+              },
+              {
+                icon: <Stethoscope size={24} />,
+                title: "Urgent Care",
+                description: "Same-day appointments for acute illnesses and urgent medical concerns.",
+                link: "/contact"
+              },
+              {
+                icon: <PenTool size={24} />,
+                title: "Specialist Referrals",
+                description: "Coordination with specialists when needed for complex health conditions.",
+                link: "/contact"
+              }
+            ].map((service, index) => (
+              <ServiceCard
+                key={index}
+                icon={service.icon}
+                title={service.title}
+                description={service.description}
+                link={service.link}
+                buttonText="Schedule Now"
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Conditions Treated */}
+      <section className="py-16">
+        <div className="container mx-auto px-4">
+          <SectionHeader
+            title="Conditions We Treat"
+            subtitle="Our internal medicine physicians diagnose and treat a wide range of health conditions."
+          />
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              "Allergies",
+              "Arthritis",
+              "Asthma",
+              "Chronic Kidney Disease",
+              "Chronic Obstructive Pulmonary Disease (COPD)",
+              "Depression & Anxiety",
+              "Diabetes",
+              "Digestive Disorders",
+              "Heart Disease",
+              "High Blood Pressure",
+              "High Cholesterol",
+              "Migraine Headaches",
+              "Osteoporosis",
+              "Thyroid Disorders",
+              "Urinary Tract Infections",
+              "Weight Management Issues",
+              "Women's Health Issues",
+              "Men's Health Issues"
+            ].map((condition, index) => (
+              <div key={index} className="bg-gray-50 rounded-lg p-4 shadow-sm">
+                <p className="text-gray-700">{condition}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Telehealth */}
+      <section className="py-16 bg-jax-medical/10">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div className="order-2 md:order-1">
+              <SectionHeader
+                title="Telehealth Services"
+                subtitle="Healthcare from the comfort of your home"
+                align="left"
+                className="mb-6"
+              />
+              <p className="text-gray-600 mb-6">
+                Our telehealth services allow you to connect with your provider through secure video 
+                consultations. This option is ideal for follow-up appointments, medication management, 
+                and addressing non-emergency health concerns without leaving your home.
+              </p>
+              <h3 className="text-lg font-semibold mb-4">Telehealth is perfect for:</h3>
+              <ul className="space-y-2 mb-8">
+                <li className="flex items-center">
+                  <div className="w-2 h-2 rounded-full bg-jax-medical mr-2"></div>
+                  <span>Follow-up appointments</span>
+                </li>
+                <li className="flex items-center">
+                  <div className="w-2 h-2 rounded-full bg-jax-medical mr-2"></div>
+                  <span>Medication management</span>
+                </li>
+                <li className="flex items-center">
+                  <div className="w-2 h-2 rounded-full bg-jax-medical mr-2"></div>
+                  <span>Minor illnesses (colds, infections)</span>
+                </li>
+                <li className="flex items-center">
+                  <div className="w-2 h-2 rounded-full bg-jax-medical mr-2"></div>
+                  <span>Chronic disease monitoring</span>
+                </li>
+                <li className="flex items-center">
+                  <div className="w-2 h-2 rounded-full bg-jax-medical mr-2"></div>
+                  <span>Mental health check-ins</span>
+                </li>
+              </ul>
+              <Button className="bg-jax-medical hover:bg-jax-medical/90" asChild>
+                <Link to="/contact">Schedule Telehealth Visit</Link>
+              </Button>
+            </div>
+            <div className="order-1 md:order-2">
+              <img
+                src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+                alt="Telehealth consultation"
+                className="rounded-2xl shadow-lg"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <CallToAction
+        title="Ready to Schedule Your Appointment?"
+        description="Our internal medicine team is available Monday through Friday. Book your in-person or telehealth appointment today."
+        primaryButtonText="Book Appointment"
+        primaryButtonLink="/contact"
+        secondaryButtonText="Learn About Telehealth"
+        secondaryButtonLink="/internal-medicine#telehealth"
+      />
+    </>
+  );
+};
+
+export default InternalMedicine;
