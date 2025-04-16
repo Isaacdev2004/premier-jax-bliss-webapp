@@ -110,7 +110,6 @@ const DesktopNavLinks = () => {
   const navItems = [
     { name: "Home", path: "/" },
     { name: "About", path: "/about" },
-    // Services dropdown is handled separately
     { name: "Patient Resources", path: "/patient-resources" },
     { name: "Contact", path: "/contact" },
   ];
@@ -247,3 +246,4 @@ const MobileNavLinks = () => {
 };
 
 export default Navbar;
+
