@@ -15,6 +15,7 @@ const DesktopNavLinks = () => {
   const baseLinkStyle = "text-gray-700 hover:text-jax-primary transition-colors";
   const activeLinkStyle = "text-jax-primary font-semibold";
   
+  // Updated order - Services dropdown placed after About
   const navItems = [
     { name: "Home", path: "/" },
     { name: "About", path: "/about" },
@@ -24,7 +25,8 @@ const DesktopNavLinks = () => {
 
   return (
     <>
-      {navItems.map((item) => (
+      {/* Render Home and About links first */}
+      {navItems.slice(0, 2).map((item) => (
         <Link
           key={item.name}
           to={item.path}
@@ -34,6 +36,7 @@ const DesktopNavLinks = () => {
         </Link>
       ))}
       
+      {/* Services dropdown - now as an anchor element wrapped around NavigationMenu */}
       <NavigationMenu>
         <NavigationMenuList>
           <NavigationMenuItem>
@@ -79,6 +82,17 @@ const DesktopNavLinks = () => {
           </NavigationMenuItem>
         </NavigationMenuList>
       </NavigationMenu>
+      
+      {/* Render Patient Resources and Contact links last */}
+      {navItems.slice(2).map((item) => (
+        <Link
+          key={item.name}
+          to={item.path}
+          className={location.pathname === item.path ? activeLinkStyle : baseLinkStyle}
+        >
+          {item.name}
+        </Link>
+      ))}
     </>
   );
 };

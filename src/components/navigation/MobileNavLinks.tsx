@@ -7,6 +7,7 @@ const MobileNavLinks = () => {
   const location = useLocation();
   const [servicesOpen, setServicesOpen] = useState(false);
   
+  // Updated order - Services dropdown placed after About
   const navItems = [
     { name: "Home", path: "/" },
     { name: "About", path: "/about" },
@@ -16,7 +17,8 @@ const MobileNavLinks = () => {
 
   return (
     <>
-      {navItems.map((item) => (
+      {/* Render Home and About links first */}
+      {navItems.slice(0, 2).map((item) => (
         <Link
           key={item.name}
           to={item.path}
@@ -30,6 +32,7 @@ const MobileNavLinks = () => {
         </Link>
       ))}
       
+      {/* Services dropdown - placed after About */}
       <div className="py-2">
         <button 
           onClick={() => setServicesOpen(!servicesOpen)}
@@ -69,6 +72,21 @@ const MobileNavLinks = () => {
           </Link>
         </div>
       </div>
+      
+      {/* Render Patient Resources and Contact links last */}
+      {navItems.slice(2).map((item) => (
+        <Link
+          key={item.name}
+          to={item.path}
+          className={`py-2 block ${
+            location.pathname === item.path
+              ? "text-jax-primary font-semibold"
+              : "text-gray-700 hover:text-jax-primary"
+          } transition-colors`}
+        >
+          {item.name}
+        </Link>
+      ))}
     </>
   );
 };
