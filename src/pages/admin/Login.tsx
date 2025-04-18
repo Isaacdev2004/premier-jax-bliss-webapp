@@ -46,8 +46,8 @@ const AdminLogin = () => {
             Enter your credentials to access the admin portal
           </CardDescription>
         </CardHeader>
-        <CardContent>
-          <form onSubmit={handleLogin} className="space-y-4">
+        <form onSubmit={handleLogin}>
+          <CardContent className="space-y-4">
             <div className="space-y-2">
               <label htmlFor="username" className="text-sm font-medium">
                 Username
@@ -73,17 +73,17 @@ const AdminLogin = () => {
                 required
               />
             </div>
-          </form>
-        </CardContent>
-        <CardFooter>
-          <Button 
-            className="w-full" 
-            onClick={handleLogin} 
-            disabled={isLoading}
-          >
-            {isLoading ? "Logging in..." : "Log in"}
-          </Button>
-        </CardFooter>
+          </CardContent>
+          <CardFooter>
+            <Button 
+              className="w-full" 
+              type="submit"
+              disabled={isLoading}
+            >
+              {isLoading ? "Logging in..." : "Log in"}
+            </Button>
+          </CardFooter>
+        </form>
       </Card>
     </div>
   );

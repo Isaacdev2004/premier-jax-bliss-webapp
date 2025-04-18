@@ -25,14 +25,14 @@ import { toast } from "@/hooks/use-toast";
 
 const AdminLayout = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
 
   useEffect(() => {
     // Check for admin authentication
     const adminAuth = localStorage.getItem("adminAuth");
-    if (adminAuth) {
-      setIsAuthenticated(true);
-    }
+    setIsAuthenticated(!!adminAuth);
+    setIsLoading(false);
   }, []);
 
   const handleLogout = () => {
@@ -43,6 +43,10 @@ const AdminLayout = () => {
     });
     navigate("/admin/login");
   };
+
+  if (isLoading) {
+    return <div className="flex h-screen items-center justify-center">Loading...</div>;
+  }
 
   if (!isAuthenticated) {
     return <Navigate to="/admin/login" replace />;
