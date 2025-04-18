@@ -183,64 +183,6 @@ const Contact = () => {
           </div>
         </div>
       </section>
-
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <SectionHeader title="Book Your Visit" subtitle="Choose the type of appointment that best fits your needs." />
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-white rounded-xl p-8 shadow-sm border-t-4 border-jax-medical">
-              <h3 className="text-xl font-semibold mb-2">Internal Medicine Appointment</h3>
-              <p className="text-gray-600 mb-6">
-                For preventive care, chronic disease management, and general health concerns.
-                Available weekdays with in-person and telehealth options.
-              </p>
-              <ul className="space-y-2 mb-6">
-                <li className="flex items-center">
-                  <div className="w-2 h-2 rounded-full bg-jax-medical mr-2"></div>
-                  <span>Available Monday-Friday, 9am-5pm</span>
-                </li>
-                <li className="flex items-center">
-                  <div className="w-2 h-2 rounded-full bg-jax-medical mr-2"></div>
-                  <span>Most insurance plans accepted</span>
-                </li>
-                <li className="flex items-center">
-                  <div className="w-2 h-2 rounded-full bg-jax-medical mr-2"></div>
-                  <span>Telehealth options available</span>
-                </li>
-              </ul>
-              <Button className="w-full bg-jax-medical hover:bg-jax-medical/90">
-                Book Internal Medicine Appointment
-              </Button>
-            </div>
-
-            <div className="bg-white rounded-xl p-8 shadow-sm border-t-4 border-jax-spa">
-              <h3 className="text-xl font-semibold mb-2">Med Spa Consultation</h3>
-              <p className="text-gray-600 mb-6">
-                For aesthetic treatments, skin rejuvenation, acne care, and anti-aging services.
-                Available weekends for your convenience.
-              </p>
-              <ul className="space-y-2 mb-6">
-                <li className="flex items-center">
-                  <div className="w-2 h-2 rounded-full bg-jax-spa mr-2"></div>
-                  <span>Available Saturday-Sunday, 10am-6pm</span>
-                </li>
-                <li className="flex items-center">
-                  <div className="w-2 h-2 rounded-full bg-jax-spa mr-2"></div>
-                  <span>Complimentary initial consultations</span>
-                </li>
-                <li className="flex items-center">
-                  <div className="w-2 h-2 rounded-full bg-jax-spa mr-2"></div>
-                  <span>Flexible payment options available</span>
-                </li>
-              </ul>
-              <Button className="w-full bg-jax-spa hover:bg-jax-spa/90" asChild>
-                <Link to="/contact">Learn more</Link>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
     </>
   );
 };
