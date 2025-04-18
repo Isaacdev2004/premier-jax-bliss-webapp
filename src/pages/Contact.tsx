@@ -77,8 +77,13 @@ const Contact = () => {
                   <MapPin size={24} className="mr-4 mt-1 text-jax-primary flex-shrink-0" />
                   <div>
                     <h3 className="font-semibold text-lg mb-1">Our Location</h3>
-                    <p className="text-gray-600">123 Healthcare Avenue, Jacksonville, FL 32256</p>
-                    <a href="https://maps.google.com/?q=123+Healthcare+Avenue,+Jacksonville,+FL+32256" target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-jax-primary mt-2 hover:underline">
+                    <p className="text-gray-600">9010 R G Skinner Parkway, Jacksonville, FL 32068</p>
+                    <a 
+                      href="https://maps.google.com/?q=9010+R+G+Skinner+Parkway,+Jacksonville,+FL+32068" 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="inline-flex items-center text-jax-primary mt-2 hover:underline"
+                    >
                       Get Directions <ArrowRight size={16} className="ml-1" />
                     </a>
                   </div>
@@ -88,7 +93,7 @@ const Contact = () => {
                   <Phone size={24} className="mr-4 mt-1 text-jax-primary flex-shrink-0" />
                   <div>
                     <h3 className="font-semibold text-lg mb-1">Phone</h3>
-                    <p className="text-gray-600">(904) 555-1234</p>
+                    <p className="text-gray-600">(904) 468-2055</p>
                   </div>
                 </div>
 
@@ -96,7 +101,7 @@ const Contact = () => {
                   <Mail size={24} className="mr-4 mt-1 text-jax-primary flex-shrink-0" />
                   <div>
                     <h3 className="font-semibold text-lg mb-1">Email</h3>
-                    <p className="text-gray-600">info@jaxpremierhealth.com</p>
+                    <p className="text-gray-600">Jax_Premier@outlook.com</p>
                   </div>
                 </div>
 
