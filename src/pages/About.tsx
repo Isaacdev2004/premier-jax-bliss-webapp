@@ -58,7 +58,7 @@ const About = () => {
             <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col md:flex-row items-stretch">
               <div className="w-full md:w-2/5 h-[400px] relative overflow-hidden">
                 <img
-                  src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
+                  src="/lovable-uploads/8402697b-090a-4447-ad63-68d6ee38f7de.png"
                   alt="Dr. Ameera Donzo"
                   className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
                 />
