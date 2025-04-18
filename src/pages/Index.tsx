@@ -21,8 +21,12 @@ const Home = () => {
                 Comprehensive internal medicine and luxury med spa services in one convenient location.
               </p>
               <div className="flex justify-center">
-                <Button className="bg-jax-primary hover:bg-jax-primary/90" size="lg" asChild>
-                  <Link to="/contact">Request Consultation</Link>
+                <Button 
+                  className="bg-jax-primary hover:bg-jax-primary/90" 
+                  size="lg" 
+                  asChild
+                >
+                  <Link to="/contact?type=consultation">Request Consultation</Link>
                 </Button>
               </div>
               <div className="flex items-center space-x-4 text-white justify-center">
