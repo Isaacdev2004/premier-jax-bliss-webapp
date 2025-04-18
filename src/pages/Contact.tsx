@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -9,28 +8,34 @@ import { useToast } from "@/hooks/use-toast";
 import { Phone, Mail, MapPin, Clock, ArrowRight } from "lucide-react";
 import PageHeader from "@/components/PageHeader";
 import SectionHeader from "@/components/SectionHeader";
-
 const Contact = () => {
-  const { toast } = useToast();
+  const {
+    toast
+  } = useToast();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
     service: "internal-medicine",
-    message: "",
+    message: ""
   });
-
   const [isSubmitting, setIsSubmitting] = useState(false);
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+    const {
+      name,
+      value
+    } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
   };
-
   const handleServiceChange = (value: string) => {
-    setFormData((prev) => ({ ...prev, service: value }));
+    setFormData(prev => ({
+      ...prev,
+      service: value
+    }));
   };
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -40,34 +45,25 @@ const Contact = () => {
       setIsSubmitting(false);
       toast({
         title: "Form Submitted",
-        description: "We've received your message and will contact you soon.",
+        description: "We've received your message and will contact you soon."
       });
       setFormData({
         name: "",
         email: "",
         phone: "",
         service: "internal-medicine",
-        message: "",
+        message: ""
       });
     }, 1500);
   };
-
-  return (
-    <>
-      <PageHeader
-        title="Contact Us"
-        subtitle="Get in touch with our team for appointments, consultations, or any questions."
-      />
+  return <>
+      <PageHeader title="Contact Us" subtitle="Get in touch with our team for appointments, consultations, or any questions." />
 
       <section className="py-16">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div>
-              <SectionHeader
-                title="Get In Touch"
-                align="left"
-                className="mb-8"
-              />
+              <SectionHeader title="Get In Touch" align="left" className="mb-8" />
 
               <div className="space-y-6 mb-8">
                 <div className="flex items-start">
@@ -75,12 +71,7 @@ const Contact = () => {
                   <div>
                     <h3 className="font-semibold text-lg mb-1">Our Location</h3>
                     <p className="text-gray-600">123 Healthcare Avenue, Jacksonville, FL 32256</p>
-                    <a
-                      href="https://maps.google.com/?q=123+Healthcare+Avenue,+Jacksonville,+FL+32256"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center text-jax-primary mt-2 hover:underline"
-                    >
+                    <a href="https://maps.google.com/?q=123+Healthcare+Avenue,+Jacksonville,+FL+32256" target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-jax-primary mt-2 hover:underline">
                       Get Directions <ArrowRight size={16} className="ml-1" />
                     </a>
                   </div>
@@ -127,53 +118,25 @@ const Contact = () => {
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div>
                     <Label htmlFor="name">Full Name</Label>
-                    <Input
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      placeholder="John Doe"
-                      required
-                    />
+                    <Input id="name" name="name" value={formData.name} onChange={handleChange} placeholder="John Doe" required />
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                       <Label htmlFor="email">Email Address</Label>
-                      <Input
-                        id="email"
-                        name="email"
-                        type="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        placeholder="john@example.com"
-                        required
-                      />
+                      <Input id="email" name="email" type="email" value={formData.email} onChange={handleChange} placeholder="john@example.com" required />
                     </div>
                     <div>
                       <Label htmlFor="phone">Phone Number</Label>
-                      <Input
-                        id="phone"
-                        name="phone"
-                        value={formData.phone}
-                        onChange={handleChange}
-                        placeholder="(555) 123-4567"
-                      />
+                      <Input id="phone" name="phone" value={formData.phone} onChange={handleChange} placeholder="(555) 123-4567" />
                     </div>
                   </div>
 
                   <div>
                     <Label>Interested In</Label>
-                    <RadioGroup
-                      value={formData.service}
-                      onValueChange={handleServiceChange}
-                      className="flex flex-col space-y-2 mt-2"
-                    >
+                    <RadioGroup value={formData.service} onValueChange={handleServiceChange} className="flex flex-col space-y-2 mt-2">
                       <div className="flex items-center space-x-2">
-                        <RadioGroupItem
-                          value="internal-medicine"
-                          id="internal-medicine"
-                        />
+                        <RadioGroupItem value="internal-medicine" id="internal-medicine" />
                         <Label htmlFor="internal-medicine" className="cursor-pointer">
                           Internal Medicine (Weekdays)
                         </Label>
@@ -201,22 +164,10 @@ const Contact = () => {
 
                   <div>
                     <Label htmlFor="message">Message</Label>
-                    <Textarea
-                      id="message"
-                      name="message"
-                      value={formData.message}
-                      onChange={handleChange}
-                      placeholder="Tell us about your needs or questions..."
-                      rows={5}
-                      required
-                    />
+                    <Textarea id="message" name="message" value={formData.message} onChange={handleChange} placeholder="Tell us about your needs or questions..." rows={5} required />
                   </div>
 
-                  <Button
-                    type="submit"
-                    className="w-full bg-jax-primary hover:bg-jax-primary/90"
-                    disabled={isSubmitting}
-                  >
+                  <Button type="submit" className="w-full bg-jax-primary hover:bg-jax-primary/90" disabled={isSubmitting}>
                     {isSubmitting ? "Sending..." : "Send Message"}
                   </Button>
                 </form>
@@ -228,10 +179,7 @@ const Contact = () => {
 
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
-          <SectionHeader
-            title="Book Your Visit"
-            subtitle="Choose the type of appointment that best fits your needs."
-          />
+          <SectionHeader title="Book Your Visit" subtitle="Choose the type of appointment that best fits your needs." />
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="bg-white rounded-xl p-8 shadow-sm border-t-4 border-jax-medical">
@@ -279,15 +227,11 @@ const Contact = () => {
                   <span>Flexible payment options available</span>
                 </li>
               </ul>
-              <Button className="w-full bg-jax-spa hover:bg-jax-spa/90">
-                Request Med Spa Consultation
-              </Button>
+              <Button className="w-full bg-jax-spa hover:bg-jax-spa/90">Learn more</Button>
             </div>
           </div>
         </div>
       </section>
-    </>
-  );
+    </>;
 };
-
 export default Contact;
