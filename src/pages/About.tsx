@@ -1,7 +1,7 @@
 import PageHeader from "@/components/PageHeader";
 import SectionHeader from "@/components/SectionHeader";
 import CallToAction from "@/components/CallToAction";
-import { Star } from "lucide-react";
+import { Award, Stethoscope, Lightbulb, Star } from "lucide-react";
 
 const About = () => {
   return (
@@ -50,46 +50,55 @@ const About = () => {
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <SectionHeader
-            title="Our Team"
-            subtitle="Meet the dedicated professionals behind JAX Premier Health Center."
+            title="Meet Our Founder"
+            subtitle="The Vision Behind JAX Premier Health Center"
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                name: "Dr. Jennifer Anderson",
-                role: "Medical Director & Internal Medicine Physician",
-                image: "https://images.unsplash.com/photo-1594824476967-48c8b964273f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80",
-                bio: "Dr. Anderson has over 15 years of experience in internal medicine with a special interest in preventive care and women's health."
-              },
-              {
-                name: "Dr. Michael Roberts",
-                role: "Internal Medicine Physician",
-                image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80",
-                bio: "Dr. Roberts specializes in chronic disease management and geriatric care, with a focus on creating comprehensive treatment plans."
-              },
-              {
-                name: "Sarah Johnson, NP",
-                role: "Aesthetic Director & Nurse Practitioner",
-                image: "https://images.unsplash.com/photo-1571772996211-2f02974a9f91?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80",
-                bio: "Sarah has extensive training in advanced aesthetic procedures and leads our Vivid Bliss Med Spa with a passion for helping patients look and feel their best."
-              }
-            ].map((member, index) => (
-              <div key={index} className="bg-white rounded-xl overflow-hidden shadow-sm">
-                <div className="h-64 overflow-hidden">
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="w-full h-full object-cover"
-                  />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div>
+              <img
+                src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
+                alt="Dr. Jennifer Anderson, Founder of JAX Premier Health Center"
+                className="rounded-2xl shadow-lg"
+              />
+            </div>
+            <div>
+              <div className="space-y-6">
+                <h3 className="text-2xl font-semibold text-gray-800 mb-4">Dr. Jennifer Anderson</h3>
+                <p className="text-gray-600 mb-4">
+                  With over 15 years of experience in internal medicine, Dr. Jennifer Anderson is the visionary 
+                  founder of JAX Premier Health Center. Her unique approach combines comprehensive medical care 
+                  with aesthetic wellness, addressing both the physical and emotional health of her patients.
+                </p>
+                <div className="space-y-4">
+                  <div className="flex items-center space-x-4">
+                    <Award className="text-jax-primary w-10 h-10" />
+                    <div>
+                      <h4 className="font-semibold text-gray-800">Award-Winning Physician</h4>
+                      <p className="text-gray-600 text-sm">Recognized for excellence in patient care</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center space-x-4">
+                    <Stethoscope className="text-jax-primary w-10 h-10" />
+                    <div>
+                      <h4 className="font-semibold text-gray-800">Specialized in Women's Health</h4>
+                      <p className="text-gray-600 text-sm">Pioneering personalized healthcare approaches</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center space-x-4">
+                    <Lightbulb className="text-jax-primary w-10 h-10" />
+                    <div>
+                      <h4 className="font-semibold text-gray-800">Innovative Healthcare Model</h4>
+                      <p className="text-gray-600 text-sm">Integrating internal medicine and aesthetic wellness</p>
+                    </div>
+                  </div>
                 </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold">{member.name}</h3>
-                  <p className="text-jax-primary mb-3">{member.role}</p>
-                  <p className="text-gray-600">{member.bio}</p>
-                </div>
+                <p className="text-gray-600 mt-4">
+                  Dr. Anderson's mission is to provide holistic, patient-centered care that empowers individuals 
+                  to achieve their best health and confidence through a comprehensive approach to wellness.
+                </p>
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </section>
