@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Heart, Star, Users, Sparkles, Clock, ArrowRight } from "lucide-react";
-import PageHeader from "@/components/PageHeader";
 import SectionHeader from "@/components/SectionHeader";
 import ServiceCard from "@/components/ServiceCard";
 import CallToAction from "@/components/CallToAction";
@@ -11,15 +10,34 @@ import { AspectRatio } from "@/components/ui/aspect-ratio";
 const MedSpa = () => {
   return (
     <>
-      <PageHeader
-        title="Vivid Bliss Med Spa"
-        subtitle="Rejuvenate your skin and enhance your natural beauty with our luxury med spa services."
-        className="bg-jax-spa/10"
-      >
-        <Button className="bg-jax-spa hover:bg-jax-spa/90 mt-4" size="lg" asChild>
-          <Link to="/contact">Request Consultation</Link>
-        </Button>
-      </PageHeader>
+      {/* Custom Header */}
+      <section className="bg-gradient-to-r from-jax-spa/5 to-jax-spa/10 py-16">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <div className="space-y-6">
+              <h1 className="text-4xl md:text-5xl font-semibold text-gray-800 animate-slide-in">
+                Vivid Bliss Med Spa
+              </h1>
+              <p className="text-lg text-gray-600 max-w-xl animate-slide-in" style={{ animationDelay: '0.2s' }}>
+                Rejuvenate your skin and enhance your natural beauty with our luxury med spa services.
+              </p>
+              <div className="animate-slide-in" style={{ animationDelay: '0.4s' }}>
+                <Button className="bg-jax-spa hover:bg-jax-spa/90" size="lg" asChild>
+                  <Link to="/contact">Request Consultation</Link>
+                </Button>
+              </div>
+            </div>
+            <div className="flex justify-center md:justify-end">
+              <img 
+                src="/lovable-uploads/f33008d3-be39-427d-be72-8bd901a288ad.png"
+                alt="Vivid Bliss Med Spa Logo"
+                className="w-[400px] h-auto animate-slide-in transform hover:scale-105 transition-all duration-500"
+                style={{ animationDelay: '0.6s' }}
+              />
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Overview */}
       <section className="py-16">
