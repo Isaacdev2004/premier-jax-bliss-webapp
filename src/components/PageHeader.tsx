@@ -27,15 +27,15 @@ const PageHeader = ({
       }}
     >
       <div className="container mx-auto px-4 text-center relative z-10">
-        <h1 className="text-3xl md:text-4xl font-semibold text-gray-800 mb-4 animate-fade-in">{title}</h1>
+        <h1 className="text-3xl md:text-4xl font-semibold text-gray-800 mb-4 animate-slide-in">{title}</h1>
         {subtitle && (
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-6 animate-fade-in" 
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-6 animate-slide-in" 
              style={{ animationDelay: '0.2s' }}
           >
             {subtitle}
           </p>
         )}
-        <div className="animate-fade-in" style={{ animationDelay: '0.4s' }}>
+        <div className="animate-slide-in" style={{ animationDelay: '0.4s' }}>
           {children}
         </div>
       </div>
