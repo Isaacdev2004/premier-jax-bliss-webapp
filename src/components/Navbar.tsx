@@ -7,7 +7,6 @@ import SiteLogo from "./navigation/SiteLogo";
 import DesktopNavLinks from "./navigation/DesktopNavLinks";
 import MobileNavLinks from "./navigation/MobileNavLinks";
 import NavbarActions from "./navigation/NavbarActions";
-import { ShieldCheck } from "lucide-react";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -45,15 +44,7 @@ const Navbar = () => {
             <DesktopNavLinks />
           </nav>
 
-          <NavbarActions>
-            <Link 
-              to="/admin" 
-              className="hidden md:flex items-center space-x-2 ml-4 text-gray-700 hover:text-jax-primary"
-            >
-              <ShieldCheck size={16} />
-              <span className="hidden lg:inline">Admin</span>
-            </Link>
-          </NavbarActions>
+          <NavbarActions />
 
           <button className="block md:hidden text-gray-700" onClick={toggleMenu}>
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
