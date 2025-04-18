@@ -1,10 +1,8 @@
-
 import { useState } from "react";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Card } from "@/components/ui/card";
 import AdminMessages from "@/components/admin/AdminMessages";
 import AdminBookings from "@/components/admin/AdminBookings";
-import AdminRequests from "@/components/admin/AdminRequests";
 import AdminLogin from "@/components/admin/AdminLogin";
 import { useToast } from "@/components/ui/use-toast";
 
@@ -13,8 +11,6 @@ const Admin = () => {
   const { toast } = useToast();
 
   const handleLogin = (password: string) => {
-    // Simple authentication for demo purposes
-    // In a real app, this would use proper authentication
     if (password === "admin123") {
       setIsAuthenticated(true);
       toast({
@@ -39,10 +35,9 @@ const Admin = () => {
       <h1 className="text-3xl font-bold mb-8">Admin Portal</h1>
       
       <Tabs defaultValue="messages" className="w-full">
-        <TabsList className="grid grid-cols-3 mb-8">
+        <TabsList className="grid grid-cols-2 mb-8">
           <TabsTrigger value="messages">Messages</TabsTrigger>
           <TabsTrigger value="bookings">Bookings</TabsTrigger>
-          <TabsTrigger value="requests">Requests</TabsTrigger>
         </TabsList>
         
         <TabsContent value="messages">
@@ -54,12 +49,6 @@ const Admin = () => {
         <TabsContent value="bookings">
           <Card className="p-6">
             <AdminBookings />
-          </Card>
-        </TabsContent>
-        
-        <TabsContent value="requests">
-          <Card className="p-6">
-            <AdminRequests />
           </Card>
         </TabsContent>
       </Tabs>
