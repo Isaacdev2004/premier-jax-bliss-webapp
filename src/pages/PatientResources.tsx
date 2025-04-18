@@ -13,55 +13,6 @@ const PatientResources = () => {
         subtitle="Information and resources to help you prepare for your visit and manage your healthcare."
       />
 
-      {/* Forms */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <SectionHeader
-            title="New Patient Forms"
-            subtitle="Please complete these forms before your first appointment to save time during your visit."
-          />
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {[
-              {
-                title: "New Patient Registration Form",
-                description: "Essential contact and insurance information for new patients.",
-                icon: <FileText size={24} />,
-                buttonText: "Download PDF"
-              },
-              {
-                title: "Medical History Form",
-                description: "Detailed health history to help us provide better care.",
-                icon: <FileText size={24} />,
-                buttonText: "Download PDF"
-              },
-              {
-                title: "Insurance Information Form",
-                description: "Details about your insurance coverage for processing claims.",
-                icon: <FileText size={24} />,
-                buttonText: "Download PDF"
-              },
-              {
-                title: "Privacy Policy Acknowledgment",
-                description: "Required acknowledgment of our privacy practices.",
-                icon: <Shield size={24} />,
-                buttonText: "Download PDF"
-              }
-            ].map((form, index) => (
-              <div key={index} className="bg-white rounded-xl border border-gray-100 shadow-sm p-6">
-                <div className="text-jax-primary mb-4">{form.icon}</div>
-                <h3 className="text-xl font-semibold mb-2">{form.title}</h3>
-                <p className="text-gray-600 mb-4">{form.description}</p>
-                <Button variant="outline" className="w-full flex items-center justify-center">
-                  <Download size={16} className="mr-2" />
-                  {form.buttonText}
-                </Button>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Patient Portal */}
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
