@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Heart, Star, Users, Sparkles, Clock, ArrowRight } from "lucide-react";
@@ -6,6 +5,8 @@ import PageHeader from "@/components/PageHeader";
 import SectionHeader from "@/components/SectionHeader";
 import ServiceCard from "@/components/ServiceCard";
 import CallToAction from "@/components/CallToAction";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 const MedSpa = () => {
   return (
@@ -121,69 +122,58 @@ const MedSpa = () => {
         </div>
       </section>
 
-      {/* Before & After */}
+      {/* Gallery Section */}
       <section className="py-16">
         <div className="container mx-auto px-4">
           <SectionHeader
-            title="Before & After Gallery"
-            subtitle="See the results our patients have achieved with our treatments."
+            title="Our Results Gallery"
+            subtitle="Discover the transformative results our clients have achieved with our med spa treatments."
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                title: "Acne Treatment",
-                before: "https://images.unsplash.com/photo-1516975698824-dd84182ab8f9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80",
-                after: "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
-              },
-              {
-                title: "Anti-Aging Treatment",
-                before: "https://images.unsplash.com/photo-1534885320675-b08aa131cc5e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80",
-                after: "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
-              },
-              {
-                title: "Skin Rejuvenation",
-                before: "https://images.unsplash.com/photo-1594461857237-a0a70f8c8144?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80",
-                after: "https://images.unsplash.com/photo-1601412436009-d964bd02edbc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
-              }
-            ].map((case_study, index) => (
-              <div key={index} className="bg-white rounded-xl overflow-hidden shadow-sm">
-                <div className="p-4 bg-jax-spa/10">
-                  <h3 className="text-center font-semibold">{case_study.title}</h3>
-                </div>
-                <div className="grid grid-cols-2 gap-2 p-2">
-                  <div>
-                    <p className="text-center text-sm mb-1">Before</p>
-                    <img
-                      src={case_study.before}
-                      alt={`Before ${case_study.title}`}
-                      className="w-full h-48 object-cover rounded"
-                    />
-                  </div>
-                  <div>
-                    <p className="text-center text-sm mb-1">After</p>
-                    <img
-                      src={case_study.after}
-                      alt={`After ${case_study.title}`}
-                      className="w-full h-48 object-cover rounded"
-                    />
-                  </div>
-                </div>
-                <div className="p-4">
-                  <Button variant="outline" className="w-full" asChild>
-                    <Link to="/contact" className="inline-flex items-center justify-center">
-                      Book This Treatment <ArrowRight size={16} className="ml-1" />
-                    </Link>
-                  </Button>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="text-center mt-8">
-            <Button className="bg-jax-spa hover:bg-jax-spa/90" asChild>
-              <Link to="/contact">View More Results</Link>
-            </Button>
+          <div className="relative mx-auto max-w-5xl">
+            <Carousel>
+              <CarouselContent>
+                {[
+                  {
+                    image: "https://images.unsplash.com/photo-1531746790731-6c087fecd65a",
+                    caption: "Skin Rejuvenation Results"
+                  },
+                  {
+                    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956",
+                    caption: "Anti-Aging Treatment"
+                  },
+                  {
+                    image: "https://images.unsplash.com/photo-1601412436009-d964bd02edbc",
+                    caption: "Facial Treatment Results"
+                  },
+                  {
+                    image: "https://images.unsplash.com/photo-1509967419530-da38b4704bc6",
+                    caption: "Skin Care Results"
+                  },
+                  {
+                    image: "https://images.unsplash.com/photo-1512290923902-8a9f81dc236c",
+                    caption: "Med Spa Treatment"
+                  }
+                ].map((item, index) => (
+                  <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+                    <div className="p-1">
+                      <div className="overflow-hidden rounded-xl">
+                        <AspectRatio ratio={3/4}>
+                          <img
+                            src={item.image}
+                            alt={item.caption}
+                            className="h-full w-full object-cover transition-transform hover:scale-105"
+                          />
+                        </AspectRatio>
+                      </div>
+                      <p className="mt-2 text-center text-sm text-gray-600">{item.caption}</p>
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious className="absolute -left-12 top-1/2" />
+              <CarouselNext className="absolute -right-12 top-1/2" />
+            </Carousel>
           </div>
         </div>
       </section>
