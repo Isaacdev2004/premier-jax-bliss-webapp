@@ -8,6 +8,8 @@ import { useToast } from "@/hooks/use-toast";
 import { Phone, Mail, MapPin, Clock, ArrowRight } from "lucide-react";
 import PageHeader from "@/components/PageHeader";
 import SectionHeader from "@/components/SectionHeader";
+import { Link } from "react-router-dom";
+
 const Contact = () => {
   const {
     toast
@@ -20,6 +22,7 @@ const Contact = () => {
     message: ""
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const {
       name,
@@ -30,12 +33,14 @@ const Contact = () => {
       [name]: value
     }));
   };
+
   const handleServiceChange = (value: string) => {
     setFormData(prev => ({
       ...prev,
       service: value
     }));
   };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -56,7 +61,9 @@ const Contact = () => {
       });
     }, 1500);
   };
-  return <>
+
+  return (
+    <>
       <PageHeader title="Contact Us" subtitle="Get in touch with our team for appointments, consultations, or any questions." />
 
       <section className="py-16">
@@ -227,11 +234,15 @@ const Contact = () => {
                   <span>Flexible payment options available</span>
                 </li>
               </ul>
-              <Button className="w-full bg-jax-spa hover:bg-jax-spa/90">Learn more</Button>
+              <Button className="w-full bg-jax-spa hover:bg-jax-spa/90" asChild>
+                <Link to="/contact">Learn more</Link>
+              </Button>
             </div>
           </div>
         </div>
       </section>
-    </>;
+    </>
+  );
 };
+
 export default Contact;
