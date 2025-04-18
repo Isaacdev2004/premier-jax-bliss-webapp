@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import {
   Table,
@@ -21,12 +20,10 @@ import {
   Users, 
   ArrowUp, 
   ArrowDown,
-
   BarChart2
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 
-// Sample data for overview
 const overviewData = [
   {
     id: 1,
@@ -57,7 +54,6 @@ const overviewData = [
   },
 ];
 
-// Sample data for recent activities
 const recentActivities = [
   {
     id: 1,
@@ -104,7 +100,6 @@ const recentActivities = [
 const AdminDashboard = () => {
   const [selectedSection, setSelectedSection] = useState<'overview' | 'activity'>('overview');
 
-  // Get status badge styling based on status
   const getStatusBadge = (status: string) => {
     switch (status) {
       case "Pending":
@@ -121,7 +116,7 @@ const AdminDashboard = () => {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 px-8 py-6">
       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
         <div>
           <h1 className="text-3xl font-bold tracking-tight">Dashboard</h1>
