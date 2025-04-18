@@ -45,7 +45,13 @@ const AdminLayout = () => {
   };
 
   if (isLoading) {
-    return <div className="flex h-screen items-center justify-center">Loading...</div>;
+    return (
+      <div className="flex h-screen items-center justify-center bg-background">
+        <div className="animate-pulse text-lg font-medium text-muted-foreground">
+          Loading...
+        </div>
+      </div>
+    );
   }
 
   if (!isAuthenticated) {
@@ -56,18 +62,20 @@ const AdminLayout = () => {
     <SidebarProvider defaultOpen>
       <div className="grid h-screen">
         <Sidebar variant="sidebar" collapsible="icon">
-          <SidebarHeader>
-            <div className="flex items-center gap-2 px-2">
-              <span className="font-semibold">Admin Portal</span>
-              <SidebarTrigger />
+          <SidebarHeader className="border-b">
+            <div className="flex items-center gap-2 px-4 py-3">
+              <User className="h-6 w-6" />
+              <span className="text-lg font-semibold">Admin Portal</span>
+              <SidebarTrigger className="ml-auto" />
             </div>
           </SidebarHeader>
-          <SidebarContent>
+          <SidebarContent className="p-2">
             <SidebarMenu>
               <SidebarMenuItem>
                 <SidebarMenuButton
                   onClick={() => navigate("/admin/dashboard")}
                   tooltip="Dashboard"
+                  className="w-full"
                 >
                   <LayoutDashboard className="h-4 w-4" />
                   <span>Dashboard</span>
@@ -77,6 +85,7 @@ const AdminLayout = () => {
                 <SidebarMenuButton
                   onClick={() => navigate("/admin/messages")}
                   tooltip="Messages"
+                  className="w-full"
                 >
                   <MessageSquare className="h-4 w-4" />
                   <span>Messages</span>
@@ -86,6 +95,7 @@ const AdminLayout = () => {
                 <SidebarMenuButton
                   onClick={() => navigate("/admin/bookings")}
                   tooltip="Bookings"
+                  className="w-full"
                 >
                   <Calendar className="h-4 w-4" />
                   <span>Bookings</span>
@@ -93,25 +103,19 @@ const AdminLayout = () => {
               </SidebarMenuItem>
             </SidebarMenu>
           </SidebarContent>
-          <SidebarFooter>
-            <div className="flex flex-col">
-              <div className="flex items-center gap-2 px-2 py-2">
-                <User className="h-4 w-4" />
-                <span>Admin</span>
-              </div>
-              <Button
-                variant="ghost"
-                className="justify-start"
-                onClick={handleLogout}
-              >
-                <LogOut className="h-4 w-4 mr-2" />
-                <span>Logout</span>
-              </Button>
-            </div>
+          <SidebarFooter className="border-t p-2">
+            <Button
+              variant="ghost"
+              className="w-full justify-start text-destructive hover:text-destructive"
+              onClick={handleLogout}
+            >
+              <LogOut className="h-4 w-4 mr-2" />
+              <span>Logout</span>
+            </Button>
           </SidebarFooter>
         </Sidebar>
         <SidebarInset>
-          <div className="p-4 md:p-8">
+          <div className="h-full overflow-auto bg-background p-6">
             <Outlet />
           </div>
         </SidebarInset>

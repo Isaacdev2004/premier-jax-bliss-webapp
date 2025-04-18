@@ -5,6 +5,7 @@ import { toast } from "@/hooks/use-toast";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { LockKeyhole, User } from "lucide-react";
 
 const AdminLogin = () => {
   const [username, setUsername] = useState("");
@@ -38,45 +39,57 @@ const AdminLogin = () => {
   };
 
   return (
-    <div className="h-screen flex items-center justify-center bg-gray-50">
-      <Card className="w-full max-w-md">
-        <CardHeader className="space-y-1">
-          <CardTitle className="text-2xl font-bold">Admin Login</CardTitle>
-          <CardDescription>
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-background to-secondary/20">
+      <Card className="w-full max-w-md border-2">
+        <CardHeader className="space-y-2 text-center">
+          <CardTitle className="text-3xl font-bold tracking-tight">Admin Portal</CardTitle>
+          <CardDescription className="text-muted-foreground">
             Enter your credentials to access the admin portal
           </CardDescription>
         </CardHeader>
         <form onSubmit={handleLogin}>
-          <CardContent className="space-y-4">
+          <CardContent className="space-y-6 pt-4">
             <div className="space-y-2">
               <label htmlFor="username" className="text-sm font-medium">
                 Username
               </label>
-              <Input
-                id="username"
-                placeholder="admin"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-                required
-              />
+              <div className="relative">
+                <span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground">
+                  <User className="h-4 w-4" />
+                </span>
+                <Input
+                  id="username"
+                  placeholder="admin"
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
+                  className="pl-9"
+                  required
+                />
+              </div>
             </div>
             <div className="space-y-2">
               <label htmlFor="password" className="text-sm font-medium">
                 Password
               </label>
-              <Input
-                id="password"
-                type="password"
-                placeholder="••••••••"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-              />
+              <div className="relative">
+                <span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground">
+                  <LockKeyhole className="h-4 w-4" />
+                </span>
+                <Input
+                  id="password"
+                  type="password"
+                  placeholder="••••••••"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  className="pl-9"
+                  required
+                />
+              </div>
             </div>
           </CardContent>
           <CardFooter>
             <Button 
-              className="w-full" 
+              className="w-full text-base font-semibold h-11" 
               type="submit"
               disabled={isLoading}
             >
