@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Calendar, ShieldCheck, Activity, HeartPulse, Stethoscope, PenTool } from "lucide-react";
-import PageHeader from "@/components/PageHeader";
 import SectionHeader from "@/components/SectionHeader";
 import ServiceCard from "@/components/ServiceCard";
 import CallToAction from "@/components/CallToAction";
@@ -9,17 +8,34 @@ import CallToAction from "@/components/CallToAction";
 const InternalMedicine = () => {
   return (
     <>
-      <PageHeader
-        title="Internal Medicine"
-        subtitle="Comprehensive primary care for adults focused on prevention, diagnosis, and treatment of diseases."
-        className="bg-jax-medical/10"
-      >
-        <div className="flex justify-center mt-4">
-          <Button className="bg-jax-medical hover:bg-jax-medical/90" size="lg" asChild>
-            <Link to="/contact">Request Consultation</Link>
-          </Button>
+      {/* Custom Header */}
+      <section className="bg-gradient-to-r from-jax-medical/5 to-jax-medical/10 py-16">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <div className="space-y-6">
+              <h1 className="text-4xl md:text-5xl font-semibold text-gray-800 animate-slide-in">
+                Internal Medicine
+              </h1>
+              <p className="text-lg text-gray-600 max-w-xl animate-slide-in" style={{ animationDelay: '0.2s' }}>
+                Comprehensive primary care for adults focused on prevention, diagnosis, and treatment of diseases.
+              </p>
+              <div className="animate-slide-in" style={{ animationDelay: '0.4s' }}>
+                <Button className="bg-jax-medical hover:bg-jax-medical/90" size="lg" asChild>
+                  <Link to="/contact">Request Consultation</Link>
+                </Button>
+              </div>
+            </div>
+            <div className="flex justify-center md:justify-end">
+              <img 
+                src="/lovable-uploads/237c70b9-40ec-4070-97d7-5b907f2bc934.png"
+                alt="Internal Medicine Logo"
+                className="w-[400px] h-auto animate-slide-in transform hover:scale-105 transition-all duration-500"
+                style={{ animationDelay: '0.6s' }}
+              />
+            </div>
+          </div>
         </div>
-      </PageHeader>
+      </section>
 
       {/* Overview */}
       <section className="py-16">
