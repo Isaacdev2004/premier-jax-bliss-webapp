@@ -59,7 +59,7 @@ const AdminLayout = () => {
   }
 
   return (
-    <SidebarProvider defaultOpen>
+    <SidebarProvider defaultOpen={false}>
       <div className="grid h-screen">
         <Sidebar variant="sidebar" collapsible="icon">
           <SidebarHeader className="border-b">
@@ -115,7 +115,7 @@ const AdminLayout = () => {
           </SidebarFooter>
         </Sidebar>
         <SidebarInset>
-          <div className="h-full overflow-auto bg-background p-6">
+          <div className="h-full overflow-auto bg-background">
             <Outlet />
           </div>
         </SidebarInset>
