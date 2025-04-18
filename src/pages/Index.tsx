@@ -1,3 +1,4 @@
+
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Calendar, Star, Users, Heart, Activity, ShieldCheck } from "lucide-react";
@@ -26,7 +27,7 @@ const Home = () => {
                   size="lg" 
                   asChild
                 >
-                  <Link to="/contact?type=consultation">Request Consultation</Link>
+                  <Link to="/contact?type=consultation">Learn More</Link>
                 </Button>
               </div>
               <div className="flex items-center space-x-4 text-white justify-center">
