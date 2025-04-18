@@ -15,6 +15,7 @@ const InternalMedicine = lazy(() => import("./pages/InternalMedicine"));
 const MedSpa = lazy(() => import("./pages/MedSpa"));
 const PatientResources = lazy(() => import("./pages/PatientResources"));
 const Contact = lazy(() => import("./pages/Contact"));
+const Admin = lazy(() => import("./pages/Admin"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const Loading = () => (
@@ -69,6 +70,11 @@ const App = () => (
             <Route path="contact" element={
               <Suspense fallback={<Loading />}>
                 <Contact />
+              </Suspense>
+            } />
+            <Route path="admin" element={
+              <Suspense fallback={<Loading />}>
+                <Admin />
               </Suspense>
             } />
             <Route path="*" element={
