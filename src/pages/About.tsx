@@ -64,17 +64,17 @@ const About = () => {
                 />
               </div>
               <div className="p-8 w-full md:w-2/3">
-                <h3 className="text-2xl font-semibold mb-2">Dr. Jennifer Anderson</h3>
+                <h3 className="text-2xl font-semibold mb-2">Dr. Ameera Donzo</h3>
                 <p className="text-jax-primary mb-4 font-medium">Founder & Medical Director</p>
                 <p className="text-gray-600 mb-4">
-                  Dr. Jennifer Anderson is the driving force behind JAX Premier Health Center, 
+                  Dr. Ameera Donzo is the driving force behind JAX Premier Health Center, 
                   bringing over 15 years of experience in internal medicine and a passion for 
                   comprehensive, patient-centered care. Her vision was to create a unique healthcare 
                   practice that seamlessly integrates traditional medical services with advanced 
                   aesthetic treatments.
                 </p>
                 <p className="text-gray-600">
-                  With a special interest in preventive care and women's health, Dr. Anderson 
+                  With a special interest in preventive care and women's health, Dr. Donzo 
                   has dedicated her career to empowering patients through holistic, personalized 
                   healthcare solutions. Her innovative approach combines medical expertise with 
                   aesthetic services, offering patients a one-stop destination for their health 
