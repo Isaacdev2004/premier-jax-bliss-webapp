@@ -25,7 +25,7 @@ export default defineConfig(({ mode }) => ({
       output: {
         manualChunks: {
           vendor: ['react', 'react-dom', 'react-router-dom'],
-          ui: ['@/components/ui/button', '@/components/ui/dialog'], // Changed from '@/components/ui' to specific components
+          ui: ['@/components/ui'],
         },
       },
     },

@@ -9,13 +9,9 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import AppointmentBookingForm from "../forms/AppointmentBookingForm";
-import { useState, ReactNode } from "react";
+import { useState } from "react";
 
-interface NavbarActionsProps {
-  children?: ReactNode;
-}
-
-const NavbarActions = ({ children }: NavbarActionsProps) => {
+const NavbarActions = () => {
   const [open, setOpen] = useState(false);
 
   return (
@@ -34,8 +30,6 @@ const NavbarActions = ({ children }: NavbarActionsProps) => {
           <AppointmentBookingForm onClose={() => setOpen(false)} />
         </DialogContent>
       </Dialog>
-      
-      {children}
     </div>
   );
 };
