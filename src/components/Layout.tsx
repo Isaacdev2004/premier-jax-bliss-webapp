@@ -1,4 +1,5 @@
 
+import { Suspense, lazy } from "react";
 import { Outlet } from "react-router-dom";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
@@ -9,7 +10,9 @@ const Layout = () => {
       <Navbar />
       <main className="flex-grow pt-2">
         <div className="content-section animate-slide-in">
-          <Outlet />
+          <Suspense fallback={<div className="p-8 text-center">Loading...</div>}>
+            <Outlet />
+          </Suspense>
         </div>
       </main>
       <Footer />
