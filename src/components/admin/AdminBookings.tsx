@@ -77,11 +77,12 @@ const AdminBookings = () => {
                     <Badge
                       variant={
                         booking.status === "confirmed" 
-                          ? "success" 
+                          ? "default" 
                           : booking.status === "pending" 
                             ? "secondary" 
                             : "destructive"
                       }
+                      className={booking.status === "confirmed" ? "bg-green-500 hover:bg-green-600" : ""}
                     >
                       {booking.status}
                     </Badge>

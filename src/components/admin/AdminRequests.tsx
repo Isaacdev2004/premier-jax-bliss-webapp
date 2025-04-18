@@ -82,8 +82,9 @@ const AdminRequests = () => {
                           ? "secondary" 
                           : request.status === "processing" 
                             ? "outline" 
-                            : "success"
+                            : "default"
                       }
+                      className={request.status === "completed" ? "bg-green-500 hover:bg-green-600" : ""}
                     >
                       {request.status}
                     </Badge>

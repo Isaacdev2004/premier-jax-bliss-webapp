@@ -82,8 +82,9 @@ const AdminMessages = () => {
                           ? "destructive" 
                           : message.status === "read" 
                             ? "secondary" 
-                            : "success"
+                            : "default"
                       }
+                      className={message.status === "replied" ? "bg-green-500 hover:bg-green-600" : ""}
                     >
                       {message.status}
                     </Badge>
