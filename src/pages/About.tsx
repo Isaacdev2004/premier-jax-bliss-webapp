@@ -47,7 +47,7 @@ const About = () => {
         </div>
       </section>
 
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-gradient-to-br from-jax-secondary/50 to-white">
         <div className="container mx-auto px-4">
           <SectionHeader
             title="Our Founder"
@@ -55,31 +55,54 @@ const About = () => {
           />
 
           <div className="max-w-4xl mx-auto">
-            <div className="bg-white rounded-xl overflow-hidden shadow-sm flex flex-col md:flex-row items-center">
-              <div className="w-full md:w-1/3 h-64 overflow-hidden">
+            <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col md:flex-row items-stretch">
+              <div className="w-full md:w-2/5 h-[400px] relative overflow-hidden">
                 <img
                   src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
-                  alt="Dr. Jennifer Anderson"
-                  className="w-full h-full object-cover"
+                  alt="Dr. Ameera Donzo"
+                  className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
               </div>
-              <div className="p-8 w-full md:w-2/3">
-                <h3 className="text-2xl font-semibold mb-2">Dr. Ameera Donzo</h3>
-                <p className="text-jax-primary mb-4 font-medium">Founder & Medical Director</p>
-                <p className="text-gray-600 mb-4">
-                  Dr. Ameera Donzo is the driving force behind JAX Premier Health Center, 
-                  bringing over 15 years of experience in internal medicine and a passion for 
-                  comprehensive, patient-centered care. Her vision was to create a unique healthcare 
-                  practice that seamlessly integrates traditional medical services with advanced 
-                  aesthetic treatments.
-                </p>
-                <p className="text-gray-600">
-                  With a special interest in preventive care and women's health, Dr. Donzo 
-                  has dedicated her career to empowering patients through holistic, personalized 
-                  healthcare solutions. Her innovative approach combines medical expertise with 
-                  aesthetic services, offering patients a one-stop destination for their health 
-                  and wellness needs.
-                </p>
+              <div className="p-8 lg:p-10 w-full md:w-3/5 flex flex-col justify-center bg-gradient-to-br from-white to-jax-secondary/10">
+                <div className="space-y-6">
+                  <div className="space-y-2">
+                    <h3 className="text-3xl font-semibold text-gray-800">Dr. Ameera Donzo</h3>
+                    <p className="text-jax-primary font-medium text-lg flex items-center gap-2">
+                      <Star className="h-5 w-5 fill-jax-primary" />
+                      Founder & Medical Director
+                    </p>
+                  </div>
+                  
+                  <div className="space-y-4 text-gray-600">
+                    <p className="leading-relaxed">
+                      Dr. Ameera Donzo is the driving force behind JAX Premier Health Center, 
+                      bringing over 15 years of experience in internal medicine and a passion for 
+                      comprehensive, patient-centered care. Her vision was to create a unique healthcare 
+                      practice that seamlessly integrates traditional medical services with advanced 
+                      aesthetic treatments.
+                    </p>
+                    <p className="leading-relaxed">
+                      With a special interest in preventive care and women's health, Dr. Donzo 
+                      has dedicated her career to empowering patients through holistic, personalized 
+                      healthcare solutions. Her innovative approach combines medical expertise with 
+                      aesthetic services, offering patients a one-stop destination for their health 
+                      and wellness needs.
+                    </p>
+                  </div>
+
+                  <div className="pt-4 flex flex-wrap gap-4">
+                    <div className="bg-jax-secondary/20 px-4 py-2 rounded-full text-sm text-jax-primary">
+                      Internal Medicine
+                    </div>
+                    <div className="bg-jax-secondary/20 px-4 py-2 rounded-full text-sm text-jax-primary">
+                      Women's Health
+                    </div>
+                    <div className="bg-jax-secondary/20 px-4 py-2 rounded-full text-sm text-jax-primary">
+                      Aesthetic Medicine
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
