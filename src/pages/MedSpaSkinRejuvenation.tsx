@@ -45,12 +45,7 @@ const MedSpaSkinRejuvenation = () => (
   <div className="w-full min-h-screen bg-white pb-12">
     {/* Banner */}
     <div className="w-full flex flex-col items-center pt-10 pb-4 px-2">
-      <img
-        src="/lovable-uploads/e1429860-0abc-4d3c-9a9a-1a4388562b5d.png"
-        alt="Skin Rejuvenation Banner"
-        className="w-full max-w-2xl h-auto rounded-xl shadow mb-8 object-cover"
-        draggable={false}
-      />
+      {/* Removed the banner image as requested */}
       <h1 className="text-4xl md:text-5xl font-light text-center mb-6 text-gray-900 leading-snug">
         Skin <span className={goldClass + " font-light"}>Rejuvenation</span>
       </h1>
@@ -90,3 +85,4 @@ const MedSpaSkinRejuvenation = () => (
 );
 
 export default MedSpaSkinRejuvenation;
+
