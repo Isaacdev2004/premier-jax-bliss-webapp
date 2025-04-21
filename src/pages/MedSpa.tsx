@@ -1,6 +1,7 @@
+
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Heart, Star, Users, Sparkles, Clock, ArrowRight } from "lucide-react";
+import { Sparkles, Clock } from "lucide-react";
 import SectionHeader from "@/components/SectionHeader";
 import ServiceCard from "@/components/ServiceCard";
 import CallToAction from "@/components/CallToAction";
@@ -10,34 +11,49 @@ import { AspectRatio } from "@/components/ui/aspect-ratio";
 const MedSpa = () => {
   return (
     <>
-      {/* Custom Header */}
-      <section className="bg-gradient-to-r from-jax-spa/5 to-jax-spa/10 py-16">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-            <div className="space-y-6">
-              <h1 className="text-4xl md:text-5xl font-semibold text-gray-800 animate-slide-in">
-                Vivid Bliss Med Spa
-              </h1>
-              <p className="text-lg text-gray-600 max-w-xl animate-slide-in" style={{ animationDelay: '0.2s' }}>
-                Rejuvenate your skin and enhance your natural beauty with our luxury med spa services.
-              </p>
-              <div className="animate-slide-in" style={{ animationDelay: '0.4s' }}>
-                <Button className="bg-jax-spa hover:bg-jax-spa/90" size="lg" asChild>
-                  <Link to="/contact">Request Consultation</Link>
-                </Button>
-              </div>
+      {/* Hero Section styled like rejuvikin.com */}
+      <section className="relative bg-gradient-to-br from-jax-spa/20 to-white py-20 md:py-28 overflow-hidden">
+        <div className="container mx-auto px-4 flex flex-col-reverse md:flex-row items-center md:items-stretch gap-8 md:gap-4">
+          {/* Left: Text */}
+          <div className="flex-1 flex flex-col justify-center items-start md:pr-8">
+            <h1 className="text-5xl md:text-6xl font-bold text-gray-800 leading-tight mb-6" style={{ letterSpacing: "-0.04em" }}>
+              Vivid Bliss <span className="text-jax-spa">Med Spa</span>
+            </h1>
+            <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-xl font-light">
+              Revitalize your glow and embrace natural beauty through proven med spa services, brought to you with expertise and compassion.
+            </p>
+            <Button
+              className="bg-jax-spa text-white text-lg px-8 py-4 rounded-full shadow-md hover:bg-jax-spa/90 transition duration-200"
+              size="lg"
+              asChild
+            >
+              <Link to="/contact">Request Consultation</Link>
+            </Button>
+            {/* Availability */}
+            <div className="flex items-center gap-2 mt-6 text-jax-spa/80 font-medium">
+              <Clock size={20} />
+              <span>Open Saturday &amp; Sunday, 10am-6pm</span>
             </div>
-            <div className="flex justify-center md:justify-end">
-              <img 
-                src="/lovable-uploads/f33008d3-be39-427d-be72-8bd901a288ad.png"
-                alt="Vivid Bliss Med Spa Logo"
-                className="w-[400px] h-auto animate-slide-in transform hover:scale-105 transition-all duration-500"
-                style={{ animationDelay: '0.6s' }}
-              />
+          </div>
+          {/* Right: Logo */}
+          <div className="flex-1 flex items-center justify-center mb-12 md:mb-0">
+            <div className="w-full max-w-[410px] drop-shadow-lg animate-slide-in" style={{ animationDelay: '0.3s' }}>
+              <AspectRatio ratio={1}>
+                <img
+                  src="/lovable-uploads/f33008d3-be39-427d-be72-8bd901a288ad.png"
+                  alt="Vivid Bliss Med Spa Logo"
+                  className="object-contain w-full h-full rounded-3xl bg-white/70 shadow-xl border border-jax-spa/10"
+                  draggable={false}
+                  loading="eager"
+                />
+              </AspectRatio>
             </div>
           </div>
         </div>
       </section>
+
+      {/* Divider */}
+      <div className="w-full h-[2px] bg-gradient-to-r from-jax-spa/10 via-jax-spa/40 to-white mb-10"></div>
 
       {/* Overview */}
       <section className="py-16">
@@ -271,3 +287,4 @@ const MedSpa = () => {
 };
 
 export default MedSpa;
+
