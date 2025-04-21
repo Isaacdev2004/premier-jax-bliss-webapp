@@ -1,290 +1,124 @@
 
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Sparkles, Clock } from "lucide-react";
 import SectionHeader from "@/components/SectionHeader";
-import ServiceCard from "@/components/ServiceCard";
-import CallToAction from "@/components/CallToAction";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
-import { AspectRatio } from "@/components/ui/aspect-ratio";
+
+// Used for gold styling to match reference
+const goldClass = "text-[hsl(44,78%,54%)]"; // approximate to reference gold
+
+const medSpaServices = [
+  {
+    title: "Skin Rejuvenation",
+    image: "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=facearea&w=460&h=320&facepad=2.5&q=80", // monochrome style
+    link: "/contact",
+  },
+  {
+    title: "Acne Treatment",
+    image: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=facearea&w=460&h=320&facepad=2.5&q=80",
+    link: "/contact",
+  },
+  {
+    title: "Botox Injections",
+    image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=facearea&w=460&h=320&facepad=2.5&q=80",
+    link: "/contact",
+  },
+  {
+    title: "Personalized Skin Rejuvenation Program",
+    image: "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=facearea&w=460&h=320&facepad=3.5&q=80",
+    link: "/contact",
+  },
+];
 
 const MedSpa = () => {
   return (
-    <>
-      {/* Hero Section styled like rejuvikin.com */}
-      <section className="relative bg-gradient-to-br from-jax-spa/20 to-white py-20 md:py-28 overflow-hidden">
-        <div className="container mx-auto px-4 flex flex-col-reverse md:flex-row items-center md:items-stretch gap-8 md:gap-4">
-          {/* Left: Text */}
-          <div className="flex-1 flex flex-col justify-center items-start md:pr-8">
-            <h1 className="text-5xl md:text-6xl font-bold text-gray-800 leading-tight mb-6" style={{ letterSpacing: "-0.04em" }}>
-              Vivid Bliss <span className="text-jax-spa">Med Spa</span>
-            </h1>
-            <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-xl font-light">
-              Revitalize your glow and embrace natural beauty through proven med spa services, brought to you with expertise and compassion.
-            </p>
-            <Button
-              className="bg-jax-spa text-white text-lg px-8 py-4 rounded-full shadow-md hover:bg-jax-spa/90 transition duration-200"
-              size="lg"
-              asChild
-            >
-              <Link to="/contact">Request Consultation</Link>
-            </Button>
-            {/* Availability */}
-            <div className="flex items-center gap-2 mt-6 text-jax-spa/80 font-medium">
-              <Clock size={20} />
-              <span>Open Saturday &amp; Sunday, 10am-6pm</span>
-            </div>
-          </div>
-          {/* Right: Logo */}
-          <div className="flex-1 flex items-center justify-center mb-12 md:mb-0">
-            <div className="w-full max-w-[410px] drop-shadow-lg animate-slide-in" style={{ animationDelay: '0.3s' }}>
-              <AspectRatio ratio={1}>
-                <img
-                  src="/lovable-uploads/f33008d3-be39-427d-be72-8bd901a288ad.png"
-                  alt="Vivid Bliss Med Spa Logo"
-                  className="object-contain w-full h-full rounded-3xl bg-white/70 shadow-xl border border-jax-spa/10"
-                  draggable={false}
-                  loading="eager"
-                />
-              </AspectRatio>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Divider */}
-      <div className="w-full h-[2px] bg-gradient-to-r from-jax-spa/10 via-jax-spa/40 to-white mb-10"></div>
-
-      {/* Overview */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div>
+    <div className="w-full min-h-screen bg-white flex flex-col">
+      {/* Banner (Logo + Model) */}
+      <section className="w-full bg-white flex flex-col items-center border-b border-gray-100">
+        <div className="w-full max-w-5xl mx-auto flex flex-col items-center pt-6 pb-4">
+          {/* Model Image Centered */}
+          <div className="w-[400px] md:w-[430px] mx-auto flex justify-center items-center relative">
+            <img
+              src="public/lovable-uploads/690857b1-c10d-44c5-b0cf-a62efe600deb.png"
+              alt="Med Spa Banner"
+              className="w-full h-auto object-contain"
+              draggable={false}
+              style={{ filter: "grayscale(100%)" }}
+            />
+            {/* Med Spa (Vivid Bliss) Logo at bottom right for large screens */}
+            <div className="hidden md:block absolute right-0 top-2">
               <img
-                src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
-                alt="Spa treatment"
-                className="rounded-2xl shadow-lg"
+                src="/lovable-uploads/f33008d3-be39-427d-be72-8bd901a288ad.png"
+                alt="Vivid Bliss Med Spa Logo"
+                className="w-32 h-auto object-contain rounded-lg bg-white/80 shadow-md p-2"
+                draggable={false}
+                loading="eager"
               />
             </div>
-            <div className="space-y-6">
-              <SectionHeader
-                title="Welcome to Vivid Bliss Med Spa"
-                align="left"
-                className="mb-6"
-              />
-              <p className="text-gray-600">
-                At Vivid Bliss Med Spa, we combine advanced aesthetic treatments with medical expertise
-                to help you achieve your beauty and skincare goals. Our focus is on natural-looking 
-                results that enhance your unique features.
-              </p>
-              <p className="text-gray-600">
-                Led by experienced medical professionals, our med spa offers a range of services 
-                from rejuvenation treatments to specialized acne care for teens and adults. We're
-                committed to using the latest technologies and evidence-based approaches.
-              </p>
-              <p className="text-gray-600">
-                Our weekend availability makes it convenient to schedule your treatments 
-                without disrupting your busy weekday schedule.
-              </p>
-              <div className="flex items-center space-x-2 text-jax-spa">
-                <Clock size={20} />
-                <span>Available Saturday-Sunday, 10am-6pm</span>
-              </div>
-            </div>
+          </div>
+          {/* Show MedSpa logo below image on mobile */}
+          <div className="block md:hidden mt-4 mb-2">
+            <img
+              src="/lovable-uploads/f33008d3-be39-427d-be72-8bd901a288ad.png"
+              alt="Vivid Bliss Med Spa Logo"
+              className="w-24 h-auto object-contain rounded-lg bg-white/80 shadow-md p-2 mx-auto"
+              draggable={false}
+              loading="eager"
+            />
           </div>
         </div>
       </section>
 
-      {/* Services */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <SectionHeader
-            title="Our Med Spa Services"
-            subtitle="Discover our range of treatments designed to rejuvenate your skin and enhance your natural beauty."
-          />
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              {
-                image: "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80",
-                title: "Botox & Fillers",
-                description: "Reduce fine lines and wrinkles or add volume to create a more youthful appearance.",
-                link: "/contact"
-              },
-              {
-                image: "https://images.unsplash.com/photo-1598264294394-ba29cf557627?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80",
-                title: "Teen & Adult Acne Care",
-                description: "Specialized treatments to address acne concerns and improve overall skin clarity.",
-                link: "/contact"
-              },
-              {
-                image: "https://images.unsplash.com/photo-1614859705397-719a4de93daf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80",
-                title: "Anti-Aging Treatments",
-                description: "Advanced procedures to rejuvenate skin and reduce visible signs of aging.",
-                link: "/contact"
-              },
-              {
-                image: "https://images.unsplash.com/photo-1620706857370-e1b9770e8bb1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80",
-                title: "Chemical Peels",
-                description: "Exfoliating treatments that improve skin texture, tone, and reduce signs of sun damage.",
-                link: "/contact"
-              },
-              {
-                image: "https://images.unsplash.com/photo-1612730290551-4b2ae8fc5124?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80",
-                title: "Microdermabrasion",
-                description: "Non-invasive treatment that removes dead skin cells and promotes collagen production.",
-                link: "/contact"
-              },
-              {
-                image: "https://images.unsplash.com/photo-1601931935821-5fbe71157695?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80",
-                title: "Dermal Fillers",
-                description: "Add volume and smooth out deeper facial wrinkles and folds for a more youthful look.",
-                link: "/contact"
-              }
-            ].map((service, index) => (
-              <ServiceCard
-                key={index}
-                image={service.image}
-                title={service.title}
-                description={service.description}
-                link={service.link}
-                buttonText="Learn More"
-                variant="feature"
-              />
-            ))}
-          </div>
+      {/* Welcome message & description */}
+      <section className="w-full max-w-4xl mx-auto flex flex-col items-center mt-4 mb-2 px-3">
+        <h2 className="font-light text-2xl md:text-3xl mb-3 text-gray-500">
+          Welcome to{" "}
+          <span className="font-normal text-gray-900">
+            Vivid Bliss <span className={goldClass}>Med Spa</span>
+          </span>
+        </h2>
+        <div className="max-w-3xl text-center text-gray-700 text-base mb-6">
+          Our team is dedicated to the art of natural appearing beauty and youthfulness. Our goal at <span className="font-semibold">Vivid Bliss Med Spa</span> is to help you look more youthful, relaxed and natural, based on your own unique structure and features.
+          <br/><br/>
+          We believe in results that enhance your beauty, not change it—and deliver care in a calm, compassionate environment by medical experts. Discover renewed confidence and radiance at our Med Spa.
         </div>
       </section>
 
-      {/* Gallery Section */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <SectionHeader
-            title="Our Results Gallery"
-            subtitle="Discover the transformative results our clients have achieved with our med spa treatments."
-          />
-
-          <div className="relative mx-auto max-w-5xl">
-            <Carousel>
-              <CarouselContent>
-                {[
-                  {
-                    image: "https://images.unsplash.com/photo-1531746790731-6c087fecd65a",
-                    caption: "Skin Rejuvenation Results"
-                  },
-                  {
-                    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956",
-                    caption: "Anti-Aging Treatment"
-                  },
-                  {
-                    image: "https://images.unsplash.com/photo-1601412436009-d964bd02edbc",
-                    caption: "Facial Treatment Results"
-                  },
-                  {
-                    image: "https://images.unsplash.com/photo-1509967419530-da38b4704bc6",
-                    caption: "Skin Care Results"
-                  },
-                  {
-                    image: "https://images.unsplash.com/photo-1512290923902-8a9f81dc236c",
-                    caption: "Med Spa Treatment"
-                  }
-                ].map((item, index) => (
-                  <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-                    <div className="p-1">
-                      <div className="overflow-hidden rounded-xl">
-                        <AspectRatio ratio={3/4}>
-                          <img
-                            src={item.image}
-                            alt={item.caption}
-                            className="h-full w-full object-cover transition-transform hover:scale-105"
-                          />
-                        </AspectRatio>
-                      </div>
-                      <p className="mt-2 text-center text-sm text-gray-600">{item.caption}</p>
-                    </div>
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-              <CarouselPrevious className="absolute -left-12 top-1/2" />
-              <CarouselNext className="absolute -right-12 top-1/2" />
-            </Carousel>
-          </div>
-        </div>
-      </section>
-
-      {/* Featured Treatments */}
-      <section className="py-16 bg-jax-spa/10">
-        <div className="container mx-auto px-4">
-          <SectionHeader
-            title="Featured Treatments"
-            subtitle="Our most popular and effective treatments for common concerns."
-          />
-
-          <div className="space-y-8">
-            {[
-              {
-                title: "Acne Treatment Program",
-                description: "Our comprehensive approach to treating teen and adult acne combines medical-grade products, in-office treatments, and personalized care plans.",
-                features: [
-                  "Customized treatment based on skin type and acne severity",
-                  "Medical-grade products for home care",
-                  "Regular follow-ups to monitor progress",
-                  "Integration with internal medicine for hormonal factors"
-                ],
-                image: "https://images.unsplash.com/photo-1598264294394-ba29cf557627?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
-              },
-              {
-                title: "Anti-Aging Package",
-                description: "Turn back the clock with our comprehensive anti-aging package that targets multiple signs of aging for overall facial rejuvenation.",
-                features: [
-                  "Botox for dynamic wrinkles",
-                  "Dermal fillers for volume restoration",
-                  "Chemical peel for skin texture improvement",
-                  "Custom skincare regimen for maintenance"
-                ],
-                image: "https://images.unsplash.com/photo-1614859705397-719a4de93daf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
-              }
-            ].map((treatment, index) => (
-              <div key={index} className="bg-white rounded-xl overflow-hidden shadow-sm">
-                <div className="grid grid-cols-1 md:grid-cols-2">
-                  <div className="p-8 flex flex-col justify-center">
-                    <h3 className="text-2xl font-semibold mb-4">{treatment.title}</h3>
-                    <p className="text-gray-600 mb-6">{treatment.description}</p>
-                    <ul className="space-y-2 mb-6">
-                      {treatment.features.map((feature, i) => (
-                        <li key={i} className="flex items-start">
-                          <Sparkles size={18} className="text-jax-spa mr-2 mt-1 flex-shrink-0" />
-                          <span>{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-                    <Button className="bg-jax-spa hover:bg-jax-spa/90 w-full md:w-auto" asChild>
-                      <Link to="/contact">Request Consultation</Link>
-                    </Button>
-                  </div>
-                  <div className="h-64 md:h-auto">
-                    <img
-                      src={treatment.image}
-                      alt={treatment.title}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
+      {/* Services display: 4 columns */}
+      <section className="w-full max-w-6xl mx-auto px-2 pt-4 pb-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 border-t border-gray-200 pt-6">
+          {medSpaServices.map((service, idx) => (
+            <div key={service.title} className="flex flex-col items-center">
+              <div className="w-full flex flex-col items-center gap-2">
+                <h3 className="text-lg md:text-xl text-gray-700 font-medium text-center mb-2">
+                  {service.title}
+                </h3>
+                <div className="w-full h-[200px] flex items-center justify-center overflow-hidden bg-gray-50 rounded shadow-sm mb-2 border border-gray-100">
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    className="object-cover w-full h-full grayscale"
+                    style={{ filter: "grayscale(100%)", objectPosition:"center" }}
+                  />
                 </div>
               </div>
-            ))}
-          </div>
+              <div className="w-full flex justify-center">
+                <Button
+                  variant="outline"
+                  asChild
+                  className="rounded-full border-[#e2c279] text-gray-600 bg-white hover:bg-[#f7f4e8] transition shadow-none px-8 py-2"
+                  style={{ borderWidth: 2, borderColor: "#e2c279" }}
+                  >
+                  <Link to={service.link} className="w-full text-base font-normal">
+                    learn more
+                  </Link>
+                </Button>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
-
-      <CallToAction
-        title="Ready for a Transformation?"
-        description="Schedule your consultation with our med spa team. We're available weekends to accommodate your schedule."
-        primaryButtonText="Request Consultation"
-        primaryButtonLink="/contact"
-      />
-    </>
+    </div>
   );
 };
 
 export default MedSpa;
-
