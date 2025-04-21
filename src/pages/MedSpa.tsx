@@ -1,14 +1,13 @@
-
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
 const goldClass = "text-[hsl(44,78%,54%)]"; // Gold accent
 
-const medSpaServices = [
+const updatedMedSpaServices = [
   {
     title: "Skin Rejuvenation",
-    image: "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=facearea&w=460&h=320&facepad=2.5&q=80", // monochrome style
-    link: "/contact",
+    image: "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=facearea&w=460&h=320&facepad=2.5&q=80",
+    link: "/med-spa/skin-rejuvenation",
   },
   {
     title: "Acne Treatment",
@@ -79,7 +78,7 @@ const MedSpa = () => {
           Explore our med spa treatments, designed to help you reveal your most radiant, healthy, and youthful skin.
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 pt-3">
-          {medSpaServices.map((service) => (
+          {updatedMedSpaServices.map((service) => (
             <div key={service.title} className="flex flex-col items-center group relative bg-white rounded-xl shadow border border-gray-100 hover:shadow-lg transition p-4">
               <div className="w-full h-[180px] flex items-center justify-center overflow-hidden bg-gray-50 rounded shadow-sm mb-4">
                 <img

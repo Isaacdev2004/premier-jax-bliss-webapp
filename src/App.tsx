@@ -1,4 +1,3 @@
-
 import { Suspense, lazy } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
@@ -15,6 +14,7 @@ const MedSpa = lazy(() => import("./pages/MedSpa"));
 const PatientResources = lazy(() => import("./pages/PatientResources"));
 const Contact = lazy(() => import("./pages/Contact"));
 const NotFound = lazy(() => import("./pages/NotFound"));
+const MedSpaSkinRejuvenation = lazy(() => import("./pages/MedSpaSkinRejuvenation"));
 
 // Admin portal pages
 const AdminLayout = lazy(() => import("./pages/admin/AdminLayout"));
@@ -58,6 +58,11 @@ const App = () => (
             <Route path="med-spa" element={
               <Suspense fallback={<div className="p-8 text-center">Loading...</div>}>
                 <MedSpa />
+              </Suspense>
+            } />
+            <Route path="med-spa/skin-rejuvenation" element={
+              <Suspense fallback={<div className="p-8 text-center">Loading...</div>}>
+                <MedSpaSkinRejuvenation />
               </Suspense>
             } />
             <Route path="patient-resources" element={
