@@ -17,6 +17,13 @@ const NotFound = lazy(() => import("./pages/NotFound"));
 const MedSpaSkinRejuvenation = lazy(() => import("./pages/MedSpaSkinRejuvenation"));
 const MedSpaAcneTreatment = lazy(() => import("./pages/MedSpaAcneTreatment"));
 
+// Lazy load admin pages
+const AdminLogin = lazy(() => import("./pages/admin/Login"));
+const AdminLayout = lazy(() => import("./pages/admin/AdminLayout"));
+const AdminDashboard = lazy(() => import("./pages/admin/Dashboard"));
+const AdminMessages = lazy(() => import("./pages/admin/Messages"));
+const AdminBookings = lazy(() => import("./pages/admin/Bookings"));
+
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
