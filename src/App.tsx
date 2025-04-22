@@ -16,6 +16,7 @@ const Contact = lazy(() => import("./pages/Contact"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const MedSpaSkinRejuvenation = lazy(() => import("./pages/MedSpaSkinRejuvenation"));
 const MedSpaAcneTreatment = lazy(() => import("./pages/MedSpaAcneTreatment"));
+const MedSpaBotoxInjections = lazy(() => import("./pages/MedSpaBotoxInjections"));
 
 // Lazy load admin pages
 const AdminLogin = lazy(() => import("./pages/admin/Login"));
@@ -69,6 +70,11 @@ const App = () => (
             <Route path="med-spa/acne-treatment" element={
               <Suspense fallback={<div className="p-8 text-center">Loading...</div>}>
                 <MedSpaAcneTreatment />
+              </Suspense>
+            } />
+            <Route path="med-spa/botox-injections" element={
+              <Suspense fallback={<div className="p-8 text-center">Loading...</div>}>
+                <MedSpaBotoxInjections />
               </Suspense>
             } />
             <Route path="patient-resources" element={
