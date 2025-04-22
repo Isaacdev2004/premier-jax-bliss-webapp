@@ -1,25 +1,11 @@
-
 import { useState } from "react";
+import { Search } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-} from "@/components/ui/dialog";
-import { Button } from "@/components/ui/button";
-import { Search, Trash2, Eye, Calendar, CheckCircle, XCircle } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
+import { BookingDialog } from "./components/BookingDialog";
+import { BookingsTable } from "./components/BookingsTable";
+import { Booking } from "./types/booking";
 
 // Sample booking data
 const sampleBookings = [
@@ -70,9 +56,9 @@ const sampleBookings = [
 ];
 
 const Bookings = () => {
-  const [bookings, setBookings] = useState(sampleBookings);
+  const [bookings, setBookings] = useState<Booking[]>(sampleBookings);
   const [searchTerm, setSearchTerm] = useState("");
-  const [selectedBooking, setSelectedBooking] = useState<typeof sampleBookings[0] | null>(null);
+  const [selectedBooking, setSelectedBooking] = useState<Booking | null>(null);
   const [openDialog, setOpenDialog] = useState(false);
 
   const filteredBookings = bookings.filter(
@@ -82,7 +68,7 @@ const Bookings = () => {
       booking.service.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  const handleViewBooking = (booking: typeof sampleBookings[0]) => {
+  const handleViewBooking = (booking: Booking) => {
     setSelectedBooking(booking);
     setOpenDialog(true);
   };
@@ -144,143 +130,20 @@ const Bookings = () => {
         </div>
       </div>
 
-      <div className="rounded-md border overflow-x-auto">
-        <Table>
-          <TableHeader>
-            <TableRow>
-              <TableHead>Patient</TableHead>
-              <TableHead>Service</TableHead>
-              <TableHead>Date & Time</TableHead>
-              <TableHead>Status</TableHead>
-              <TableHead className="text-right">Actions</TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {filteredBookings.length > 0 ? (
-              filteredBookings.map((booking) => (
-                <TableRow key={booking.id}>
-                  <TableCell>
-                    <div>
-                      <p className="font-medium">{booking.patientName}</p>
-                      <p className="text-sm text-muted-foreground">{booking.email}</p>
-                    </div>
-                  </TableCell>
-                  <TableCell>{booking.service}</TableCell>
-                  <TableCell>
-                    <div className="flex items-center gap-2">
-                      <Calendar className="h-4 w-4 text-muted-foreground" />
-                      <span>{booking.date}, {booking.time}</span>
-                    </div>
-                  </TableCell>
-                  <TableCell>{getStatusBadge(booking.status)}</TableCell>
-                  <TableCell className="text-right">
-                    <div className="flex justify-end gap-2">
-                      <Button
-                        variant="ghost"
-                        size="icon"
-                        onClick={() => handleViewBooking(booking)}
-                      >
-                        <Eye className="h-4 w-4" />
-                      </Button>
-                      <Button
-                        variant="ghost"
-                        size="icon"
-                        onClick={() => handleDeleteBooking(booking.id)}
-                      >
-                        <Trash2 className="h-4 w-4" />
-                      </Button>
-                    </div>
-                  </TableCell>
-                </TableRow>
-              ))
-            ) : (
-              <TableRow>
-                <TableCell colSpan={5} className="text-center py-6">
-                  No bookings found
-                </TableCell>
-              </TableRow>
-            )}
-          </TableBody>
-        </Table>
-      </div>
+      <BookingsTable
+        bookings={filteredBookings}
+        onViewBooking={handleViewBooking}
+        onDeleteBooking={handleDeleteBooking}
+        getStatusBadge={getStatusBadge}
+      />
 
-      <Dialog open={openDialog} onOpenChange={setOpenDialog}>
-        <DialogContent className="sm:max-w-[600px] max-h-[90vh] overflow-y-auto">
-          <DialogHeader>
-            <DialogTitle>Booking Details</DialogTitle>
-            <DialogDescription>
-              View and manage booking information
-            </DialogDescription>
-          </DialogHeader>
-          
-          {selectedBooking && (
-            <div className="space-y-4 mt-4">
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <h3 className="text-sm font-medium text-muted-foreground">Patient</h3>
-                  <p className="font-medium">{selectedBooking.patientName}</p>
-                </div>
-                <div>
-                  <h3 className="text-sm font-medium text-muted-foreground">Service</h3>
-                  <p>{selectedBooking.service}</p>
-                </div>
-                <div>
-                  <h3 className="text-sm font-medium text-muted-foreground">Email</h3>
-                  <p>{selectedBooking.email}</p>
-                </div>
-                <div>
-                  <h3 className="text-sm font-medium text-muted-foreground">Phone</h3>
-                  <p>{selectedBooking.phone}</p>
-                </div>
-                <div>
-                  <h3 className="text-sm font-medium text-muted-foreground">Date</h3>
-                  <p>{selectedBooking.date}</p>
-                </div>
-                <div>
-                  <h3 className="text-sm font-medium text-muted-foreground">Time</h3>
-                  <p>{selectedBooking.time}</p>
-                </div>
-                <div className="col-span-2">
-                  <h3 className="text-sm font-medium text-muted-foreground">Status</h3>
-                  <p>{getStatusBadge(selectedBooking.status)}</p>
-                </div>
-                <div className="col-span-2">
-                  <h3 className="text-sm font-medium text-muted-foreground">Notes</h3>
-                  <p className="whitespace-pre-wrap">{selectedBooking.notes}</p>
-                </div>
-              </div>
-              
-              <div className="flex justify-between mt-6">
-                <div className="space-x-2">
-                  <Button
-                    size="sm"
-                    className="bg-green-500 hover:bg-green-600"
-                    onClick={() => handleUpdateStatus(selectedBooking.id, "confirmed")}
-                  >
-                    <CheckCircle className="h-4 w-4 mr-2" />
-                    Confirm
-                  </Button>
-                  <Button
-                    size="sm"
-                    variant="destructive"
-                    onClick={() => handleUpdateStatus(selectedBooking.id, "cancelled")}
-                  >
-                    <XCircle className="h-4 w-4 mr-2" />
-                    Cancel
-                  </Button>
-                </div>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  onClick={() => setOpenDialog(false)}
-                >
-                  Close
-                </Button>
-              </div>
-            </div>
-          )}
-        </DialogContent>
-      </Dialog>
+      <BookingDialog
+        booking={selectedBooking}
+        open={openDialog}
+        onOpenChange={setOpenDialog}
+        onUpdateStatus={handleUpdateStatus}
+        getStatusBadge={getStatusBadge}
+      />
     </div>
   );
 };
