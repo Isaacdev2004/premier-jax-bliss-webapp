@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Calendar, Star, Users, Heart, Activity, ShieldCheck } from "lucide-react";
@@ -29,12 +28,6 @@ const Home = () => {
                 >
                   <Link to="/contact?type=consultation">Learn More</Link>
                 </Button>
-              </div>
-              <div className="flex items-center space-x-4 text-white justify-center">
-                <div className="flex">
-                  {[...Array(5)].map((_, i) => <Star key={i} size={18} className="fill-jax-primary text-jax-primary" />)}
-                </div>
-                <span>Trusted by over 1,000+ patients</span>
               </div>
             </div>
           </div>
