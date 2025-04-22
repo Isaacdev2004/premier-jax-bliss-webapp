@@ -55,8 +55,8 @@ const Footer = () => {
               <div className="flex items-start">
                 <Clock size={18} className="mr-2 mt-0.5 flex-shrink-0 text-jax-primary" />
                 <div>
-                  <p><strong>Internal Medicine:</strong> Mon-Fri 9am-5pm</p>
-                  <p><strong>Vivid Bliss Med Spa:</strong> Sat-Sun 10am-6pm</p>
+                  <p><strong>Hours of Operation:</strong> Monday - Friday 9am-5pm</p>
+                  <p className="text-sm text-gray-600 mt-1">Weekend appointments available by scheduling only</p>
                 </div>
               </div>
             </div>

@@ -111,12 +111,12 @@ const Contact = () => {
                     <h3 className="font-semibold text-lg mb-1">Hours of Operation</h3>
                     <div className="space-y-2">
                       <div>
-                        <p className="font-medium">Internal Medicine:</p>
+                        <p className="font-medium">Standard Hours:</p>
                         <p className="text-gray-600">Monday - Friday: 9:00 AM - 5:00 PM</p>
                       </div>
                       <div>
-                        <p className="font-medium">Vivid Bliss Med Spa:</p>
-                        <p className="text-gray-600">Saturday - Sunday: 10:00 AM - 6:00 PM</p>
+                        <p className="font-medium">Weekend Appointments:</p>
+                        <p className="text-gray-600">Available by scheduling only</p>
                       </div>
                     </div>
                   </div>
