@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
@@ -52,12 +51,12 @@ const Banner = () => (
           </Link>
         </Button>
       </div>
-      {/* Right: Logo */}
+      {/* Right: Med Spa Image */}
       <div className="w-full md:w-1/2 flex justify-center items-center mt-8 md:mt-0">
         <img
-          src="/lovable-uploads/f33008d3-be39-427d-be72-8bd901a288ad.png"
-          alt="Vivid Bliss Med Spa Logo"
-          className="w-60 h-auto max-w-xs object-contain rounded-xl bg-white/90 shadow-lg border border-gray-100"
+          src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=800&h=600&q=80"
+          alt="Luxury Med Spa Treatment Room"
+          className="w-full h-[400px] object-cover rounded-xl shadow-lg"
           draggable={false}
         />
       </div>
