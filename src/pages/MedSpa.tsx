@@ -13,7 +13,7 @@ const updatedMedSpaServices = [
   {
     title: "Acne Treatment",
     image: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=facearea&w=460&h=320&facepad=2.5&q=80",
-    link: "/contact",
+    link: "/med-spa/acne-treatment",
   },
   {
     title: "Botox Injections",

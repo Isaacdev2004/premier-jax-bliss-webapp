@@ -15,13 +15,7 @@ const PatientResources = lazy(() => import("./pages/PatientResources"));
 const Contact = lazy(() => import("./pages/Contact"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const MedSpaSkinRejuvenation = lazy(() => import("./pages/MedSpaSkinRejuvenation"));
-
-// Admin portal pages
-const AdminLayout = lazy(() => import("./pages/admin/AdminLayout"));
-const AdminDashboard = lazy(() => import("./pages/admin/Dashboard"));
-const AdminMessages = lazy(() => import("./pages/admin/Messages"));
-const AdminBookings = lazy(() => import("./pages/admin/Bookings"));
-const AdminLogin = lazy(() => import("./pages/admin/Login"));
+const MedSpaAcneTreatment = lazy(() => import("./pages/MedSpaAcneTreatment"));
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -63,6 +57,11 @@ const App = () => (
             <Route path="med-spa/skin-rejuvenation" element={
               <Suspense fallback={<div className="p-8 text-center">Loading...</div>}>
                 <MedSpaSkinRejuvenation />
+              </Suspense>
+            } />
+            <Route path="med-spa/acne-treatment" element={
+              <Suspense fallback={<div className="p-8 text-center">Loading...</div>}>
+                <MedSpaAcneTreatment />
               </Suspense>
             } />
             <Route path="patient-resources" element={
