@@ -23,7 +23,7 @@ const updatedMedSpaServices = [
   {
     title: "Personalized Skin Rejuvenation Program",
     image: "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=facearea&w=460&h=320&facepad=3.5&q=80",
-    link: "/contact",
+    link: "/med-spa/personalized-rejuvenation",
   },
 ];
 
