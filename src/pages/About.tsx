@@ -28,19 +28,13 @@ const About = () => {
                 className="mb-6"
               />
               <p className="text-gray-600">
-                JAX Premier Health Center was founded with a vision to provide comprehensive healthcare
-                that addresses both internal medicine needs and aesthetic concerns. We recognized that many 
-                patients were seeking a trusted provider for both their medical care and aesthetic treatments,
-                which led to the creation of our dual-focused practice.
+                Welcome to JAX Premier Health Center, a modern internal medicine and wellness clinic located in the heart of Jacksonville, Florida. We specialize in adult care (ages 18+), offering a full spectrum of services including primary care, medical weight loss, IV therapy, mental health counseling, and aesthetic treatments through our in-house med spa, Vivid Bliss.
               </p>
               <p className="text-gray-600">
-                Our unique model combines traditional internal medicine services during the week with our 
-                Vivid Bliss Med Spa services on weekends, allowing us to serve our community's diverse 
-                healthcare needs efficiently and effectively.
+                Our philosophy is simple: healthcare should be personal, empowering, and holistic. We take time to listen, collaborate with our patients on their goals, and provide evidence-based treatments in a supportive environment. Whether you're managing chronic conditions, striving for weight loss, or seeking preventative care, we're here to support your total well-being.
               </p>
               <p className="text-gray-600">
-                We're committed to delivering personalized care that helps our patients achieve their health
-                and wellness goals, all in a comfortable and professional environment.
+                We accept both insurance and cash-pay patients, and offer flexible membership models for our weight loss and wellness services.
               </p>
             </div>
           </div>
