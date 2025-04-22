@@ -1,7 +1,7 @@
 
 import React from "react";
-
-const goldClass = "text-[hsl(44,78%,54%)]";
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 
 const procedures = [
   {
@@ -45,9 +45,8 @@ const MedSpaSkinRejuvenation = () => (
   <div className="w-full min-h-screen bg-white pb-12">
     {/* Banner */}
     <div className="w-full flex flex-col items-center pt-10 pb-4 px-2">
-      {/* Removed the banner image as requested */}
       <h1 className="text-4xl md:text-5xl font-light text-center mb-6 text-gray-900 leading-snug">
-        Skin <span className={goldClass + " font-light"}>Rejuvenation</span>
+        Skin <span className="text-jax-primary font-light">Rejuvenation</span>
       </h1>
       <div className="max-w-3xl text-gray-700 text-lg md:text-[19px] space-y-5 text-center mb-8">
         <p>
@@ -66,16 +65,18 @@ const MedSpaSkinRejuvenation = () => (
     <div className="w-full flex justify-center">
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-6xl mx-auto px-4">
         {procedures.map((proc) => (
-          <div key={proc.title} className="flex flex-col items-center text-center">
+          <div key={proc.title} className="flex flex-col items-center text-center group">
             <div className="w-[170px] h-[170px] mb-3 rounded shadow border border-gray-200 overflow-hidden bg-white flex items-center justify-center">
               <img
                 src={proc.image}
                 alt={proc.title}
-                className="object-cover w-full h-full"
+                className="object-cover w-full h-full group-hover:scale-105 transition duration-300"
                 draggable={false}
               />
             </div>
-            <h2 className="text-2xl font-light text-gray-800 mb-1 leading-tight">{proc.title}</h2>
+            <h2 className="text-2xl font-light text-gray-800 mb-1 leading-tight group-hover:text-jax-primary transition">
+              {proc.title}
+            </h2>
             <p className="text-[17px] text-gray-700 font-light max-w-xs">{proc.description}</p>
           </div>
         ))}
@@ -85,4 +86,3 @@ const MedSpaSkinRejuvenation = () => (
 );
 
 export default MedSpaSkinRejuvenation;
-
