@@ -14,7 +14,8 @@ const Home = () => {
           className="relative h-[600px] flex items-center justify-center bg-cover bg-center" 
           style={{ 
             backgroundImage: `url('/lovable-uploads/81e554f2-0e75-4d55-b5d4-0bf75e224529.png')`,
-            backgroundRepeat: "no-repeat"
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover"
           }}
         >
           <div className="absolute inset-0 bg-black/40"></div>
