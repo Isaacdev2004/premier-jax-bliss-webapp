@@ -10,8 +10,13 @@ const Home = () => {
   return <>
       {/* Hero Section */}
       <section className="relative bg-white overflow-hidden">
-        <div className="relative h-[600px] flex items-center justify-center bg-cover bg-center" 
-             style={{ backgroundImage: "url('/lovable-uploads/89948cdf-8c1f-4385-929e-ba1baaae4d23.png')" }}>
+        <div 
+          className="relative h-[600px] flex items-center justify-center bg-cover bg-center" 
+          style={{ 
+            backgroundImage: "url('/lovable-uploads/89948cdf-8c1f-4385-929e-ba1baaae4d23.png')",
+            backgroundRepeat: "no-repeat"
+          }}
+        >
           <div className="absolute inset-0 bg-black/40"></div>
           <div className="container mx-auto px-4 py-12 md:py-16 relative z-10">
             <div className="max-w-3xl mx-auto text-center space-y-6 animate-fade-in">
