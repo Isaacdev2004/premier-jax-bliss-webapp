@@ -13,7 +13,7 @@ const Home = () => {
         <div 
           className="relative h-[600px] flex items-center justify-center bg-cover bg-center" 
           style={{ 
-            backgroundImage: `url('/lovable-uploads/81e554f2-0e75-4d55-b5d4-0bf75e224529.png')`,
+            backgroundImage: `url('https://images.unsplash.com/photo-1579684453423-f84349ef60b0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80')`,
             backgroundRepeat: "no-repeat",
             backgroundSize: "cover"
           }}
