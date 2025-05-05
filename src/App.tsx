@@ -1,4 +1,5 @@
-import { Suspense, lazy } from "react";
+
+import { lazy } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -43,86 +44,26 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Layout />}>
-            <Route index element={
-              <Suspense fallback={<div className="p-8 text-center">Loading...</div>}>
-                <Home />
-              </Suspense>
-            } />
-            <Route path="about" element={
-              <Suspense fallback={<div className="p-8 text-center">Loading...</div>}>
-                <About />
-              </Suspense>
-            } />
-            <Route path="internal-medicine" element={
-              <Suspense fallback={<div className="p-8 text-center">Loading...</div>}>
-                <InternalMedicine />
-              </Suspense>
-            } />
-            <Route path="med-spa" element={
-              <Suspense fallback={<div className="p-8 text-center">Loading...</div>}>
-                <MedSpa />
-              </Suspense>
-            } />
-            <Route path="med-spa/skin-rejuvenation" element={
-              <Suspense fallback={<div className="p-8 text-center">Loading...</div>}>
-                <MedSpaSkinRejuvenation />
-              </Suspense>
-            } />
-            <Route path="med-spa/acne-treatment" element={
-              <Suspense fallback={<div className="p-8 text-center">Loading...</div>}>
-                <MedSpaAcneTreatment />
-              </Suspense>
-            } />
-            <Route path="med-spa/botox-injections" element={
-              <Suspense fallback={<div className="p-8 text-center">Loading...</div>}>
-                <MedSpaBotoxInjections />
-              </Suspense>
-            } />
-            <Route path="med-spa/personalized-rejuvenation" element={
-              <Suspense fallback={<div className="p-8 text-center">Loading...</div>}>
-                <MedSpaPersonalizedRejuvenation />
-              </Suspense>
-            } />
-            <Route path="patient-resources" element={
-              <Suspense fallback={<div className="p-8 text-center">Loading...</div>}>
-                <PatientResources />
-              </Suspense>
-            } />
-            <Route path="contact" element={
-              <Suspense fallback={<div className="p-8 text-center">Loading...</div>}>
-                <Contact />
-              </Suspense>
-            } />
+            <Route index element={<Home />} />
+            <Route path="about" element={<About />} />
+            <Route path="internal-medicine" element={<InternalMedicine />} />
+            <Route path="med-spa" element={<MedSpa />} />
+            <Route path="med-spa/skin-rejuvenation" element={<MedSpaSkinRejuvenation />} />
+            <Route path="med-spa/acne-treatment" element={<MedSpaAcneTreatment />} />
+            <Route path="med-spa/botox-injections" element={<MedSpaBotoxInjections />} />
+            <Route path="med-spa/personalized-rejuvenation" element={<MedSpaPersonalizedRejuvenation />} />
+            <Route path="patient-resources" element={<PatientResources />} />
+            <Route path="contact" element={<Contact />} />
             <Route path="*" element={<NotFound />} />
           </Route>
           
           {/* Admin Routes */}
-          <Route path="/admin/login" element={
-            <Suspense fallback={<div className="p-8 text-center">Loading...</div>}>
-              <AdminLogin />
-            </Suspense>
-          } />
-          <Route path="/admin" element={
-            <Suspense fallback={<div className="p-8 text-center">Loading...</div>}>
-              <AdminLayout />
-            </Suspense>
-          }>
+          <Route path="/admin/login" element={<AdminLogin />} />
+          <Route path="/admin" element={<AdminLayout />}>
             <Route index element={<Navigate to="/admin/dashboard" replace />} />
-            <Route path="dashboard" element={
-              <Suspense fallback={<div className="p-8 text-center">Loading...</div>}>
-                <AdminDashboard />
-              </Suspense>
-            } />
-            <Route path="messages" element={
-              <Suspense fallback={<div className="p-8 text-center">Loading...</div>}>
-                <AdminMessages />
-              </Suspense>
-            } />
-            <Route path="bookings" element={
-              <Suspense fallback={<div className="p-8 text-center">Loading...</div>}>
-                <AdminBookings />
-              </Suspense>
-            } />
+            <Route path="dashboard" element={<AdminDashboard />} />
+            <Route path="messages" element={<AdminMessages />} />
+            <Route path="bookings" element={<AdminBookings />} />
           </Route>
         </Routes>
       </BrowserRouter>
