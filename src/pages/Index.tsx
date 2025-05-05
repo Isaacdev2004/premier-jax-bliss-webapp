@@ -1,3 +1,4 @@
+
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Calendar, Star, Users, Heart, Activity, ShieldCheck } from "lucide-react";
@@ -10,7 +11,7 @@ const Home = () => {
       {/* Hero Section */}
       <section className="relative bg-white overflow-hidden">
         <div className="relative h-[600px] flex items-center justify-center bg-cover bg-center" 
-             style={{ backgroundImage: "url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1920&q=80')" }}>
+             style={{ backgroundImage: "url('https://images.unsplash.com/photo-1518005020951-eccb494ad742?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1920&q=80')" }}>
           <div className="absolute inset-0 bg-black/40"></div>
           <div className="container mx-auto px-4 py-12 md:py-16 relative z-10">
             <div className="max-w-3xl mx-auto text-center space-y-6 animate-fade-in">
