@@ -1,3 +1,4 @@
+
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Calendar, Star, Users, Heart, Activity, ShieldCheck, Stethoscope } from "lucide-react";
@@ -56,7 +57,7 @@ const Home = () => {
                 <h3 className="text-2xl font-semibold mb-3">Internal Medicine</h3>
                 <p className="text-gray-600 mb-6">
                   Comprehensive primary care services for adults, focusing on prevention, diagnosis, and treatment of adult diseases.
-                  Available weekdays with telehealth options.
+                  Available with telehealth options.
                 </p>
                 <ul className="mb-8 space-y-2">
                   <li className="flex items-center">

@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -150,7 +151,7 @@ const Contact = () => {
                       <div className="flex items-center space-x-2">
                         <RadioGroupItem value="internal-medicine" id="internal-medicine" />
                         <Label htmlFor="internal-medicine" className="cursor-pointer">
-                          Internal Medicine (Weekdays)
+                          Internal Medicine
                         </Label>
                       </div>
                       <div className="flex items-center space-x-2">
