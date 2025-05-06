@@ -9,9 +9,9 @@ import CallToAction from "@/components/CallToAction";
 const Home = () => {
   return <>
       {/* Hero Section */}
-      <section className="relative bg-white overflow-hidden">
+      <section className="relative bg-white w-full overflow-hidden">
         <div 
-          className="relative h-[600px] flex items-center justify-center bg-cover bg-center" 
+          className="relative h-[600px] w-full flex items-center justify-center bg-cover bg-center" 
           style={{ 
             backgroundImage: `url('/lovable-uploads/e3a858ff-1152-455c-9fc0-50c850f8b63f.png')`,
             backgroundRepeat: "no-repeat",
