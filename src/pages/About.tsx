@@ -1,3 +1,4 @@
+
 import PageHeader from "@/components/PageHeader";
 import SectionHeader from "@/components/SectionHeader";
 import CallToAction from "@/components/CallToAction";
@@ -10,15 +11,15 @@ const About = () => {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div>
-              <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="JAX Premier Health Center team" className="rounded-2xl shadow-lg" />
+              <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="JAX Premier Health Center" className="rounded-2xl shadow-lg" />
             </div>
             <div className="space-y-6">
               <SectionHeader title="Our Story" align="left" className="mb-6" />
               <p className="text-gray-600">
-                Welcome to JAX Premier Health Center, a modern internal medicine and wellness clinic located in the heart of Jacksonville, Florida. We specialize in adult care (ages 18+), offering a full spectrum of services including primary care, medical weight loss, IV therapy, mental health counseling, and aesthetic treatments through our in-house med spa, Vivid Bliss.
+                Welcome to JAX Premier Health Center, a modern internal medicine and wellness clinic located in the heart of Jacksonville, Florida. Founded and led by Dr. Ameera Donzo, we specialize in adult care (ages 18+), offering a full spectrum of services including primary care, medical weight loss, IV therapy, mental health counseling, and aesthetic treatments through our in-house med spa, Vivid Bliss.
               </p>
               <p className="text-gray-600">
-                Our philosophy is simple: healthcare should be personal, empowering, and holistic. We take time to listen, collaborate with our patients on their goals, and provide evidence-based treatments in a supportive environment. Whether you're managing chronic conditions, striving for weight loss, or seeking preventative care, we're here to support your total well-being.
+                Our philosophy is simple: healthcare should be personal, empowering, and holistic. Dr. Donzo takes time to listen, collaborate with patients on their goals, and provide evidence-based treatments in a supportive environment. Whether you're managing chronic conditions, striving for weight loss, or seeking preventative care, we're here to support your total well-being.
               </p>
               <p className="text-gray-600">
                 We accept both insurance and cash-pay patients, and offer flexible membership models for our weight loss and wellness services.
@@ -50,9 +51,9 @@ const About = () => {
                   
                   <div className="space-y-4 text-gray-600">
                     <p className="leading-relaxed">Dr. Donzo is a board certified Internal
-Medicine Doctor and Aesthetician. She trained in New York City. She is passionate about population health and disability prevention. She  has worked in the state of Illinois, PA, NY and Florida seeing and treating patients with various health issues. 
+Medicine Doctor and Aesthetician. She trained in New York City. She is passionate about population health and disability prevention. She has worked in the state of Illinois, PA, NY and Florida seeing and treating patients with various health issues. 
 She is a hospitalist and Primary Care clinician. Dr. Donzo chose the Sunshine State to be her home as
-She saw the demand for Primary Care in the area. She loves the North Florida weather , the beaches and the people.</p>
+She saw the demand for Primary Care in the area. She loves the North Florida weather, the beaches and the people.</p>
                     <p className="leading-relaxed"></p>
                   </div>
 
@@ -76,23 +77,23 @@ She saw the demand for Primary Care in the area. She loves the North Florida wea
 
       <section className="py-16">
         <div className="container mx-auto px-4">
-          <SectionHeader title="Patient Testimonials" subtitle="Here's what our patients have to say about their experiences at JAX Premier Health Center." />
+          <SectionHeader title="Patient Testimonials" subtitle="Here's what our patients have to say about their experiences with Dr. Donzo at JAX Premier Health Center." />
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {[{
-            quote: "The team at JAX Premier Health Center has been managing my diabetes for years with excellent care. When they added med spa services, I was thrilled to get all my care in one place.",
+            quote: "Dr. Donzo has been managing my diabetes for years with excellent care. When she added med spa services, I was thrilled to get all my care in one place.",
             name: "Robert Williams",
             service: "Internal Medicine Patient"
           }, {
-            quote: "I've tried many treatments for my acne, but none were as effective as the protocol developed for me at Vivid Bliss Med Spa. The results have been life-changing.",
+            quote: "I've tried many treatments for my acne, but none were as effective as the protocol developed for me by Dr. Donzo at Vivid Bliss Med Spa. The results have been life-changing.",
             name: "Emily Davis",
             service: "Med Spa Patient"
           }, {
-            quote: "Dr. Anderson takes the time to listen and explain everything thoroughly. I never feel rushed, and I always leave with a clear understanding of my health.",
+            quote: "Dr. Donzo takes the time to listen and explain everything thoroughly. I never feel rushed, and I always leave with a clear understanding of my health.",
             name: "James Thompson",
             service: "Internal Medicine Patient"
           }, {
-            quote: "The anti-aging treatments I've received at Vivid Bliss have made a noticeable difference. Friends keep asking what my secret is!",
+            quote: "The anti-aging treatments I've received from Dr. Donzo at Vivid Bliss have made a noticeable difference. Friends keep asking what my secret is!",
             name: "Patricia Miller",
             service: "Med Spa Patient"
           }].map((testimonial, index) => <div key={index} className="bg-gray-50 p-8 rounded-xl">
@@ -109,7 +110,7 @@ She saw the demand for Primary Care in the area. She loves the North Florida wea
         </div>
       </section>
 
-      <CallToAction title="Experience the JAX Premier Difference" description="Schedule your consultation today and discover comprehensive care for your health and wellness needs." primaryButtonText="Request Consultation" primaryButtonLink="/contact" />
+      <CallToAction title="Experience the JAX Premier Difference" description="Schedule your consultation today with Dr. Donzo and discover comprehensive care for your health and wellness needs." primaryButtonText="Request Consultation" primaryButtonLink="/contact" />
     </>;
 };
 export default About;

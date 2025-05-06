@@ -1,3 +1,4 @@
+
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Calendar, ShieldCheck, Activity, HeartPulse, Stethoscope, PenTool } from "lucide-react";
@@ -17,7 +18,7 @@ const InternalMedicine = () => {
                 Internal Medicine
               </h1>
               <p className="text-lg text-gray-600 max-w-xl animate-slide-in" style={{ animationDelay: '0.2s' }}>
-                Comprehensive primary care for adults focused on prevention, diagnosis, and treatment of diseases.
+                Comprehensive primary care for adults focused on prevention, diagnosis, and treatment of diseases, provided by Dr. Ameera Donzo.
               </p>
               <div className="animate-slide-in" style={{ animationDelay: '0.4s' }}>
                 <Button className="bg-jax-medical hover:bg-jax-medical/90" size="lg" asChild>
@@ -55,18 +56,18 @@ const InternalMedicine = () => {
                 className="mb-6"
               />
               <p className="text-gray-600">
-                Our internal medicine practice provides comprehensive primary care for adults with a 
-                focus on prevention, diagnosis, and treatment of adult diseases. We believe in 
+                Dr. Donzo's internal medicine practice provides comprehensive primary care for adults with a 
+                focus on prevention, diagnosis, and treatment of adult diseases. She believes in 
                 a proactive approach to healthcare, addressing concerns before they become serious 
                 health issues.
               </p>
               <p className="text-gray-600">
-                Our physicians are dedicated to building long-term relationships with patients, 
+                Dr. Donzo is dedicated to building long-term relationships with patients, 
                 providing continuity of care, and developing personalized treatment plans that 
                 address individual health goals.
               </p>
               <p className="text-gray-600">
-                We offer both in-person appointments during weekdays and convenient telehealth 
+                She offers both in-person appointments during weekdays and convenient telehealth 
                 options for patients who prefer remote consultations.
               </p>
               <div className="flex items-center space-x-2 text-jax-medical">
@@ -83,7 +84,7 @@ const InternalMedicine = () => {
         <div className="container mx-auto px-4">
           <SectionHeader
             title="Our Internal Medicine Services"
-            subtitle="We provide a wide range of services to address your healthcare needs."
+            subtitle="Dr. Donzo provides a wide range of services to address your healthcare needs."
           />
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -187,12 +188,21 @@ const InternalMedicine = () => {
                 className="mb-6"
               />
               <p className="text-gray-600 mb-6">
-                Our telehealth services allow you to connect with your provider through secure video 
+                Dr. Donzo's telehealth services allow you to connect with her through secure video 
                 consultations. This option is ideal for follow-up appointments, medication management, 
-                and addressing non-emergency health concerns without leaving your home.
+                and addressing non-emergency health concerns without leaving your home. Currently available 
+                for patients in New York, Illinois, Pennsylvania, and Florida.
+              </p>
+              <p className="text-gray-600 mb-6">
+                Medical Weight Loss programs are primarily delivered through our telehealth services, 
+                making it convenient for you to receive personalized care and monitoring.
               </p>
               <h3 className="text-lg font-semibold mb-4">Telehealth is perfect for:</h3>
               <ul className="space-y-2 mb-8">
+                <li className="flex items-center">
+                  <div className="w-2 h-2 rounded-full bg-jax-medical mr-2"></div>
+                  <span>Medical Weight Loss programs</span>
+                </li>
                 <li className="flex items-center">
                   <div className="w-2 h-2 rounded-full bg-jax-medical mr-2"></div>
                   <span>Follow-up appointments</span>
@@ -208,10 +218,6 @@ const InternalMedicine = () => {
                 <li className="flex items-center">
                   <div className="w-2 h-2 rounded-full bg-jax-medical mr-2"></div>
                   <span>Chronic disease monitoring</span>
-                </li>
-                <li className="flex items-center">
-                  <div className="w-2 h-2 rounded-full bg-jax-medical mr-2"></div>
-                  <span>Mental health check-ins</span>
                 </li>
               </ul>
               <div className="flex justify-center">
@@ -232,8 +238,8 @@ const InternalMedicine = () => {
       </section>
 
       <CallToAction
-        title="Ready to Schedule Your Appointment?"
-        description="Our internal medicine team is available Monday through Friday. Book your in-person or telehealth appointment today."
+        title="Ready to Schedule Your Appointment with Dr. Donzo?"
+        description="Dr. Donzo is available Monday through Friday. Book your in-person or telehealth appointment today."
         primaryButtonText="Request Consultation"
         primaryButtonLink="/contact"
       />
