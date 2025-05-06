@@ -13,13 +13,13 @@ const Home = () => {
         <div 
           className="relative h-[600px] w-full flex items-center justify-center bg-cover bg-center" 
           style={{ 
-            backgroundImage: `url('/lovable-uploads/e3a858ff-1152-455c-9fc0-50c850f8b63f.png')`,
+            backgroundImage: `url('/lovable-uploads/8ccdebb6-c475-40f7-9c6d-86c9b4a341c3.png')`,
             backgroundRepeat: "no-repeat",
             backgroundSize: "cover",
             backgroundPosition: "center"
           }}
         >
-          <div className="absolute inset-0 bg-black/50"></div>
+          <div className="absolute inset-0 bg-black/60"></div>
           <div className="container mx-auto px-4 py-12 md:py-16 relative z-10">
             <div className="max-w-3xl mx-auto text-center space-y-6 animate-fade-in">
               <h1 className="text-4xl md:text-5xl font-semibold text-white leading-tight">
