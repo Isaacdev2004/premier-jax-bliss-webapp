@@ -6,6 +6,7 @@ import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { useState } from "react";
+import { format } from "date-fns";
 
 const AppointmentBookingForm = ({ onClose }: { onClose: () => void }) => {
   const { toast } = useToast();
@@ -16,14 +17,54 @@ const AppointmentBookingForm = ({ onClose }: { onClose: () => void }) => {
     phone: "",
     service: "internal-medicine",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Appointment Scheduled",
-      description: "We'll send you a confirmation email shortly.",
-    });
-    onClose();
+    setIsSubmitting(true);
+
+    try {
+      // Format the selected date
+      const formattedDate = date ? format(date, "MMMM dd, yyyy") : "No date selected";
+      
+      // Create the service options mapping
+      const serviceOptions = {
+        "internal-medicine": "Internal Medicine",
+        "med-spa": "Med Spa Services"
+      };
+      
+      const selectedService = serviceOptions[formData.service as keyof typeof serviceOptions] || formData.service;
+      
+      // Prepare email content
+      const subject = encodeURIComponent(`Appointment Request from ${formData.name}`);
+      const body = encodeURIComponent(
+        `Appointment Request Details:\n\n` +
+        `Name: ${formData.name}\n` +
+        `Email: ${formData.email}\n` +
+        `Phone: ${formData.phone}\n` +
+        `Service Type: ${selectedService}\n` +
+        `Preferred Date: ${formattedDate}\n\n` +
+        `Sent from: ${window.location.origin}`
+      );
+      
+      // Open mailto link in a new window
+      window.open(`mailto:Jax_Premier@outlook.com?subject=${subject}&body=${body}`);
+      
+      toast({
+        title: "Appointment Request Sent",
+        description: "Your appointment request has been prepared. Your default email client should open.",
+      });
+      onClose();
+    } catch (error) {
+      console.error("Error sending appointment request:", error);
+      toast({
+        title: "Submission Error",
+        description: "There was a problem sending your request. Please try again or call us directly.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -106,7 +147,9 @@ const AppointmentBookingForm = ({ onClose }: { onClose: () => void }) => {
         <Button type="button" variant="outline" onClick={onClose}>
           Cancel
         </Button>
-        <Button type="submit">Book Appointment</Button>
+        <Button type="submit" disabled={isSubmitting}>
+          {isSubmitting ? "Sending..." : "Book Appointment"}
+        </Button>
       </div>
     </form>
   );
