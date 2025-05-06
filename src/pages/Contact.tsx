@@ -23,6 +23,7 @@ const Contact = () => {
     message: ""
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showMapOptions, setShowMapOptions] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const {
@@ -112,14 +113,35 @@ const Contact = () => {
                   <div>
                     <h3 className="font-semibold text-lg mb-1">Our Location</h3>
                     <p className="text-gray-600">9010 R G Skinner Parkway, Jacksonville, FL 32068</p>
-                    <a 
-                      href="https://maps.google.com/?q=9010+R+G+Skinner+Parkway,+Jacksonville,+FL+32068" 
-                      target="_blank" 
-                      rel="noopener noreferrer" 
-                      className="inline-flex items-center text-jax-primary mt-2 hover:underline"
-                    >
-                      Get Directions <ArrowRight size={16} className="ml-1" />
-                    </a>
+                    <div className="mt-2">
+                      <button
+                        onClick={() => setShowMapOptions(!showMapOptions)}
+                        className="inline-flex items-center text-jax-primary hover:underline"
+                      >
+                        Get Directions <ArrowRight size={16} className="ml-1" />
+                      </button>
+                      
+                      {showMapOptions && (
+                        <div className="mt-2 ml-4 flex gap-4">
+                          <a 
+                            href="https://maps.google.com/?q=9010+R+G+Skinner+Parkway,+Jacksonville,+FL+32068" 
+                            target="_blank" 
+                            rel="noopener noreferrer" 
+                            className="inline-flex items-center text-jax-primary hover:underline"
+                          >
+                            Google Maps
+                          </a>
+                          <a 
+                            href="https://maps.apple.com/?q=9010+R+G+Skinner+Parkway,+Jacksonville,+FL+32068" 
+                            target="_blank" 
+                            rel="noopener noreferrer" 
+                            className="inline-flex items-center text-jax-primary hover:underline"
+                          >
+                            Apple Maps
+                          </a>
+                        </div>
+                      )}
+                    </div>
                   </div>
                 </div>
 
