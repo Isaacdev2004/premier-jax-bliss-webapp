@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Calendar, Star, Users, Heart, Activity, ShieldCheck, Stethoscope } from "lucide-react";
@@ -88,7 +87,7 @@ const Home = () => {
                 <h3 className="text-2xl font-semibold mb-3">Vivid Bliss Med Spa</h3>
                 <p className="text-gray-600 mb-6">
                   Luxury aesthetic treatments focused on skin rejuvenation, acne care, and anti-aging.
-                  Available weekends for your convenience.
+                  Available for your convenience.
                 </p>
                 <ul className="mb-8 space-y-2">
                   <li className="flex items-center">

@@ -156,7 +156,7 @@ const Contact = () => {
                       <div className="flex items-center space-x-2">
                         <RadioGroupItem value="med-spa" id="med-spa" />
                         <Label htmlFor="med-spa" className="cursor-pointer">
-                          Vivid Bliss Med Spa (Weekends)
+                          Vivid Bliss Med Spa
                         </Label>
                       </div>
                       <div className="flex items-center space-x-2">
