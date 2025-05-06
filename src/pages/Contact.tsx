@@ -42,17 +42,41 @@ const Contact = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
+    try {
+      // Create a formatted email body
+      const serviceOptions = {
+        "internal-medicine": "Internal Medicine",
+        "med-spa": "Vivid Bliss Med Spa",
+        "telehealth": "Telehealth Appointment",
+        "other": "Other Inquiry"
+      };
+      
+      const selectedService = serviceOptions[formData.service as keyof typeof serviceOptions] || formData.service;
+      
+      // Send email using mailto link
+      const subject = encodeURIComponent(`New Contact Form Submission from ${formData.name}`);
+      const body = encodeURIComponent(
+        `Name: ${formData.name}\n` +
+        `Email: ${formData.email}\n` +
+        `Phone: ${formData.phone}\n` +
+        `Interested In: ${selectedService}\n\n` +
+        `Message:\n${formData.message}\n\n` +
+        `Sent from: ${window.location.origin}`
+      );
+      
+      // Open mailto link in a new window
+      window.open(`mailto:Jax_Premier@outlook.com?subject=${subject}&body=${body}`);
+      
       toast({
         title: "Form Submitted",
-        description: "We've received your message and will contact you soon."
+        description: "Your message has been prepared for sending. Your default email client should open."
       });
+      
+      // Reset form
       setFormData({
         name: "",
         email: "",
@@ -60,7 +84,16 @@ const Contact = () => {
         service: "internal-medicine",
         message: ""
       });
-    }, 1500);
+    } catch (error) {
+      console.error("Error:", error);
+      toast({
+        title: "Submission Error",
+        description: "There was a problem sending your message. Please try again.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
