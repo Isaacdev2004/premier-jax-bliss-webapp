@@ -1,3 +1,4 @@
+
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { FileText, ExternalLink, AlertCircle, Download, Shield, CreditCard } from "lucide-react";
@@ -165,7 +166,7 @@ const PatientResources = () => {
               },
               {
                 question: "How do I schedule a telehealth appointment?",
-                answer: "You can schedule a telehealth appointment by calling our office or using the patient portal. Make sure to specify that you prefer a telehealth visit."
+                answer: "New patients can schedule a telehealth appointment by calling our office directly. We offer telehealth services in four states: New York, Illinois, Pennsylvania, and Florida. Telehealth is especially popular for our Medical Weight Loss program. Note that new patients won't have access to the patient portal until after their first appointment."
               },
               {
                 question: "Do you offer payment plans for med spa services?",
