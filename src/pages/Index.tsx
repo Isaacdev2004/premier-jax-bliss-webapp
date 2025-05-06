@@ -13,12 +13,13 @@ const Home = () => {
         <div 
           className="relative h-[600px] flex items-center justify-center bg-cover bg-center" 
           style={{ 
-            backgroundImage: `url('https://images.unsplash.com/photo-1618498082410-b4aa22193b38?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1400&q=80')`,
+            backgroundImage: `url('/lovable-uploads/b207387f-a846-4470-989a-f1dfed077104.png')`,
             backgroundRepeat: "no-repeat",
-            backgroundSize: "cover"
+            backgroundSize: "cover",
+            backgroundPosition: "center 30%"
           }}
         >
-          <div className="absolute inset-0 bg-black/40"></div>
+          <div className="absolute inset-0 bg-black/50"></div>
           <div className="container mx-auto px-4 py-12 md:py-16 relative z-10">
             <div className="max-w-3xl mx-auto text-center space-y-6 animate-fade-in">
               <h1 className="text-4xl md:text-5xl font-semibold text-white leading-tight">
