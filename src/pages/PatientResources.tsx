@@ -63,7 +63,7 @@ const PatientResources = () => {
                 </li>
               </ul>
               <Button className="bg-jax-primary hover:bg-jax-primary/90 flex items-center" asChild>
-                <a href="https://patientportal.example.com" target="_blank" rel="noopener noreferrer">
+                <a href="https://www.patientally.com/" target="_blank" rel="noopener noreferrer">
                   Access Patient Portal <ExternalLink size={16} className="ml-2" />
                 </a>
               </Button>
