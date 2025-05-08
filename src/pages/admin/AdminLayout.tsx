@@ -73,7 +73,7 @@ const AdminLayout = () => {
 
   return (
     <SidebarProvider defaultOpen={true}>
-      <div className="grid h-screen w-full overflow-hidden bg-background">
+      <div className="grid h-screen w-full bg-background">
         <Sidebar variant="sidebar" collapsible="icon" className="border-r">
           <SidebarHeader className="border-b">
             <div className="flex items-center gap-2 px-4 py-3">
@@ -195,8 +195,8 @@ const AdminLayout = () => {
           </SidebarFooter>
         </Sidebar>
         
-        <SidebarInset className="overflow-hidden">
-          <div className="h-full w-full overflow-auto">
+        <SidebarInset className="overflow-auto">
+          <div className="h-full w-full">
             <Outlet />
           </div>
         </SidebarInset>
