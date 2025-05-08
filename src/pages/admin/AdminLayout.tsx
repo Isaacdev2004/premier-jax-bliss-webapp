@@ -73,7 +73,7 @@ const AdminLayout = () => {
 
   return (
     <SidebarProvider defaultOpen={true}>
-      <div className="grid h-screen">
+      <div className="grid h-screen w-full">
         <Sidebar variant="sidebar" collapsible="icon">
           <SidebarHeader className="border-b">
             <div className="flex items-center gap-2 px-4 py-3">

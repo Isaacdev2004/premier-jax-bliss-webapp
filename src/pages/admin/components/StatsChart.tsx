@@ -40,51 +40,53 @@ const chartConfig = {
 export function StatsChart() {
   return (
     <ChartContainer config={chartConfig} className="aspect-[4/3] w-full">
-      <AreaChart
-        data={data}
-        margin={{
-          top: 20,
-          right: 10,
-          left: 0,
-          bottom: 0,
-        }}
-      >
-        <CartesianGrid strokeDasharray="3 3" opacity={0.2} />
-        <XAxis
-          dataKey="date"
-          tickLine={false}
-          axisLine={false}
-          tick={{ fontSize: 12 }}
-        />
-        <YAxis
-          tickLine={false}
-          axisLine={false}
-          tick={{ fontSize: 12 }}
-        />
-        <ChartTooltip
-          content={
-            <ChartTooltipContent indicator="dot" />
-          }
-        />
-        <Area
-          type="monotone"
-          dataKey="visits"
-          stackId="1"
-          stroke="var(--color-visits)"
-          fill="var(--color-visits)"
-          fillOpacity={0.3}
-          strokeWidth={2}
-        />
-        <Area
-          type="monotone"
-          dataKey="appointments"
-          stackId="2"
-          stroke="var(--color-appointments)"
-          fill="var(--color-appointments)"
-          fillOpacity={0.3}
-          strokeWidth={2}
-        />
-      </AreaChart>
+      <ResponsiveContainer width="100%" height="100%">
+        <AreaChart
+          data={data}
+          margin={{
+            top: 20,
+            right: 10,
+            left: 0,
+            bottom: 0,
+          }}
+        >
+          <CartesianGrid strokeDasharray="3 3" opacity={0.2} />
+          <XAxis
+            dataKey="date"
+            tickLine={false}
+            axisLine={false}
+            tick={{ fontSize: 12 }}
+          />
+          <YAxis
+            tickLine={false}
+            axisLine={false}
+            tick={{ fontSize: 12 }}
+          />
+          <ChartTooltip
+            content={
+              <ChartTooltipContent indicator="dot" />
+            }
+          />
+          <Area
+            type="monotone"
+            dataKey="visits"
+            stackId="1"
+            stroke="var(--color-visits)"
+            fill="var(--color-visits)"
+            fillOpacity={0.3}
+            strokeWidth={2}
+          />
+          <Area
+            type="monotone"
+            dataKey="appointments"
+            stackId="2"
+            stroke="var(--color-appointments)"
+            fill="var(--color-appointments)"
+            fillOpacity={0.3}
+            strokeWidth={2}
+          />
+        </AreaChart>
+      </ResponsiveContainer>
     </ChartContainer>
   );
 }
