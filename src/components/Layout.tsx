@@ -8,7 +8,7 @@ const Layout = () => {
   return (
     <div className="flex flex-col min-h-screen bg-white w-full">
       <Navbar />
-      <main className="flex-grow w-full max-w-full">
+      <main className="flex-grow w-full">
         <Suspense fallback={
           <div className="flex items-center justify-center h-56">
             <div className="animate-pulse flex flex-col items-center">
