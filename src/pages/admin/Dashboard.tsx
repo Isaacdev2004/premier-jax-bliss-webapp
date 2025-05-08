@@ -1,4 +1,3 @@
-
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { OverviewCards } from "./components/OverviewCards";
@@ -6,10 +5,8 @@ import { ActivityTable } from "./components/ActivityTable";
 import { StatsChart } from "./components/StatsChart";
 import { Button } from "@/components/ui/button";
 import { CalendarClock, Download, Users } from "lucide-react";
-
 const AdminDashboard = () => {
-  return (
-    <div className="space-y-6 p-4 md:p-6 max-w-full">
+  return <div className="space-y-6 p-4 md:p-6 max-w-full bg-gray-800">
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <h1 className="text-3xl font-bold tracking-tight">Dashboard</h1>
@@ -57,8 +54,7 @@ const AdminDashboard = () => {
               </CardHeader>
               <CardContent>
                 <div className="space-y-3">
-                  {[1, 2, 3, 4, 5].map((i) => (
-                    <div key={i} className="flex items-center gap-3 rounded-md border p-3">
+                  {[1, 2, 3, 4, 5].map(i => <div key={i} className="flex items-center gap-3 rounded-md border p-3">
                       <div className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-primary/10">
                         <CalendarClock className="h-4 w-4 text-primary" />
                       </div>
@@ -70,8 +66,7 @@ const AdminDashboard = () => {
                         </p>
                       </div>
                       <Button variant="ghost" size="sm" className="flex-shrink-0">View</Button>
-                    </div>
-                  ))}
+                    </div>)}
                 </div>
               </CardContent>
             </Card>
@@ -98,8 +93,6 @@ const AdminDashboard = () => {
           </Card>
         </TabsContent>
       </Tabs>
-    </div>
-  );
+    </div>;
 };
-
 export default AdminDashboard;
