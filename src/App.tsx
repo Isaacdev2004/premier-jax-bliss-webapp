@@ -26,6 +26,7 @@ const AdminLayout = lazy(() => import("./pages/admin/AdminLayout"));
 const AdminDashboard = lazy(() => import("./pages/admin/Dashboard"));
 const AdminMessages = lazy(() => import("./pages/admin/Messages"));
 const AdminBookings = lazy(() => import("./pages/admin/Bookings"));
+const AdminNotifications = lazy(() => import("./pages/admin/Notifications"));
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -64,6 +65,7 @@ const App = () => (
             <Route path="dashboard" element={<AdminDashboard />} />
             <Route path="messages" element={<AdminMessages />} />
             <Route path="bookings" element={<AdminBookings />} />
+            <Route path="notifications" element={<AdminNotifications />} />
           </Route>
         </Routes>
       </BrowserRouter>
