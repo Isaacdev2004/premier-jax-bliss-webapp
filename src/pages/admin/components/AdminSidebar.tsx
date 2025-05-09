@@ -25,6 +25,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { toast } from "@/hooks/use-toast";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 
 type AdminSidebarProps = {
   handleLogout: () => void;
@@ -57,7 +58,7 @@ const AdminSidebar = ({ handleLogout }: AdminSidebarProps) => {
         <SearchBox />
         <NavigationMenu navigate={navigate} isActive={isActive} />
         <SidebarSeparator />
-        <UtilityMenu />
+        <UtilityMenuWithContent />
       </SidebarContent>
       
       <SidebarFooter className="border-t p-2">
@@ -128,47 +129,119 @@ const NavigationMenu = ({
   </SidebarMenu>
 );
 
-// Utility menu component
-const UtilityMenu = () => (
+// Updated utility menu component with popovers
+const UtilityMenuWithContent = () => (
   <SidebarMenu>
     <SidebarMenuItem>
-      <SidebarMenuButton
-        onClick={() => toast({
-          title: "Notifications",
-          description: "You have no new notifications",
-        })}
-        tooltip="Notifications"
-        className="w-full"
-      >
-        <Bell className="h-4 w-4" />
-        <span>Notifications</span>
-      </SidebarMenuButton>
+      <Popover>
+        <PopoverTrigger asChild>
+          <SidebarMenuButton
+            tooltip="Notifications"
+            className="w-full"
+          >
+            <Bell className="h-4 w-4" />
+            <span>Notifications</span>
+          </SidebarMenuButton>
+        </PopoverTrigger>
+        <PopoverContent className="w-80">
+          <div className="space-y-4">
+            <div className="flex items-center justify-between">
+              <h4 className="text-sm font-medium">Notifications</h4>
+              <Button variant="ghost" size="sm" className="text-xs">Mark all as read</Button>
+            </div>
+            <div className="divide-y divide-border rounded-md border">
+              {[1, 2, 3].map((i) => (
+                <div key={i} className="flex items-start gap-2 p-3">
+                  <div className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center">
+                    <Calendar className="h-4 w-4 text-primary" />
+                  </div>
+                  <div className="space-y-1">
+                    <p className="text-sm font-medium">New appointment scheduled</p>
+                    <p className="text-xs text-muted-foreground">
+                      Patient {i} booked for {new Date(2025, 4, i + 10).toLocaleDateString()}
+                    </p>
+                  </div>
+                </div>
+              ))}
+              {[1, 2, 3].length === 0 && (
+                <div className="p-4 text-center text-sm text-muted-foreground">
+                  No new notifications
+                </div>
+              )}
+            </div>
+            <Button size="sm" className="w-full">View all notifications</Button>
+          </div>
+        </PopoverContent>
+      </Popover>
     </SidebarMenuItem>
+    
     <SidebarMenuItem>
-      <SidebarMenuButton
-        onClick={() => toast({
-          title: "Settings",
-          description: "Settings page is under development",
-        })}
-        tooltip="Settings"
-        className="w-full"
-      >
-        <Settings className="h-4 w-4" />
-        <span>Settings</span>
-      </SidebarMenuButton>
+      <Popover>
+        <PopoverTrigger asChild>
+          <SidebarMenuButton
+            tooltip="Settings"
+            className="w-full"
+          >
+            <Settings className="h-4 w-4" />
+            <span>Settings</span>
+          </SidebarMenuButton>
+        </PopoverTrigger>
+        <PopoverContent className="w-80">
+          <div className="space-y-4">
+            <h4 className="text-sm font-medium">Settings</h4>
+            <div className="space-y-2">
+              {["Account", "Profile", "Notifications", "Display", "Security"].map((setting) => (
+                <Button 
+                  key={setting} 
+                  variant="ghost" 
+                  className="w-full justify-start text-left"
+                  onClick={() => toast({
+                    title: `${setting} Settings`,
+                    description: `${setting} settings page is under development`,
+                  })}
+                >
+                  {setting}
+                </Button>
+              ))}
+            </div>
+            <Button size="sm" className="w-full">Save changes</Button>
+          </div>
+        </PopoverContent>
+      </Popover>
     </SidebarMenuItem>
+    
     <SidebarMenuItem>
-      <SidebarMenuButton
-        onClick={() => toast({
-          title: "Help",
-          description: "Help documentation is under development",
-        })}
-        tooltip="Help"
-        className="w-full"
-      >
-        <HelpCircle className="h-4 w-4" />
-        <span>Help</span>
-      </SidebarMenuButton>
+      <Popover>
+        <PopoverTrigger asChild>
+          <SidebarMenuButton
+            tooltip="Help"
+            className="w-full"
+          >
+            <HelpCircle className="h-4 w-4" />
+            <span>Help</span>
+          </SidebarMenuButton>
+        </PopoverTrigger>
+        <PopoverContent className="w-80">
+          <div className="space-y-4">
+            <h4 className="text-sm font-medium">Help Center</h4>
+            <div className="space-y-2">
+              <div className="rounded-md border p-3">
+                <h5 className="font-medium">Documentation</h5>
+                <p className="text-sm text-muted-foreground">Browse our guides and examples</p>
+              </div>
+              <div className="rounded-md border p-3">
+                <h5 className="font-medium">FAQs</h5>
+                <p className="text-sm text-muted-foreground">Find answers to common questions</p>
+              </div>
+              <div className="rounded-md border p-3">
+                <h5 className="font-medium">Contact Support</h5>
+                <p className="text-sm text-muted-foreground">Get help from our support team</p>
+              </div>
+            </div>
+            <Button size="sm" className="w-full">Visit help center</Button>
+          </div>
+        </PopoverContent>
+      </Popover>
     </SidebarMenuItem>
   </SidebarMenu>
 );
