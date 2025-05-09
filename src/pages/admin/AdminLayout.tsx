@@ -1,10 +1,14 @@
 
 import { useEffect, useState } from "react";
-import { Navigate, Outlet, useNavigate } from "react-router-dom";
+import { Navigate, Outlet, useNavigate, Routes, Route } from "react-router-dom";
 import { SidebarProvider, SidebarInset } from "@/components/ui/sidebar";
 import { toast } from "@/hooks/use-toast";
 import AdminSidebar from "./components/AdminSidebar";
 import AdminLoader from "./components/AdminLoader";
+import Dashboard from "./Dashboard";
+import Bookings from "./Bookings";
+import Messages from "./Messages";
+import Notifications from "./Notifications";
 
 const AdminLayout = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -42,7 +46,14 @@ const AdminLayout = () => {
         
         <SidebarInset className="flex-1 overflow-hidden">
           <div className="h-full w-full overflow-auto">
-            <Outlet />
+            <Routes>
+              <Route index element={<Dashboard />} />
+              <Route path="dashboard" element={<Dashboard />} />
+              <Route path="bookings" element={<Bookings />} />
+              <Route path="messages" element={<Messages />} />
+              <Route path="notifications" element={<Notifications />} />
+              <Route path="*" element={<Outlet />} />
+            </Routes>
           </div>
         </SidebarInset>
       </div>

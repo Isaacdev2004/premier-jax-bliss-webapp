@@ -1,4 +1,3 @@
-
 import { useNavigate, useLocation } from "react-router-dom";
 import {
   Sidebar,
@@ -58,7 +57,7 @@ const AdminSidebar = ({ handleLogout }: AdminSidebarProps) => {
         <SearchBox />
         <NavigationMenu navigate={navigate} isActive={isActive} />
         <SidebarSeparator />
-        <UtilityMenuWithContent />
+        <UtilityMenuWithContent navigate={navigate} isActive={isActive} />
       </SidebarContent>
       
       <SidebarFooter className="border-t p-2">
@@ -129,8 +128,14 @@ const NavigationMenu = ({
   </SidebarMenu>
 );
 
-// Updated utility menu component with popovers
-const UtilityMenuWithContent = () => (
+// Updated utility menu component with popovers and navigation
+const UtilityMenuWithContent = ({ 
+  navigate, 
+  isActive 
+}: { 
+  navigate: (path: string) => void;
+  isActive: (path: string) => boolean;
+}) => (
   <SidebarMenu>
     <SidebarMenuItem>
       <Popover>
@@ -138,6 +143,7 @@ const UtilityMenuWithContent = () => (
           <SidebarMenuButton
             tooltip="Notifications"
             className="w-full"
+            isActive={isActive("/admin/notifications")}
           >
             <Bell className="h-4 w-4" />
             <span>Notifications</span>
@@ -169,7 +175,13 @@ const UtilityMenuWithContent = () => (
                 </div>
               )}
             </div>
-            <Button size="sm" className="w-full">View all notifications</Button>
+            <Button 
+              size="sm" 
+              className="w-full" 
+              onClick={() => navigate("/admin/notifications")}
+            >
+              View all notifications
+            </Button>
           </div>
         </PopoverContent>
       </Popover>
@@ -181,6 +193,7 @@ const UtilityMenuWithContent = () => (
           <SidebarMenuButton
             tooltip="Settings"
             className="w-full"
+            isActive={isActive("/admin/settings")}
           >
             <Settings className="h-4 w-4" />
             <span>Settings</span>
@@ -216,6 +229,7 @@ const UtilityMenuWithContent = () => (
           <SidebarMenuButton
             tooltip="Help"
             className="w-full"
+            isActive={isActive("/admin/help")}
           >
             <HelpCircle className="h-4 w-4" />
             <span>Help</span>
