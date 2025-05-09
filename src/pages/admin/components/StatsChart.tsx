@@ -39,7 +39,7 @@ const chartConfig = {
 
 export function StatsChart() {
   return (
-    <ChartContainer config={chartConfig} className="aspect-[4/3] w-full">
+    <ChartContainer config={chartConfig} className="h-[300px] w-full">
       <ResponsiveContainer width="100%" height="100%">
         <AreaChart
           data={data}

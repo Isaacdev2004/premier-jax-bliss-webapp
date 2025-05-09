@@ -9,7 +9,7 @@ import { CalendarClock, Download, Users } from "lucide-react";
 
 const AdminDashboard = () => {
   return (
-    <div className="h-full w-full overflow-y-auto bg-background">
+    <div className="h-full w-full overflow-auto bg-background">
       <div className="space-y-6 p-4 md:p-6">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div>
@@ -78,7 +78,7 @@ const AdminDashboard = () => {
           </TabsContent>
           
           <TabsContent value="activity" className="space-y-4">
-            <Card className="border-muted/20 overflow-hidden">
+            <Card className="border-muted/20">
               <CardHeader className="bg-muted/5 pb-3">
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
                   <div>
@@ -91,7 +91,7 @@ const AdminDashboard = () => {
                   </Button>
                 </div>
               </CardHeader>
-              <CardContent className="p-0">
+              <CardContent className="p-0 overflow-auto">
                 <ActivityTable />
               </CardContent>
             </Card>

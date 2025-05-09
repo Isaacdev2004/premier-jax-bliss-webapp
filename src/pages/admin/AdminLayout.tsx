@@ -37,11 +37,11 @@ const AdminLayout = () => {
 
   return (
     <SidebarProvider defaultOpen={true}>
-      <div className="grid h-screen w-full bg-background">
+      <div className="grid h-screen w-full overflow-hidden bg-background">
         <AdminSidebar handleLogout={handleLogout} />
         
-        <SidebarInset className="overflow-auto">
-          <div className="h-full w-full">
+        <SidebarInset className="overflow-hidden">
+          <div className="h-full w-full overflow-auto">
             <Outlet />
           </div>
         </SidebarInset>
