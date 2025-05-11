@@ -7,7 +7,7 @@ export interface Booking {
   date: string;
   time: string;
   service: string;
-  status: "pending" | "confirmed" | "cancelled";
+  status: "pending" | "confirmed" | "cancelled" | string; // Modified to accept string type
   notes: string;
   createdAt: string;
 }

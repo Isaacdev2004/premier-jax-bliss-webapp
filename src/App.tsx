@@ -2,7 +2,6 @@
 import { lazy, Suspense } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Layout from "./components/Layout";
@@ -40,47 +39,45 @@ const queryClient = new QueryClient({
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Suspense fallback={
-          <div className="flex items-center justify-center h-screen">
-            <div className="animate-pulse flex flex-col items-center">
-              <div className="h-16 w-16 rounded-full bg-muted mb-4"></div>
-              <div className="h-4 w-32 bg-muted rounded mb-3"></div>
-              <div className="h-3 w-24 bg-muted rounded"></div>
-            </div>
+    <Toaster />
+    <Sonner />
+    <BrowserRouter>
+      <Suspense fallback={
+        <div className="flex items-center justify-center h-screen">
+          <div className="animate-pulse flex flex-col items-center">
+            <div className="h-16 w-16 rounded-full bg-muted mb-4"></div>
+            <div className="h-4 w-32 bg-muted rounded mb-3"></div>
+            <div className="h-3 w-24 bg-muted rounded"></div>
           </div>
-        }>
-          <Routes>
-            <Route path="/" element={<Layout />}>
-              <Route index element={<Home />} />
-              <Route path="about" element={<About />} />
-              <Route path="internal-medicine" element={<InternalMedicine />} />
-              <Route path="med-spa" element={<MedSpa />} />
-              <Route path="med-spa/skin-rejuvenation" element={<MedSpaSkinRejuvenation />} />
-              <Route path="med-spa/acne-treatment" element={<MedSpaAcneTreatment />} />
-              <Route path="med-spa/botox-injections" element={<MedSpaBotoxInjections />} />
-              <Route path="med-spa/personalized-rejuvenation" element={<MedSpaPersonalizedRejuvenation />} />
-              <Route path="patient-resources" element={<PatientResources />} />
-              <Route path="contact" element={<Contact />} />
-              <Route path="*" element={<NotFound />} />
-            </Route>
-            
-            {/* Admin Routes */}
-            <Route path="/admin/login" element={<AdminLogin />} />
-            <Route path="/admin" element={<AdminLayout />}>
-              <Route index element={<Navigate to="/admin/dashboard" replace />} />
-              <Route path="dashboard" element={<AdminDashboard />} />
-              <Route path="messages" element={<AdminMessages />} />
-              <Route path="bookings" element={<AdminBookings />} />
-              <Route path="notifications" element={<AdminNotifications />} />
-            </Route>
-          </Routes>
-        </Suspense>
-      </BrowserRouter>
-    </TooltipProvider>
+        </div>
+      }>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home />} />
+            <Route path="about" element={<About />} />
+            <Route path="internal-medicine" element={<InternalMedicine />} />
+            <Route path="med-spa" element={<MedSpa />} />
+            <Route path="med-spa/skin-rejuvenation" element={<MedSpaSkinRejuvenation />} />
+            <Route path="med-spa/acne-treatment" element={<MedSpaAcneTreatment />} />
+            <Route path="med-spa/botox-injections" element={<MedSpaBotoxInjections />} />
+            <Route path="med-spa/personalized-rejuvenation" element={<MedSpaPersonalizedRejuvenation />} />
+            <Route path="patient-resources" element={<PatientResources />} />
+            <Route path="contact" element={<Contact />} />
+            <Route path="*" element={<NotFound />} />
+          </Route>
+          
+          {/* Admin Routes */}
+          <Route path="/admin/login" element={<AdminLogin />} />
+          <Route path="/admin" element={<AdminLayout />}>
+            <Route index element={<Navigate to="/admin/dashboard" replace />} />
+            <Route path="dashboard" element={<AdminDashboard />} />
+            <Route path="messages" element={<AdminMessages />} />
+            <Route path="bookings" element={<AdminBookings />} />
+            <Route path="notifications" element={<AdminNotifications />} />
+          </Route>
+        </Routes>
+      </Suspense>
+    </BrowserRouter>
   </QueryClientProvider>
 );
 

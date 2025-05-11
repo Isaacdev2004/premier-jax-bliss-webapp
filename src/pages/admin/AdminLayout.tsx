@@ -5,6 +5,7 @@ import { SidebarProvider, SidebarInset } from "@/components/ui/sidebar";
 import { toast } from "@/hooks/use-toast";
 import AdminSidebar from "./components/AdminSidebar";
 import AdminLoader from "./components/AdminLoader";
+import { TooltipProvider } from "@/components/ui/tooltip";
 
 const AdminLayout = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -41,17 +42,19 @@ const AdminLayout = () => {
   }
 
   return (
-    <SidebarProvider defaultOpen={true}>
-      <div className="flex h-screen w-full overflow-hidden bg-background">
-        <AdminSidebar handleLogout={handleLogout} />
-        
-        <SidebarInset className="flex-1 overflow-hidden">
-          <div className="h-full w-full overflow-auto">
-            <Outlet />
-          </div>
-        </SidebarInset>
-      </div>
-    </SidebarProvider>
+    <TooltipProvider>
+      <SidebarProvider defaultOpen={true}>
+        <div className="flex h-screen w-full overflow-hidden bg-background">
+          <AdminSidebar handleLogout={handleLogout} />
+          
+          <SidebarInset className="flex-1 overflow-hidden">
+            <div className="h-full w-full overflow-auto">
+              <Outlet />
+            </div>
+          </SidebarInset>
+        </div>
+      </SidebarProvider>
+    </TooltipProvider>
   );
 };
 
