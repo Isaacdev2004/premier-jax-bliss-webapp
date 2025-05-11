@@ -9,12 +9,11 @@ import { useToast } from "@/hooks/use-toast";
 import { Phone, Mail, MapPin, Clock, ArrowRight } from "lucide-react";
 import PageHeader from "@/components/PageHeader";
 import SectionHeader from "@/components/SectionHeader";
-import { Link } from "react-router-dom";
+import { supabase } from "@/integrations/supabase/client";
+import { format } from "date-fns";
 
 const Contact = () => {
-  const {
-    toast
-  } = useToast();
+  const { toast } = useToast();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -26,10 +25,7 @@ const Contact = () => {
   const [showMapOptions, setShowMapOptions] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const {
-      name,
-      value
-    } = e.target;
+    const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
       [name]: value
@@ -48,7 +44,6 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
-      // Create a formatted email body
       const serviceOptions = {
         "internal-medicine": "Internal Medicine",
         "med-spa": "Vivid Bliss Med Spa",
@@ -58,7 +53,23 @@ const Contact = () => {
       
       const selectedService = serviceOptions[formData.service as keyof typeof serviceOptions] || formData.service;
       
-      // Send email using mailto link
+      // Store message in Supabase database
+      const { error } = await supabase
+        .from('messages')
+        .insert({
+          name: formData.name,
+          email: formData.email,
+          subject: `New Contact - ${selectedService}`,
+          message: `Phone: ${formData.phone}\nInterested In: ${selectedService}\n\n${formData.message}`,
+          date: format(new Date(), 'yyyy-MM-dd'),
+          read: false
+        });
+      
+      if (error) {
+        throw error;
+      }
+
+      // Also send email via mailto (as backup)
       const subject = encodeURIComponent(`New Contact Form Submission from ${formData.name}`);
       const body = encodeURIComponent(
         `Name: ${formData.name}\n` +
@@ -69,12 +80,11 @@ const Contact = () => {
         `Sent from: ${window.location.origin}`
       );
       
-      // Open mailto link in a new window
       window.open(`mailto:Jax_Premier@outlook.com?subject=${subject}&body=${body}`);
       
       toast({
-        title: "Form Submitted",
-        description: "Your message has been prepared for sending. Your default email client should open."
+        title: "Message Sent Successfully",
+        description: "Thank you for contacting us. We'll get back to you soon."
       });
       
       // Reset form
