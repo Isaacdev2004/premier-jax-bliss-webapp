@@ -127,7 +127,7 @@ const NavigationMenu = ({
   </SidebarMenu>
 );
 
-// Notifications menu with popover
+// Notifications menu - changed to a direct link instead of popover
 const NotificationsMenu = ({ 
   navigate, 
   isActive 
@@ -137,53 +137,15 @@ const NotificationsMenu = ({
 }) => (
   <SidebarMenu>
     <SidebarMenuItem>
-      <Popover>
-        <PopoverTrigger asChild>
-          <SidebarMenuButton
-            tooltip="Notifications"
-            className="w-full"
-            isActive={isActive("/admin/notifications")}
-          >
-            <Bell className="h-4 w-4" />
-            <span>Notifications</span>
-          </SidebarMenuButton>
-        </PopoverTrigger>
-        <PopoverContent className="w-80">
-          <div className="space-y-4">
-            <div className="flex items-center justify-between">
-              <h4 className="text-sm font-medium">Notifications</h4>
-              <Button variant="ghost" size="sm" className="text-xs">Mark all as read</Button>
-            </div>
-            <div className="divide-y divide-border rounded-md border">
-              {[1, 2, 3].map((i) => (
-                <div key={i} className="flex items-start gap-2 p-3">
-                  <div className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center">
-                    <Calendar className="h-4 w-4 text-primary" />
-                  </div>
-                  <div className="space-y-1">
-                    <p className="text-sm font-medium">New appointment scheduled</p>
-                    <p className="text-xs text-muted-foreground">
-                      Patient {i} booked for {new Date(2025, 4, i + 10).toLocaleDateString()}
-                    </p>
-                  </div>
-                </div>
-              ))}
-              {[1, 2, 3].length === 0 && (
-                <div className="p-4 text-center text-sm text-muted-foreground">
-                  No new notifications
-                </div>
-              )}
-            </div>
-            <Button 
-              size="sm" 
-              className="w-full" 
-              onClick={() => navigate("/admin/notifications")}
-            >
-              View all notifications
-            </Button>
-          </div>
-        </PopoverContent>
-      </Popover>
+      <SidebarMenuButton
+        onClick={() => navigate("/admin/notifications")}
+        tooltip="Notifications"
+        className="w-full"
+        isActive={isActive("/admin/notifications")}
+      >
+        <Bell className="h-4 w-4" />
+        <span>Notifications</span>
+      </SidebarMenuButton>
     </SidebarMenuItem>
   </SidebarMenu>
 );
