@@ -52,8 +52,6 @@ export const ActivityTable = ({ activities }: ActivityTableProps) => {
                     ? "bg-green-500"
                     : activity.status === "cancelled"
                     ? "bg-red-500"
-                    : activity.status === "read"
-                    ? "bg-blue-500"
                     : "bg-yellow-500"
                 }
               >

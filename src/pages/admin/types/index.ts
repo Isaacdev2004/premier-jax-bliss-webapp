@@ -61,7 +61,7 @@ export interface ActivityRecord {
   activity: string;
   service: string;
   time: string;
-  status: "completed" | "cancelled" | "pending";
+  status: "completed" | "cancelled" | "pending" | "read";
   createdAt: string;
 }
 
