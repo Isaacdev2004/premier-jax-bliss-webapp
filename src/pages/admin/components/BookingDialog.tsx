@@ -10,7 +10,6 @@ import {
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { CheckCircle, XCircle } from "lucide-react";
-import { toast } from "@/hooks/use-toast";
 
 interface BookingDialogProps {
   booking: Booking | null;
@@ -28,18 +27,6 @@ export const BookingDialog = ({
   getStatusBadge,
 }: BookingDialogProps) => {
   if (!booking) return null;
-
-  const handleUpdateStatus = (status: string) => {
-    onUpdateStatus(booking.id, status);
-    
-    // Show toast notification
-    const statusText = status === 'confirmed' ? 'confirmed' : 'cancelled';
-    toast({
-      title: `Booking ${statusText}`,
-      description: `Email notification sent to ${booking.patientName} (${booking.email})`,
-      duration: 5000,
-    });
-  };
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
@@ -92,7 +79,7 @@ export const BookingDialog = ({
               <Button
                 size="sm"
                 className="bg-green-500 hover:bg-green-600"
-                onClick={() => handleUpdateStatus("confirmed")}
+                onClick={() => onUpdateStatus(booking.id, "confirmed")}
               >
                 <CheckCircle className="h-4 w-4 mr-2" />
                 Confirm
@@ -100,7 +87,7 @@ export const BookingDialog = ({
               <Button
                 size="sm"
                 variant="destructive"
-                onClick={() => handleUpdateStatus("cancelled")}
+                onClick={() => onUpdateStatus(booking.id, "cancelled")}
               >
                 <XCircle className="h-4 w-4 mr-2" />
                 Cancel

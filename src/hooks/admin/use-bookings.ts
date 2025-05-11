@@ -18,39 +18,19 @@ export function useBookings() {
       const { id, status } = variables;
       queryClient.invalidateQueries({ queryKey: ["bookings"] });
       
-      // Find the booking to get the recipient's email
+      // Find the booking to get the recipient info for the toast notification
       const updatedBooking = bookings.find((booking) => booking.id === id);
       
       if (updatedBooking) {
-        // Send notification email when status is confirmed or cancelled
+        // Show appropriate notification based on status
         if (status === "confirmed" || status === "cancelled") {
-          const subject = status === "confirmed" 
-            ? `Your appointment has been confirmed` 
-            : `Your appointment has been cancelled`;
-            
-          const body = `Dear ${updatedBooking.patientName},
-
-We would like to inform you that your appointment scheduled for ${updatedBooking.date} has been ${status}.
-${status === "confirmed" 
-  ? "We look forward to seeing you!" 
-  : "Please contact us if you would like to reschedule."}
-
-Service: ${updatedBooking.service}
-Date: ${updatedBooking.date}
-Time: ${updatedBooking.time}
-
-If you have any questions, please don't hesitate to contact us.
-
-Best regards,
-Jax Premier Medical Team`;
-
-          // Open email client with prefilled content
-          try {
-            const mailtoLink = `mailto:${updatedBooking.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-            window.open(mailtoLink);
-          } catch (error) {
-            console.error("Error opening email client:", error);
-          }
+          const statusText = status === "confirmed" ? "confirmed" : "cancelled";
+          
+          toast({
+            title: `Booking ${statusText}`,
+            description: `Status updated for ${updatedBooking.patientName}'s appointment on ${updatedBooking.date}`,
+            duration: 5000,
+          });
         }
       }
 
