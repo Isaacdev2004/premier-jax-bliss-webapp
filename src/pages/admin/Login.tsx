@@ -20,7 +20,7 @@ const AdminLogin = () => {
     // Simple authentication for demo purposes
     // In a real application, you would use a secure authentication method
     setTimeout(() => {
-      if (username === "admin" && password === "admin123") {
+      if (username === "JAXHEALTH" && password === "JAXHEALTH123") {
         localStorage.setItem("adminAuth", "true");
         toast({
           title: "Login successful",
@@ -59,7 +59,7 @@ const AdminLogin = () => {
                 </span>
                 <Input
                   id="username"
-                  placeholder="admin"
+                  placeholder="JAXHEALTH"
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
                   className="pl-9"
@@ -78,7 +78,7 @@ const AdminLogin = () => {
                 <Input
                   id="password"
                   type="password"
-                  placeholder="••••••••"
+                  placeholder="••••••••••"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   className="pl-9"
