@@ -9,7 +9,168 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
-      [_ in never]: never
+      activity_records: {
+        Row: {
+          activity: string
+          created_at: string
+          id: number
+          patient: string
+          service: string
+          status: string
+          time: string
+        }
+        Insert: {
+          activity: string
+          created_at?: string
+          id?: number
+          patient: string
+          service: string
+          status: string
+          time: string
+        }
+        Update: {
+          activity?: string
+          created_at?: string
+          id?: number
+          patient?: string
+          service?: string
+          status?: string
+          time?: string
+        }
+        Relationships: []
+      }
+      bookings: {
+        Row: {
+          created_at: string
+          date: string
+          email: string
+          id: number
+          notes: string | null
+          patient_name: string
+          phone: string
+          service: string
+          status: string
+          time: string
+        }
+        Insert: {
+          created_at?: string
+          date: string
+          email: string
+          id?: number
+          notes?: string | null
+          patient_name: string
+          phone: string
+          service: string
+          status: string
+          time: string
+        }
+        Update: {
+          created_at?: string
+          date?: string
+          email?: string
+          id?: number
+          notes?: string | null
+          patient_name?: string
+          phone?: string
+          service?: string
+          status?: string
+          time?: string
+        }
+        Relationships: []
+      }
+      messages: {
+        Row: {
+          created_at: string
+          date: string
+          email: string
+          id: number
+          message: string
+          name: string
+          read: boolean
+          subject: string
+        }
+        Insert: {
+          created_at?: string
+          date: string
+          email: string
+          id?: number
+          message: string
+          name: string
+          read?: boolean
+          subject: string
+        }
+        Update: {
+          created_at?: string
+          date?: string
+          email?: string
+          id?: number
+          message?: string
+          name?: string
+          read?: boolean
+          subject?: string
+        }
+        Relationships: []
+      }
+      notifications: {
+        Row: {
+          created_at: string
+          date: string
+          id: number
+          message: string
+          read: boolean
+          title: string
+          type: string
+        }
+        Insert: {
+          created_at?: string
+          date: string
+          id?: number
+          message: string
+          read?: boolean
+          title: string
+          type: string
+        }
+        Update: {
+          created_at?: string
+          date?: string
+          id?: number
+          message?: string
+          read?: boolean
+          title?: string
+          type?: string
+        }
+        Relationships: []
+      }
+      patients: {
+        Row: {
+          created_at: string
+          date_of_birth: string
+          email: string
+          id: number
+          last_visit: string | null
+          name: string
+          phone: string
+        }
+        Insert: {
+          created_at?: string
+          date_of_birth: string
+          email: string
+          id?: number
+          last_visit?: string | null
+          name: string
+          phone: string
+        }
+        Update: {
+          created_at?: string
+          date_of_birth?: string
+          email?: string
+          id?: number
+          last_visit?: string | null
+          name?: string
+          phone?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
