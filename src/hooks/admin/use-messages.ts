@@ -8,7 +8,45 @@ export function useMessages() {
   
   const { data: messages = [], isLoading, error } = useQuery({
     queryKey: ["messages"],
-    queryFn: fetchMessages,
+    queryFn: async () => {
+      // Fetch messages
+      const messagesData = await fetchMessages();
+      
+      // For any unread messages, create notifications if they don't exist yet
+      const unreadMessages = messagesData.filter(message => !message.read);
+      
+      if (unreadMessages.length > 0) {
+        const { supabase } = await import('@/integrations/supabase/client');
+        
+        // Create notifications for unread messages
+        for (const message of unreadMessages) {
+          // Check if a notification already exists for this message
+          const { data: existingNotifications } = await supabase
+            .from('notifications')
+            .select('id')
+            .eq('title', `New message from ${message.name}`)
+            .eq('type', 'message')
+            .eq('message', `Subject: ${message.subject}`);
+            
+          // If no notification exists, create one
+          if (!existingNotifications || existingNotifications.length === 0) {
+            const notificationData = {
+              title: `New message from ${message.name}`,
+              message: `Subject: ${message.subject}`,
+              date: message.date,
+              type: "message",
+              read: false
+            };
+            
+            await supabase.from('notifications').insert(notificationData);
+            // Invalidate notifications query to refresh the list
+            queryClient.invalidateQueries({ queryKey: ["notifications"] });
+          }
+        }
+      }
+      
+      return messagesData;
+    },
   });
 
   const updateReadStatusMutation = useMutation({

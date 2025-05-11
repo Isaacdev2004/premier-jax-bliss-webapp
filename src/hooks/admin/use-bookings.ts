@@ -12,11 +12,38 @@ export function useBookings() {
   });
 
   const updateStatusMutation = useMutation({
-    mutationFn: ({ id, status }: { id: number, status: string }) => 
-      updateBookingStatus(id, status),
+    mutationFn: async ({ id, status }: { id: number, status: string }) => {
+      // First update the booking status
+      await updateBookingStatus(id, status);
+      
+      // Find the booking to get the info for notification
+      const updatedBooking = bookings.find((booking) => booking.id === id);
+      
+      // If booking found, create a notification about this action
+      if (updatedBooking) {
+        // Format the date string for readability
+        const currentDate = new Date().toISOString().split('T')[0];
+        
+        // Create notification data based on status
+        const notificationData = {
+          title: `Booking ${status}`,
+          message: `${updatedBooking.patientName}'s appointment for ${updatedBooking.service} on ${updatedBooking.date} at ${updatedBooking.time} was ${status}`,
+          date: currentDate,
+          type: "appointment",
+          read: false
+        };
+        
+        // Use the Supabase client to insert the notification
+        const { supabase } = await import('@/integrations/supabase/client');
+        await supabase.from('notifications').insert(notificationData);
+      }
+      
+      return { id, status };
+    },
     onSuccess: (_, variables) => {
       const { id, status } = variables;
       queryClient.invalidateQueries({ queryKey: ["bookings"] });
+      queryClient.invalidateQueries({ queryKey: ["notifications"] });
       
       // Find the booking to get the recipient info for the toast notification
       const updatedBooking = bookings.find((booking) => booking.id === id);
@@ -50,9 +77,35 @@ export function useBookings() {
   });
 
   const deleteMutation = useMutation({
-    mutationFn: (id: number) => deleteBooking(id),
+    mutationFn: async (id: number) => {
+      // First find the booking to get info for notification
+      const deletedBooking = bookings.find((booking) => booking.id === id);
+      
+      // Delete the booking
+      await deleteBooking(id);
+      
+      // If booking was found, create a notification about the deletion
+      if (deletedBooking) {
+        const currentDate = new Date().toISOString().split('T')[0];
+        
+        const notificationData = {
+          title: "Booking deleted",
+          message: `${deletedBooking.patientName}'s appointment for ${deletedBooking.service} on ${deletedBooking.date} was deleted`,
+          date: currentDate,
+          type: "cancellation",
+          read: false
+        };
+        
+        const { supabase } = await import('@/integrations/supabase/client');
+        await supabase.from('notifications').insert(notificationData);
+      }
+      
+      return id;
+    },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["bookings"] });
+      queryClient.invalidateQueries({ queryKey: ["notifications"] });
+      
       toast({
         title: "Booking deleted",
         description: "The booking has been removed successfully",
