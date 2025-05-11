@@ -16,16 +16,21 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { Search, Trash2, Eye } from "lucide-react";
+import { Search, Trash2, Eye, MailReply } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { useMessages } from "@/hooks/admin/use-messages";
 import { Skeleton } from "@/components/ui/skeleton";
+import { Textarea } from "@/components/ui/textarea";
+import { useToast } from "@/hooks/use-toast";
 
 const Messages = () => {
   const { messages, isLoading, updateReadStatus, deleteMessage } = useMessages();
+  const { toast } = useToast();
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedMessage, setSelectedMessage] = useState<any>(null);
   const [openDialog, setOpenDialog] = useState(false);
+  const [replyMode, setReplyMode] = useState(false);
+  const [replyText, setReplyText] = useState("");
 
   const filteredMessages = messages.filter(
     (message) =>
@@ -37,6 +42,8 @@ const Messages = () => {
   const handleViewMessage = (message: any) => {
     setSelectedMessage(message);
     setOpenDialog(true);
+    setReplyMode(false);
+    setReplyText("");
     
     // Mark as read if it's not already
     if (!message.read) {
@@ -46,6 +53,47 @@ const Messages = () => {
 
   const handleDeleteMessage = (id: number) => {
     deleteMessage(id);
+  };
+
+  const handleReply = () => {
+    setReplyMode(true);
+  };
+
+  const handleSendReply = () => {
+    if (!replyText.trim()) {
+      toast({
+        title: "Error",
+        description: "Reply message cannot be empty",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    try {
+      // Create email subject and body
+      const subject = encodeURIComponent(`Re: ${selectedMessage?.subject}`);
+      const body = encodeURIComponent(
+        `${replyText}\n\n--------------------\nOriginal message:\n${selectedMessage?.message}`
+      );
+      
+      // Open email client with pre-filled fields
+      window.open(`mailto:${selectedMessage?.email}?subject=${subject}&body=${body}`);
+      
+      toast({
+        title: "Reply Initiated",
+        description: "Your email client has been opened with the reply",
+      });
+      
+      setReplyMode(false);
+      setReplyText("");
+    } catch (error) {
+      console.error("Error sending reply:", error);
+      toast({
+        title: "Error",
+        description: "There was a problem opening your email client",
+        variant: "destructive",
+      });
+    }
   };
 
   return (
@@ -156,17 +204,60 @@ const Messages = () => {
               {selectedMessage?.date}
             </DialogDescription>
           </DialogHeader>
-          <div className="mt-4 p-4 bg-muted rounded-md">
-            <p className="whitespace-pre-wrap">{selectedMessage?.message}</p>
-          </div>
-          <div className="flex justify-end mt-4">
-            <Button
-              variant="outline"
-              onClick={() => setOpenDialog(false)}
-            >
-              Close
-            </Button>
-          </div>
+          
+          {!replyMode ? (
+            <>
+              <div className="mt-4 p-4 bg-muted rounded-md">
+                <p className="whitespace-pre-wrap">{selectedMessage?.message}</p>
+              </div>
+              <div className="flex justify-between mt-4">
+                <Button
+                  variant="secondary"
+                  onClick={handleReply}
+                  className="flex items-center gap-2"
+                >
+                  <MailReply className="h-4 w-4" />
+                  Reply
+                </Button>
+                <Button
+                  variant="outline"
+                  onClick={() => setOpenDialog(false)}
+                >
+                  Close
+                </Button>
+              </div>
+            </>
+          ) : (
+            <>
+              <div className="mt-4">
+                <label htmlFor="reply" className="block text-sm font-medium mb-2">
+                  Your Reply
+                </label>
+                <Textarea 
+                  id="reply"
+                  value={replyText}
+                  onChange={(e) => setReplyText(e.target.value)}
+                  placeholder="Type your reply here..."
+                  className="w-full h-32"
+                />
+              </div>
+              <div className="flex justify-end gap-2 mt-4">
+                <Button
+                  variant="outline"
+                  onClick={() => setReplyMode(false)}
+                >
+                  Cancel
+                </Button>
+                <Button
+                  variant="default"
+                  onClick={handleSendReply}
+                  className="bg-jax-primary hover:bg-jax-primary/90"
+                >
+                  Send Reply
+                </Button>
+              </div>
+            </>
+          )}
         </DialogContent>
       </Dialog>
     </div>
