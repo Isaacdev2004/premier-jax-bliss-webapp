@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";
 import { Input } from "@/components/ui/input";
@@ -7,6 +6,7 @@ import { useToast } from "@/hooks/use-toast";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { useState } from "react";
 import { format } from "date-fns";
+import { supabase } from "@/integrations/supabase/client";
 
 const AppointmentBookingForm = ({ onClose }: { onClose: () => void }) => {
   const { toast } = useToast();
@@ -19,13 +19,24 @@ const AppointmentBookingForm = ({ onClose }: { onClose: () => void }) => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
     try {
       // Format the selected date
-      const formattedDate = date ? format(date, "MMMM dd, yyyy") : "No date selected";
+      const formattedDate = date ? format(date, "yyyy-MM-dd") : null;
+      const displayDate = date ? format(date, "MMMM dd, yyyy") : "No date selected";
+      
+      if (!formattedDate) {
+        toast({
+          title: "Date Required",
+          description: "Please select a preferred appointment date",
+          variant: "destructive"
+        });
+        setIsSubmitting(false);
+        return;
+      }
       
       // Create the service options mapping
       const serviceOptions = {
@@ -35,7 +46,26 @@ const AppointmentBookingForm = ({ onClose }: { onClose: () => void }) => {
       
       const selectedService = serviceOptions[formData.service as keyof typeof serviceOptions] || formData.service;
       
-      // Prepare email content
+      // Save booking to Supabase database
+      const { error: dbError } = await supabase
+        .from('bookings')
+        .insert({
+          patient_name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          service: selectedService,
+          date: formattedDate,
+          time: "To be scheduled", // Default time until scheduled
+          status: "pending",
+          notes: "Requested via website booking form"
+        });
+      
+      if (dbError) {
+        console.error("Error saving booking to database:", dbError);
+        throw new Error(dbError.message);
+      }
+
+      // Also prepare email content (keeping the email notification feature)
       const subject = encodeURIComponent(`Appointment Request from ${formData.name}`);
       const body = encodeURIComponent(
         `Appointment Request Details:\n\n` +
@@ -43,7 +73,7 @@ const AppointmentBookingForm = ({ onClose }: { onClose: () => void }) => {
         `Email: ${formData.email}\n` +
         `Phone: ${formData.phone}\n` +
         `Service Type: ${selectedService}\n` +
-        `Preferred Date: ${formattedDate}\n\n` +
+        `Preferred Date: ${displayDate}\n\n` +
         `Sent from: ${window.location.origin}`
       );
       
@@ -51,8 +81,8 @@ const AppointmentBookingForm = ({ onClose }: { onClose: () => void }) => {
       window.open(`mailto:Jax_Premier@outlook.com?subject=${subject}&body=${body}`);
       
       toast({
-        title: "Appointment Request Sent",
-        description: "Your appointment request has been prepared. Your default email client should open.",
+        title: "Appointment Request Submitted",
+        description: "Your appointment request has been received. We'll contact you to confirm details.",
       });
       onClose();
     } catch (error) {
