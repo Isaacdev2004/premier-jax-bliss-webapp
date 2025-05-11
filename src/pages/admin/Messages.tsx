@@ -1,6 +1,5 @@
 
 import { useState } from "react";
-import { toast } from "@/hooks/use-toast";
 import {
   Table,
   TableBody,
@@ -19,51 +18,13 @@ import {
 import { Button } from "@/components/ui/button";
 import { Search, Trash2, Eye } from "lucide-react";
 import { Input } from "@/components/ui/input";
-
-// Sample message data
-const sampleMessages = [
-  {
-    id: 1,
-    name: "John Doe",
-    email: "john@example.com",
-    subject: "Question about services",
-    message: "I'm interested in your internal medicine services. Can you tell me more about your preventive care options?",
-    date: "2025-04-15",
-    read: true,
-  },
-  {
-    id: 2,
-    name: "Jane Smith",
-    email: "jane@example.com",
-    subject: "Appointment request",
-    message: "I would like to schedule an appointment for next week. What availability do you have?",
-    date: "2025-04-16",
-    read: false,
-  },
-  {
-    id: 3,
-    name: "Michael Johnson",
-    email: "michael@example.com",
-    subject: "Follow-up question",
-    message: "I had an appointment last month and wanted to follow up on some test results.",
-    date: "2025-04-17",
-    read: false,
-  },
-  {
-    id: 4,
-    name: "Sarah Williams",
-    email: "sarah@example.com",
-    subject: "Med spa inquiry",
-    message: "I'm interested in your med spa services. What treatments do you offer for skin rejuvenation?",
-    date: "2025-04-18",
-    read: true,
-  },
-];
+import { useMessages } from "@/hooks/admin/use-messages";
+import { Skeleton } from "@/components/ui/skeleton";
 
 const Messages = () => {
-  const [messages, setMessages] = useState(sampleMessages);
+  const { messages, isLoading, updateReadStatus, deleteMessage } = useMessages();
   const [searchTerm, setSearchTerm] = useState("");
-  const [selectedMessage, setSelectedMessage] = useState<typeof sampleMessages[0] | null>(null);
+  const [selectedMessage, setSelectedMessage] = useState<any>(null);
   const [openDialog, setOpenDialog] = useState(false);
 
   const filteredMessages = messages.filter(
@@ -73,26 +34,18 @@ const Messages = () => {
       message.subject.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  const handleViewMessage = (message: typeof sampleMessages[0]) => {
+  const handleViewMessage = (message: any) => {
     setSelectedMessage(message);
     setOpenDialog(true);
     
     // Mark as read if it's not already
     if (!message.read) {
-      setMessages(
-        messages.map((m) =>
-          m.id === message.id ? { ...m, read: true } : m
-        )
-      );
+      updateReadStatus({ id: message.id, read: true });
     }
   };
 
   const handleDeleteMessage = (id: number) => {
-    setMessages(messages.filter((message) => message.id !== id));
-    toast({
-      title: "Message deleted",
-      description: "The message has been removed",
-    });
+    deleteMessage(id);
   };
 
   return (
@@ -131,7 +84,23 @@ const Messages = () => {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {filteredMessages.length > 0 ? (
+            {isLoading ? (
+              Array(3).fill(0).map((_, i) => (
+                <TableRow key={i}>
+                  <TableCell><Skeleton className="h-4 w-4 rounded-full" /></TableCell>
+                  <TableCell><Skeleton className="h-4 w-24" /></TableCell>
+                  <TableCell><Skeleton className="h-4 w-32" /></TableCell>
+                  <TableCell><Skeleton className="h-4 w-40" /></TableCell>
+                  <TableCell><Skeleton className="h-4 w-20" /></TableCell>
+                  <TableCell className="text-right">
+                    <div className="flex justify-end gap-2">
+                      <Skeleton className="h-8 w-8" />
+                      <Skeleton className="h-8 w-8" />
+                    </div>
+                  </TableCell>
+                </TableRow>
+              ))
+            ) : filteredMessages.length > 0 ? (
               filteredMessages.map((message) => (
                 <TableRow key={message.id}>
                   <TableCell>

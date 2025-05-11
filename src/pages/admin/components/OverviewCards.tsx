@@ -1,8 +1,13 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { UsersRound, Calendar, MessageSquare, Activity } from "lucide-react";
+import { DashboardStats } from "../types";
 
-export const OverviewCards = () => {
+interface OverviewCardsProps {
+  stats: DashboardStats;
+}
+
+export const OverviewCards = ({ stats }: OverviewCardsProps) => {
   return (
     <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
       <Card className="border-l-4 border-l-blue-500">
@@ -13,9 +18,9 @@ export const OverviewCards = () => {
           </div>
         </CardHeader>
         <CardContent>
-          <div className="text-2xl font-bold">127</div>
+          <div className="text-2xl font-bold">{stats.totalPatients}</div>
           <div className="mt-1 flex items-center text-xs">
-            <span className="text-green-500 font-medium">+5.9%</span>
+            <span className="text-green-500 font-medium">{stats.patientGrowth}</span>
             <span className="text-muted-foreground ml-1">from last month</span>
           </div>
         </CardContent>
@@ -29,9 +34,9 @@ export const OverviewCards = () => {
           </div>
         </CardHeader>
         <CardContent>
-          <div className="text-2xl font-bold">24</div>
+          <div className="text-2xl font-bold">{stats.appointments}</div>
           <div className="mt-1 flex items-center text-xs">
-            <span className="text-green-500 font-medium">+12%</span>
+            <span className="text-green-500 font-medium">{stats.appointmentGrowth}</span>
             <span className="text-muted-foreground ml-1">from last month</span>
           </div>
         </CardContent>
@@ -45,9 +50,9 @@ export const OverviewCards = () => {
           </div>
         </CardHeader>
         <CardContent>
-          <div className="text-2xl font-bold">18</div>
+          <div className="text-2xl font-bold">{stats.messages}</div>
           <div className="mt-1 flex items-center text-xs">
-            <span className="text-green-500 font-medium">+3</span>
+            <span className="text-green-500 font-medium">{stats.messageGrowth}</span>
             <span className="text-muted-foreground ml-1">new since yesterday</span>
           </div>
         </CardContent>
@@ -61,9 +66,9 @@ export const OverviewCards = () => {
           </div>
         </CardHeader>
         <CardContent>
-          <div className="text-2xl font-bold">12</div>
+          <div className="text-2xl font-bold">{stats.activeTreatments}</div>
           <div className="mt-1 flex items-center text-xs">
-            <span className="text-green-500 font-medium">+2</span>
+            <span className="text-green-500 font-medium">{stats.treatmentGrowth}</span>
             <span className="text-muted-foreground ml-1">since last week</span>
           </div>
         </CardContent>

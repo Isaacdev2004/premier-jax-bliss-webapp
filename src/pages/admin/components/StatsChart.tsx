@@ -9,16 +9,11 @@ import {
   XAxis, 
   YAxis 
 } from "recharts";
+import { ChartDataPoint } from "../types";
 
-const data = [
-  { date: "Jan 1", visits: 12, appointments: 8 },
-  { date: "Jan 5", visits: 18, appointments: 12 },
-  { date: "Jan 10", visits: 14, appointments: 10 },
-  { date: "Jan 15", visits: 22, appointments: 18 },
-  { date: "Jan 20", visits: 28, appointments: 21 },
-  { date: "Jan 25", visits: 24, appointments: 16 },
-  { date: "Jan 30", visits: 31, appointments: 24 },
-];
+interface StatsChartProps {
+  data: ChartDataPoint[];
+}
 
 const chartConfig = {
   visits: {
@@ -37,7 +32,7 @@ const chartConfig = {
   },
 };
 
-export function StatsChart() {
+export function StatsChart({ data }: StatsChartProps) {
   return (
     <ChartContainer config={chartConfig} className="h-[300px] w-full">
       <ResponsiveContainer width="100%" height="100%">

@@ -8,59 +8,19 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
+import { ActivityRecord } from "../types";
 
-const activities = [
-  {
-    id: 1,
-    patient: "John Doe",
-    activity: "Booked an appointment",
-    service: "Internal Medicine",
-    time: "30 minutes ago",
-    status: "completed",
-  },
-  {
-    id: 2,
-    patient: "Jane Smith",
-    activity: "Cancelled appointment",
-    service: "Med Spa",
-    time: "2 hours ago",
-    status: "cancelled",
-  },
-  {
-    id: 3,
-    patient: "David Wilson",
-    activity: "Sent a message",
-    service: "General Inquiry",
-    time: "4 hours ago",
-    status: "pending",
-  },
-  {
-    id: 4,
-    patient: "Sarah Brown",
-    activity: "Completed treatment",
-    service: "Skin Rejuvenation",
-    time: "Yesterday",
-    status: "completed",
-  },
-  {
-    id: 5,
-    patient: "Robert Johnson",
-    activity: "Rescheduled appointment",
-    service: "Acne Treatment",
-    time: "Yesterday",
-    status: "pending",
-  },
-];
+interface ActivityTableProps {
+  activities: ActivityRecord[];
+}
 
-export const ActivityTable = () => {
+export const ActivityTable = ({ activities }: ActivityTableProps) => {
   return (
     <Table>
       <TableHeader>
         <TableRow>
           <TableHead>Patient</TableHead>
           <TableHead>Activity</TableHead>
-          <TableHead>Service</TableHead>
-          <TableHead>Time</TableHead>
           <TableHead>Status</TableHead>
         </TableRow>
       </TableHeader>
@@ -69,8 +29,6 @@ export const ActivityTable = () => {
           <TableRow key={activity.id}>
             <TableCell className="font-medium">{activity.patient}</TableCell>
             <TableCell>{activity.activity}</TableCell>
-            <TableCell>{activity.service}</TableCell>
-            <TableCell>{activity.time}</TableCell>
             <TableCell>
               <Badge
                 className={
@@ -86,6 +44,13 @@ export const ActivityTable = () => {
             </TableCell>
           </TableRow>
         ))}
+        {activities.length === 0 && (
+          <TableRow>
+            <TableCell colSpan={3} className="text-center py-4">
+              No recent activity
+            </TableCell>
+          </TableRow>
+        )}
       </TableBody>
     </Table>
   );
