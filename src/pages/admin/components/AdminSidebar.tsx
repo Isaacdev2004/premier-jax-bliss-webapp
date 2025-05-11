@@ -18,6 +18,7 @@ import {
   LogOut,
   User,
   Search,
+  Bell,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -53,6 +54,7 @@ const AdminSidebar = ({ handleLogout }: AdminSidebarProps) => {
         <SearchBox />
         <NavigationMenu navigate={navigate} isActive={isActive} />
         <SidebarSeparator />
+        <NotificationsMenu navigate={navigate} isActive={isActive} />
       </SidebarContent>
       
       <SidebarFooter className="border-t p-2">
@@ -118,6 +120,29 @@ const NavigationMenu = ({
       >
         <Calendar className="h-4 w-4" />
         <span>Bookings</span>
+      </SidebarMenuButton>
+    </SidebarMenuItem>
+  </SidebarMenu>
+);
+
+// Notifications menu
+const NotificationsMenu = ({ 
+  navigate, 
+  isActive 
+}: { 
+  navigate: (path: string) => void;
+  isActive: (path: string) => boolean;
+}) => (
+  <SidebarMenu>
+    <SidebarMenuItem>
+      <SidebarMenuButton
+        onClick={() => navigate("/admin/notifications")}
+        tooltip="Notifications"
+        className="w-full"
+        isActive={isActive("/admin/notifications")}
+      >
+        <Bell className="h-4 w-4" />
+        <span>Notifications</span>
       </SidebarMenuButton>
     </SidebarMenuItem>
   </SidebarMenu>
