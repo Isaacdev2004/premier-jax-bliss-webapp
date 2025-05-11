@@ -83,7 +83,9 @@ export const BookingDialog = ({
               >
                 <CheckCircle className="h-4 w-4 mr-2" />
                 Confirm
-                <Mail className="h-3 w-3 ml-1" title="Email will be sent" />
+                <span className="flex items-center ml-1" title="Email will be sent">
+                  <Mail className="h-3 w-3" />
+                </span>
               </Button>
               <Button
                 size="sm"
@@ -92,7 +94,9 @@ export const BookingDialog = ({
               >
                 <XCircle className="h-4 w-4 mr-2" />
                 Cancel
-                <Mail className="h-3 w-3 ml-1" title="Email will be sent" />
+                <span className="flex items-center ml-1" title="Email will be sent">
+                  <Mail className="h-3 w-3" />
+                </span>
               </Button>
             </div>
             <Button
