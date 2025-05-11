@@ -6,6 +6,7 @@ import { toast } from "@/hooks/use-toast";
 import AdminSidebar from "./components/AdminSidebar";
 import AdminLoader from "./components/AdminLoader";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { Toaster } from "@/components/ui/toaster";
 
 const AdminLayout = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -54,6 +55,7 @@ const AdminLayout = () => {
           </SidebarInset>
         </div>
       </SidebarProvider>
+      <Toaster />
     </TooltipProvider>
   );
 };

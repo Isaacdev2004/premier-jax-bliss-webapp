@@ -9,7 +9,8 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { CheckCircle, XCircle, Mail } from "lucide-react";
+import { CheckCircle, XCircle } from "lucide-react";
+import { toast } from "@/hooks/use-toast";
 
 interface BookingDialogProps {
   booking: Booking | null;
@@ -27,6 +28,18 @@ export const BookingDialog = ({
   getStatusBadge,
 }: BookingDialogProps) => {
   if (!booking) return null;
+
+  const handleUpdateStatus = (status: string) => {
+    onUpdateStatus(booking.id, status);
+    
+    // Show toast notification
+    const statusText = status === 'confirmed' ? 'confirmed' : 'cancelled';
+    toast({
+      title: `Booking ${statusText}`,
+      description: `Email notification sent to ${booking.patientName} (${booking.email})`,
+      duration: 5000,
+    });
+  };
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
@@ -79,24 +92,18 @@ export const BookingDialog = ({
               <Button
                 size="sm"
                 className="bg-green-500 hover:bg-green-600"
-                onClick={() => onUpdateStatus(booking.id, "confirmed")}
+                onClick={() => handleUpdateStatus("confirmed")}
               >
                 <CheckCircle className="h-4 w-4 mr-2" />
                 Confirm
-                <span className="flex items-center ml-1" title="Email will be sent">
-                  <Mail className="h-3 w-3" />
-                </span>
               </Button>
               <Button
                 size="sm"
                 variant="destructive"
-                onClick={() => onUpdateStatus(booking.id, "cancelled")}
+                onClick={() => handleUpdateStatus("cancelled")}
               >
                 <XCircle className="h-4 w-4 mr-2" />
                 Cancel
-                <span className="flex items-center ml-1" title="Email will be sent">
-                  <Mail className="h-3 w-3" />
-                </span>
               </Button>
             </div>
             <Button
