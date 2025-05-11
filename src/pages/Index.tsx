@@ -1,10 +1,11 @@
 
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Calendar, Star, Users, Heart, Activity, ShieldCheck, Stethoscope } from "lucide-react";
+import { Calendar, Star, Users, Heart, Activity, ShieldCheck, Stethoscope, Home, Wheelchair, MapPinHouse } from "lucide-react";
 import SectionHeader from "@/components/SectionHeader";
 import ServiceCard from "@/components/ServiceCard";
 import CallToAction from "@/components/CallToAction";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
 const Home = () => {
   return <>
@@ -113,8 +114,93 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Testimonials */}
+      {/* Home Visit Section */}
       <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            <div className="order-2 lg:order-1 animate-slide-in">
+              <div className="max-w-lg">
+                <h2 className="text-3xl font-semibold mb-4">
+                  Home Visits for Elderly and Disabled Patients
+                </h2>
+                <p className="text-gray-600 mb-6">
+                  We understand that mobility can be a challenge for some of our patients. That's why we offer compassionate
+                  in-home medical services for elderly and disabled individuals who cannot easily travel to our facility.
+                </p>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+                  <Card className="bg-gray-50 border-none">
+                    <CardHeader className="pb-2">
+                      <div className="mb-2 text-jax-primary">
+                        <Wheelchair size={24} />
+                      </div>
+                      <CardTitle className="text-lg">Accessibility</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <CardDescription>
+                        Quality healthcare delivered directly to your home for those with mobility limitations
+                      </CardDescription>
+                    </CardContent>
+                  </Card>
+                  <Card className="bg-gray-50 border-none">
+                    <CardHeader className="pb-2">
+                      <div className="mb-2 text-jax-primary">
+                        <Stethoscope size={24} />
+                      </div>
+                      <CardTitle className="text-lg">Comprehensive Care</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <CardDescription>
+                        Full range of medical services provided in the comfort of your own home
+                      </CardDescription>
+                    </CardContent>
+                  </Card>
+                  <Card className="bg-gray-50 border-none">
+                    <CardHeader className="pb-2">
+                      <div className="mb-2 text-jax-primary">
+                        <MapPinHouse size={24} />
+                      </div>
+                      <CardTitle className="text-lg">Service Area</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <CardDescription>
+                        Serving patients throughout Jacksonville and surrounding communities
+                      </CardDescription>
+                    </CardContent>
+                  </Card>
+                  <Card className="bg-gray-50 border-none">
+                    <CardHeader className="pb-2">
+                      <div className="mb-2 text-jax-primary">
+                        <Calendar size={24} />
+                      </div>
+                      <CardTitle className="text-lg">Flexible Scheduling</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <CardDescription>
+                        Appointments available weekdays with accommodating hours
+                      </CardDescription>
+                    </CardContent>
+                  </Card>
+                </div>
+                <Button className="bg-jax-medical hover:bg-jax-medical/90" size="lg" asChild>
+                  <Link to="/contact?service=home-visit">Request Home Visit</Link>
+                </Button>
+              </div>
+            </div>
+            <div className="order-1 lg:order-2">
+              <div className="rounded-2xl overflow-hidden shadow-lg">
+                <img 
+                  src="https://images.unsplash.com/photo-1576765608866-5b51046452be?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80" 
+                  alt="Healthcare professional visiting elderly patient at home" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <SectionHeader title="What Our Patients Say" subtitle="Read about the experiences of patients who have visited JAX Premier Health Center." />
 
@@ -131,7 +217,7 @@ const Home = () => {
             name: "Emma Wilson",
             text: "I love that I can get both my medical care and skincare treatments in one place. JAX Premier Health Center provides exceptional service across the board.",
             service: "Internal Medicine & Med Spa"
-          }].map((testimonial, index) => <div key={index} className="bg-gray-50 p-6 rounded-xl shadow-sm">
+          }].map((testimonial, index) => <div key={index} className="bg-white p-6 rounded-xl shadow-sm">
                 <div className="flex mb-4">
                   {[...Array(5)].map((_, i) => <Star key={i} size={18} className="fill-jax-primary text-jax-primary" />)}
                 </div>
@@ -146,7 +232,7 @@ const Home = () => {
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <SectionHeader title="Why Choose JAX Premier Health Center" subtitle="We provide comprehensive healthcare with a focus on personalized service and convenience." />
 
@@ -172,10 +258,10 @@ const Home = () => {
             title: "State-of-the-Art Facility",
             description: "Our modern clinic is equipped with the latest technology for optimal care."
           }, {
-            icon: <Star size={24} />,
-            title: "Patient-Centered Focus",
-            description: "Your comfort, convenience, and health outcomes are our top priorities."
-          }].map((feature, index) => <div key={index} className="bg-white p-6 rounded-xl shadow-sm">
+            icon: <Home size={24} />,
+            title: "Home Visit Services",
+            description: "Bringing quality healthcare directly to elderly and disabled patients who can't travel easily."
+          }].map((feature, index) => <div key={index} className="bg-gray-50 p-6 rounded-xl shadow-sm">
                 <div className="text-jax-primary mb-4">{feature.icon}</div>
                 <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
                 <p className="text-gray-600">{feature.description}</p>
