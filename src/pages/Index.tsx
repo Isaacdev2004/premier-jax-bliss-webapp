@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Calendar, Star, Users, Heart, Activity, ShieldCheck, Stethoscope, HomeIcon, User, MapPin } from "lucide-react";
@@ -189,8 +188,8 @@ const HomePage = () => {
             <div className="order-1 lg:order-2">
               <div className="rounded-2xl overflow-hidden shadow-lg">
                 <img 
-                  src="https://images.unsplash.com/photo-1576765608866-5b51046452be?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80" 
-                  alt="Healthcare professional visiting elderly patient at home" 
+                  src="/lovable-uploads/f4547542-230a-47ce-b4cd-59a4f2b11c3c.png" 
+                  alt="Healthcare professional visiting elderly patient" 
                   className="w-full h-full object-cover"
                 />
               </div>
