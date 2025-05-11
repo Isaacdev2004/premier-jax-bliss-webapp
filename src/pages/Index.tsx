@@ -1,13 +1,13 @@
 
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Calendar, Star, Users, Heart, Activity, ShieldCheck, Stethoscope, Home, Wheelchair, MapPinHouse } from "lucide-react";
+import { Calendar, Star, Users, Heart, Activity, ShieldCheck, Stethoscope, HomeIcon, User, MapPin } from "lucide-react";
 import SectionHeader from "@/components/SectionHeader";
 import ServiceCard from "@/components/ServiceCard";
 import CallToAction from "@/components/CallToAction";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
-const Home = () => {
+const HomePage = () => {
   return <>
       {/* Hero Section */}
       <section className="relative bg-white w-full overflow-hidden">
@@ -131,7 +131,7 @@ const Home = () => {
                   <Card className="bg-gray-50 border-none">
                     <CardHeader className="pb-2">
                       <div className="mb-2 text-jax-primary">
-                        <Wheelchair size={24} />
+                        <User className="h-6 w-6" />
                       </div>
                       <CardTitle className="text-lg">Accessibility</CardTitle>
                     </CardHeader>
@@ -144,7 +144,7 @@ const Home = () => {
                   <Card className="bg-gray-50 border-none">
                     <CardHeader className="pb-2">
                       <div className="mb-2 text-jax-primary">
-                        <Stethoscope size={24} />
+                        <Stethoscope className="h-6 w-6" />
                       </div>
                       <CardTitle className="text-lg">Comprehensive Care</CardTitle>
                     </CardHeader>
@@ -157,7 +157,7 @@ const Home = () => {
                   <Card className="bg-gray-50 border-none">
                     <CardHeader className="pb-2">
                       <div className="mb-2 text-jax-primary">
-                        <MapPinHouse size={24} />
+                        <MapPin className="h-6 w-6" />
                       </div>
                       <CardTitle className="text-lg">Service Area</CardTitle>
                     </CardHeader>
@@ -170,7 +170,7 @@ const Home = () => {
                   <Card className="bg-gray-50 border-none">
                     <CardHeader className="pb-2">
                       <div className="mb-2 text-jax-primary">
-                        <Calendar size={24} />
+                        <Calendar className="h-6 w-6" />
                       </div>
                       <CardTitle className="text-lg">Flexible Scheduling</CardTitle>
                     </CardHeader>
@@ -238,27 +238,27 @@ const Home = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {[{
-            icon: <Users size={24} />,
+            icon: <Users className="h-6 w-6" />,
             title: "Experienced Providers",
             description: "Our team of healthcare professionals brings years of experience and expertise to your care."
           }, {
-            icon: <Calendar size={24} />,
+            icon: <Calendar className="h-6 w-6" />,
             title: "Convenient Scheduling",
             description: "Internal medicine on weekdays and med spa services on weekends to fit your busy schedule."
           }, {
-            icon: <ShieldCheck size={24} />,
+            icon: <ShieldCheck className="h-6 w-6" />,
             title: "Comprehensive Care",
             description: "From preventive health to aesthetic treatments, we offer a wide range of services."
           }, {
-            icon: <Activity size={24} />,
+            icon: <Activity className="h-6 w-6" />,
             title: "Personalized Approach",
             description: "We create individualized treatment plans tailored to your unique needs."
           }, {
-            icon: <Heart size={24} />,
+            icon: <Heart className="h-6 w-6" />,
             title: "State-of-the-Art Facility",
             description: "Our modern clinic is equipped with the latest technology for optimal care."
           }, {
-            icon: <Home size={24} />,
+            icon: <HomeIcon className="h-6 w-6" />,
             title: "Home Visit Services",
             description: "Bringing quality healthcare directly to elderly and disabled patients who can't travel easily."
           }].map((feature, index) => <div key={index} className="bg-gray-50 p-6 rounded-xl shadow-sm">
@@ -279,4 +279,4 @@ const Home = () => {
     </>;
 };
 
-export default Home;
+export default HomePage;
