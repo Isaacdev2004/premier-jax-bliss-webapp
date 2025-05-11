@@ -29,7 +29,13 @@ export function useDashboard() {
     isLoading: activitiesLoading 
   } = useQuery({
     queryKey: ["recentActivity"],
-    queryFn: fetchRecentActivity,
+    queryFn: async () => {
+      const data = await fetchRecentActivity();
+      // Filter to only include message and booking activities
+      return data.filter(activity => 
+        activity.activity === "message" || activity.activity === "booking"
+      );
+    },
   });
 
   const { 

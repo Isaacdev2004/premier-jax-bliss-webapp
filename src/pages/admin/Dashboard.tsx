@@ -44,7 +44,7 @@ const Dashboard = () => {
         <div className="col-span-1 md:col-span-2 space-y-6">
           <Card>
             <div className="p-6">
-              <h2 className="text-xl font-semibold mb-4">Recent Activity</h2>
+              <h2 className="text-xl font-semibold mb-4">Messages & Bookings</h2>
               {isLoading ? (
                 <div className="space-y-2">
                   <Skeleton className="h-8 w-full" />

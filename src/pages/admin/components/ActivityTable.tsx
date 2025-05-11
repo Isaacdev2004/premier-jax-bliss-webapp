@@ -8,6 +8,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
+import { MessageSquare, Calendar } from "lucide-react";
 import { ActivityRecord } from "../types";
 
 interface ActivityTableProps {
@@ -19,16 +20,31 @@ export const ActivityTable = ({ activities }: ActivityTableProps) => {
     <Table>
       <TableHeader>
         <TableRow>
-          <TableHead>Patient</TableHead>
-          <TableHead>Activity</TableHead>
+          <TableHead>Type</TableHead>
+          <TableHead>Patient/Sender</TableHead>
+          <TableHead>Details</TableHead>
           <TableHead>Status</TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
         {activities.map((activity) => (
           <TableRow key={activity.id}>
+            <TableCell>
+              <div className="flex items-center gap-2">
+                {activity.activity === "message" ? (
+                  <MessageSquare className="h-4 w-4 text-blue-500" />
+                ) : (
+                  <Calendar className="h-4 w-4 text-green-500" />
+                )}
+                <span className="capitalize">{activity.activity}</span>
+              </div>
+            </TableCell>
             <TableCell className="font-medium">{activity.patient}</TableCell>
-            <TableCell>{activity.activity}</TableCell>
+            <TableCell>
+              {activity.activity === "message" 
+                ? `Subject: ${activity.service}` 
+                : `${activity.service} on ${activity.time}`}
+            </TableCell>
             <TableCell>
               <Badge
                 className={
@@ -36,6 +52,8 @@ export const ActivityTable = ({ activities }: ActivityTableProps) => {
                     ? "bg-green-500"
                     : activity.status === "cancelled"
                     ? "bg-red-500"
+                    : activity.status === "read"
+                    ? "bg-blue-500"
                     : "bg-yellow-500"
                 }
               >
@@ -46,7 +64,7 @@ export const ActivityTable = ({ activities }: ActivityTableProps) => {
         ))}
         {activities.length === 0 && (
           <TableRow>
-            <TableCell colSpan={3} className="text-center py-4">
+            <TableCell colSpan={4} className="text-center py-4">
               No recent activity
             </TableCell>
           </TableRow>
