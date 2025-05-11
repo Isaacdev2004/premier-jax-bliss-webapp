@@ -16,7 +16,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { Search, Trash2, Eye, MailReply } from "lucide-react";
+import { Search, Trash2, Eye, Reply } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { useMessages } from "@/hooks/admin/use-messages";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -216,7 +216,7 @@ const Messages = () => {
                   onClick={handleReply}
                   className="flex items-center gap-2"
                 >
-                  <MailReply className="h-4 w-4" />
+                  <Reply className="h-4 w-4" />
                   Reply
                 </Button>
                 <Button
