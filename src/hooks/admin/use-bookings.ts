@@ -13,7 +13,7 @@ export function useBookings() {
 
   const updateStatusMutation = useMutation({
     mutationFn: ({ id, status }: { id: number, status: string }) => 
-      updateBookingStatus(id, status as "pending" | "confirmed" | "cancelled"),
+      updateBookingStatus(id, status),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["bookings"] });
       toast({

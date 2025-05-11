@@ -8,7 +8,7 @@ export interface Booking {
   date: string;
   time: string;
   service: string;
-  status: "pending" | "confirmed" | "cancelled";
+  status: "pending" | "confirmed" | "cancelled" | string; // Updated to accept any string value
   notes: string;
   createdAt: string;
 }
