@@ -1,3 +1,4 @@
+
 import { useNavigate, useLocation } from "react-router-dom";
 import {
   Sidebar,
@@ -17,8 +18,6 @@ import {
   LogOut,
   User,
   Bell,
-  Settings,
-  HelpCircle,
   Search,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -57,7 +56,7 @@ const AdminSidebar = ({ handleLogout }: AdminSidebarProps) => {
         <SearchBox />
         <NavigationMenu navigate={navigate} isActive={isActive} />
         <SidebarSeparator />
-        <UtilityMenuWithContent navigate={navigate} isActive={isActive} />
+        <NotificationsMenu navigate={navigate} isActive={isActive} />
       </SidebarContent>
       
       <SidebarFooter className="border-t p-2">
@@ -128,8 +127,8 @@ const NavigationMenu = ({
   </SidebarMenu>
 );
 
-// Updated utility menu component with popovers and navigation
-const UtilityMenuWithContent = ({ 
+// Notifications menu with popover
+const NotificationsMenu = ({ 
   navigate, 
   isActive 
 }: { 
@@ -182,77 +181,6 @@ const UtilityMenuWithContent = ({
             >
               View all notifications
             </Button>
-          </div>
-        </PopoverContent>
-      </Popover>
-    </SidebarMenuItem>
-    
-    <SidebarMenuItem>
-      <Popover>
-        <PopoverTrigger asChild>
-          <SidebarMenuButton
-            tooltip="Settings"
-            className="w-full"
-            isActive={isActive("/admin/settings")}
-          >
-            <Settings className="h-4 w-4" />
-            <span>Settings</span>
-          </SidebarMenuButton>
-        </PopoverTrigger>
-        <PopoverContent className="w-80">
-          <div className="space-y-4">
-            <h4 className="text-sm font-medium">Settings</h4>
-            <div className="space-y-2">
-              {["Account", "Profile", "Notifications", "Display", "Security"].map((setting) => (
-                <Button 
-                  key={setting} 
-                  variant="ghost" 
-                  className="w-full justify-start text-left"
-                  onClick={() => toast({
-                    title: `${setting} Settings`,
-                    description: `${setting} settings page is under development`,
-                  })}
-                >
-                  {setting}
-                </Button>
-              ))}
-            </div>
-            <Button size="sm" className="w-full">Save changes</Button>
-          </div>
-        </PopoverContent>
-      </Popover>
-    </SidebarMenuItem>
-    
-    <SidebarMenuItem>
-      <Popover>
-        <PopoverTrigger asChild>
-          <SidebarMenuButton
-            tooltip="Help"
-            className="w-full"
-            isActive={isActive("/admin/help")}
-          >
-            <HelpCircle className="h-4 w-4" />
-            <span>Help</span>
-          </SidebarMenuButton>
-        </PopoverTrigger>
-        <PopoverContent className="w-80">
-          <div className="space-y-4">
-            <h4 className="text-sm font-medium">Help Center</h4>
-            <div className="space-y-2">
-              <div className="rounded-md border p-3">
-                <h5 className="font-medium">Documentation</h5>
-                <p className="text-sm text-muted-foreground">Browse our guides and examples</p>
-              </div>
-              <div className="rounded-md border p-3">
-                <h5 className="font-medium">FAQs</h5>
-                <p className="text-sm text-muted-foreground">Find answers to common questions</p>
-              </div>
-              <div className="rounded-md border p-3">
-                <h5 className="font-medium">Contact Support</h5>
-                <p className="text-sm text-muted-foreground">Get help from our support team</p>
-              </div>
-            </div>
-            <Button size="sm" className="w-full">Visit help center</Button>
           </div>
         </PopoverContent>
       </Popover>
