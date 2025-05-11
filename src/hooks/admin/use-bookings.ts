@@ -1,4 +1,3 @@
-
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { fetchBookings, updateBookingStatus, deleteBooking } from "@/api/admin";
 import { toast } from "@/hooks/use-toast";
@@ -8,7 +7,55 @@ export function useBookings() {
   
   const { data: bookings = [], isLoading, error } = useQuery({
     queryKey: ["bookings"],
-    queryFn: fetchBookings,
+    queryFn: async () => {
+      const bookingsData = await fetchBookings();
+      
+      // Create notifications for any new bookings
+      const { supabase } = await import('@/integrations/supabase/client');
+      
+      // Get recent bookings (created in the last 24 hours)
+      const now = new Date();
+      const yesterday = new Date();
+      yesterday.setDate(now.getDate() - 1);
+      
+      const recentBookings = bookingsData.filter(booking => {
+        const bookingDate = new Date(booking.createdAt);
+        return bookingDate > yesterday && booking.status === 'pending';
+      });
+      
+      // Create notifications for recent bookings
+      for (const booking of recentBookings) {
+        // Check if a notification already exists for this booking
+        const { data: existingNotifications } = await supabase
+          .from('notifications')
+          .select('id')
+          .eq('title', 'New booking received')
+          .eq('type', 'appointment')
+          .like('message', `%${booking.patientName}%${booking.date}%`);
+          
+        // If no notification exists, create one
+        if (!existingNotifications || existingNotifications.length === 0) {
+          const notificationData = {
+            title: 'New booking received',
+            message: `${booking.patientName} booked for ${booking.service} on ${booking.date} at ${booking.time}`,
+            date: new Date().toISOString().split('T')[0],
+            type: "appointment",
+            read: false
+          };
+          
+          console.log('Creating booking notification:', notificationData);
+          const { error } = await supabase.from('notifications').insert(notificationData);
+          if (error) {
+            console.error('Error creating notification:', error);
+          } else {
+            // Invalidate notifications query to refresh the list
+            queryClient.invalidateQueries({ queryKey: ["notifications"] });
+          }
+        }
+      }
+      
+      return bookingsData;
+    },
   });
 
   const updateStatusMutation = useMutation({
@@ -35,7 +82,11 @@ export function useBookings() {
         
         // Use the Supabase client to insert the notification
         const { supabase } = await import('@/integrations/supabase/client');
-        await supabase.from('notifications').insert(notificationData);
+        console.log('Creating booking status notification:', notificationData);
+        const { error } = await supabase.from('notifications').insert(notificationData);
+        if (error) {
+          console.error('Error creating notification:', error);
+        }
       }
       
       return { id, status };

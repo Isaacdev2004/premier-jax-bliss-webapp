@@ -1,4 +1,3 @@
-
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { fetchMessages, updateMessageReadStatus, deleteMessage } from "@/api/admin";
 import { toast } from "@/hooks/use-toast";
@@ -33,14 +32,19 @@ export function useMessages() {
             const notificationData = {
               title: `New message from ${message.name}`,
               message: `Subject: ${message.subject}`,
-              date: message.date,
+              date: new Date().toISOString().split('T')[0], // Use current date
               type: "message",
               read: false
             };
             
-            await supabase.from('notifications').insert(notificationData);
-            // Invalidate notifications query to refresh the list
-            queryClient.invalidateQueries({ queryKey: ["notifications"] });
+            console.log('Creating message notification:', notificationData);
+            const { error } = await supabase.from('notifications').insert(notificationData);
+            if (error) {
+              console.error('Error creating notification:', error);
+            } else {
+              // Invalidate notifications query to refresh the list
+              queryClient.invalidateQueries({ queryKey: ["notifications"] });
+            }
           }
         }
       }
@@ -50,8 +54,35 @@ export function useMessages() {
   });
 
   const updateReadStatusMutation = useMutation({
-    mutationFn: ({ id, read }: { id: number, read: boolean }) => 
-      updateMessageReadStatus(id, read),
+    mutationFn: async ({ id, read }: { id: number, read: boolean }) => { 
+      await updateMessageReadStatus(id, read);
+      
+      // If marking a message as read, update its notification status too
+      if (read) {
+        const message = messages.find(m => m.id === id);
+        if (message) {
+          const { supabase } = await import('@/integrations/supabase/client');
+          const { data } = await supabase
+            .from('notifications')
+            .select('id')
+            .eq('title', `New message from ${message.name}`)
+            .eq('type', 'message')
+            .eq('message', `Subject: ${message.subject}`);
+            
+          if (data && data.length > 0) {
+            await supabase
+              .from('notifications')
+              .update({ read: true })
+              .eq('id', data[0].id);
+              
+            // Invalidate notifications query to refresh the list
+            queryClient.invalidateQueries({ queryKey: ["notifications"] });
+          }
+        }
+      }
+      
+      return { id, read };
+    },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["messages"] });
     },

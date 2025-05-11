@@ -1,6 +1,5 @@
-
-import { useState } from "react";
-import { Bell, Calendar, CheckCircle, Mail, MessageCircle, Trash2 } from "lucide-react";
+import { useState, useEffect } from "react";
+import { Bell, Calendar, CheckCircle, Mail, MessageCircle, Trash2, RefreshCw } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
@@ -8,6 +7,7 @@ import { useNotifications } from "@/hooks/admin/use-notifications";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
+import { supabase } from "@/integrations/supabase/client";
 
 const Notifications = () => {
   const { 
@@ -18,10 +18,30 @@ const Notifications = () => {
     updateReadStatus, 
     markAllAsRead, 
     deleteNotification, 
-    clearAll 
+    clearAll,
+    refetchNotifications 
   } = useNotifications();
   
   const [searchTerm, setSearchTerm] = useState("");
+  const [debugInfo, setDebugInfo] = useState<any>(null);
+
+  // Debug function to check the database directly
+  const checkDatabase = async () => {
+    // Fetch notifications directly from the database
+    const { data, error } = await supabase
+      .from('notifications')
+      .select('*')
+      .order('created_at', { ascending: false });
+      
+    if (error) {
+      setDebugInfo({ error: error.message });
+    } else {
+      setDebugInfo({ 
+        count: data?.length || 0,
+        items: data?.slice(0, 5) || []
+      });
+    }
+  };
 
   // Filter notifications based on search term
   const filteredNotifications = notifications.filter(notification => 
@@ -76,8 +96,36 @@ const Notifications = () => {
         <div className="flex gap-2">
           <Button variant="outline" onClick={() => markAllAsRead()}>Mark all as read</Button>
           <Button variant="destructive" onClick={() => clearAll()}>Clear notifications</Button>
+          <Button 
+            variant="default"
+            onClick={() => refetchNotifications()}
+            className="flex items-center gap-1"
+          >
+            <RefreshCw className="h-4 w-4" />
+            Refresh
+          </Button>
+          <Button 
+            variant="outline" 
+            onClick={checkDatabase}
+          >
+            Check DB
+          </Button>
         </div>
       </div>
+
+      {/* Debug information */}
+      {debugInfo && (
+        <Card className="bg-muted/50 mb-4">
+          <CardHeader>
+            <CardTitle className="text-sm">Debug Information</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <pre className="text-xs overflow-auto max-h-40">
+              {JSON.stringify(debugInfo, null, 2)}
+            </pre>
+          </CardContent>
+        </Card>
+      )}
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {isLoading ? (

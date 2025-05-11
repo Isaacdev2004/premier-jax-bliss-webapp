@@ -12,7 +12,12 @@ import { toast } from "@/hooks/use-toast";
 export function useNotifications() {
   const queryClient = useQueryClient();
   
-  const { data: notifications = [], isLoading, error } = useQuery({
+  const { 
+    data: notifications = [], 
+    isLoading, 
+    error,
+    refetch 
+  } = useQuery({
     queryKey: ["notifications"],
     queryFn: fetchNotifications,
   });
@@ -98,6 +103,7 @@ export function useNotifications() {
     markAllAsRead: markAllAsReadMutation.mutate,
     deleteNotification: deleteMutation.mutate,
     clearAll: clearAllMutation.mutate,
+    refetchNotifications: refetch,
     isUpdating: updateReadStatusMutation.isPending || markAllAsReadMutation.isPending,
     isDeleting: deleteMutation.isPending || clearAllMutation.isPending,
     unreadCount: notifications.filter(notification => !notification.read).length,
