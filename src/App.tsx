@@ -1,4 +1,3 @@
-
 import { lazy, Suspense } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
@@ -7,7 +6,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Layout from "./components/Layout";
 
 // Lazy load pages for better performance
-const Home = lazy(() => import("./pages/Index"));
+const Home = lazy(() => import("./pages/Home"));
 const About = lazy(() => import("./pages/About"));
 const InternalMedicine = lazy(() => import("./pages/InternalMedicine"));
 const MedSpa = lazy(() => import("./pages/MedSpa"));
