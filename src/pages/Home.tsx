@@ -5,20 +5,16 @@ import SectionHeader from "@/components/SectionHeader";
 import ServiceCard from "@/components/ServiceCard";
 import CallToAction from "@/components/CallToAction";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-
 const HomePage = () => {
   return <>
       {/* Hero Section */}
       <section className="relative bg-white w-full overflow-hidden">
-        <div 
-          className="relative h-[600px] w-full flex items-center justify-center bg-cover bg-center" 
-          style={{ 
-            backgroundImage: "url('/lovable-uploads/8ccdebb6-c475-40f7-9c6d-86c9b4a341c3.png')",
-            backgroundRepeat: "no-repeat",
-            backgroundSize: "cover",
-            backgroundPosition: "center"
-          }}
-        >
+        <div className="relative h-[600px] w-full flex items-center justify-center bg-cover bg-center" style={{
+        backgroundImage: "url('/lovable-uploads/8ccdebb6-c475-40f7-9c6d-86c9b4a341c3.png')",
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
+        backgroundPosition: "center"
+      }}>
           <div className="absolute inset-0 bg-black/60"></div>
           <div className="container mx-auto px-4 py-12 md:py-16 relative z-10">
             <div className="max-w-3xl mx-auto text-center space-y-6 animate-fade-in">
@@ -29,11 +25,7 @@ const HomePage = () => {
                 Comprehensive internal medicine and luxury med spa services in one convenient location.
               </p>
               <div className="flex justify-center">
-                <Button 
-                  className="bg-jax-primary hover:bg-jax-primary/90" 
-                  size="lg" 
-                  asChild
-                >
+                <Button className="bg-jax-primary hover:bg-jax-primary/90" size="lg" asChild>
                   <Link to="/contact?type=consultation">Learn More</Link>
                 </Button>
               </div>
@@ -51,7 +43,7 @@ const HomePage = () => {
             {/* Internal Medicine Card */}
             <div className="bg-white rounded-2xl shadow-md overflow-hidden">
               <div className="h-64 overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1579684453423-f84349ef60b0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" alt="Internal Medicine" className="w-full h-full object-cover" />
+                <img alt="Internal Medicine" src="/lovable-uploads/fda7ddc3-1df2-41c0-8db7-9ab0549f7e46.jpg" className="w-full h-full object-cover" />
               </div>
               <div className="p-8">
                 <h3 className="text-2xl font-semibold mb-3">Internal Medicine</h3>
@@ -187,11 +179,7 @@ const HomePage = () => {
             </div>
             <div className="order-1 lg:order-2">
               <div className="rounded-2xl overflow-hidden shadow-lg">
-                <img 
-                  src="/lovable-uploads/f4547542-230a-47ce-b4cd-59a4f2b11c3c.png" 
-                  alt="Healthcare professional visiting elderly patient" 
-                  className="w-full h-full object-cover"
-                />
+                <img src="/lovable-uploads/f4547542-230a-47ce-b4cd-59a4f2b11c3c.png" alt="Healthcare professional visiting elderly patient" className="w-full h-full object-cover" />
               </div>
             </div>
           </div>
@@ -269,13 +257,7 @@ const HomePage = () => {
         </div>
       </section>
 
-      <CallToAction 
-        title="Ready to Get Started?" 
-        description="Schedule your consultation today and take the first step toward better health and wellness." 
-        primaryButtonText="Request Consultation" 
-        primaryButtonLink="/contact" 
-      />
+      <CallToAction title="Ready to Get Started?" description="Schedule your consultation today and take the first step toward better health and wellness." primaryButtonText="Request Consultation" primaryButtonLink="/contact" />
     </>;
 };
-
 export default HomePage;
