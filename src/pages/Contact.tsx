@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -80,7 +79,7 @@ const Contact = () => {
         `Sent from: ${window.location.origin}`
       );
       
-      window.open(`mailto:Jax_Premier@outlook.com?subject=${subject}&body=${body}`);
+      window.open(`mailto:info@jaxpremierhealth.com?subject=${subject}&body=${body}`);
       
       toast({
         title: "Message Sent Successfully",
@@ -167,7 +166,7 @@ const Contact = () => {
                   <Mail size={24} className="mr-4 mt-1 text-jax-primary flex-shrink-0" />
                   <div>
                     <h3 className="font-semibold text-lg mb-1">Email</h3>
-                    <p className="text-gray-600">Jax_Premier@outlook.com</p>
+                    <p className="text-gray-600">info@jaxpremierhealth.com</p>
                   </div>
                 </div>
 

@@ -1,3 +1,4 @@
+
 import { Link } from "react-router-dom";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -48,8 +49,8 @@ const Footer = () => {
               </div>
               <div className="flex items-center">
                 <Mail size={18} className="mr-2 flex-shrink-0 text-jax-primary" />
-                <a href="mailto:Jax_Premier@outlook.com" className="hover:text-jax-primary">
-                  Jax_Premier@outlook.com
+                <a href="mailto:info@jaxpremierhealth.com" className="hover:text-jax-primary">
+                  info@jaxpremierhealth.com
                 </a>
               </div>
               <div className="flex items-start">

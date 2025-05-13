@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";
 import { Input } from "@/components/ui/input";
@@ -78,7 +79,7 @@ const AppointmentBookingForm = ({ onClose }: { onClose: () => void }) => {
       );
       
       // Open mailto link in a new window
-      window.open(`mailto:Jax_Premier@outlook.com?subject=${subject}&body=${body}`);
+      window.open(`mailto:info@jaxpremierhealth.com?subject=${subject}&body=${body}`);
       
       toast({
         title: "Appointment Request Submitted",
