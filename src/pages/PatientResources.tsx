@@ -5,6 +5,7 @@ import { FileText, ExternalLink, AlertCircle, Download, Shield, CreditCard } fro
 import PageHeader from "@/components/PageHeader";
 import SectionHeader from "@/components/SectionHeader";
 import CallToAction from "@/components/CallToAction";
+
 const PatientResources = () => {
   return <>
       <PageHeader title="Patient Resources" subtitle="Information and resources to help you prepare for your visit and manage your healthcare." />
@@ -14,7 +15,7 @@ const PatientResources = () => {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div className="flex justify-center items-center">
-              <img alt="Patient using laptop for telehealth" className="rounded-2xl shadow-lg max-w-full" src="/lovable-uploads/35cbd64e-9f91-4ff9-bf50-4bfe3225b0b2.jpg" />
+              <img alt="Patient using laptop for telehealth" className="rounded-2xl shadow-lg max-w-[80%]" src="/lovable-uploads/35cbd64e-9f91-4ff9-bf50-4bfe3225b0b2.jpg" />
             </div>
             <div className="space-y-6">
               <SectionHeader title="Patient Portal" subtitle="Manage your health information online" align="left" className="mb-6" />
