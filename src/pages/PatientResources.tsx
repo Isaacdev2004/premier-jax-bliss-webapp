@@ -1,37 +1,22 @@
-
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { FileText, ExternalLink, AlertCircle, Download, Shield, CreditCard } from "lucide-react";
 import PageHeader from "@/components/PageHeader";
 import SectionHeader from "@/components/SectionHeader";
 import CallToAction from "@/components/CallToAction";
-
 const PatientResources = () => {
-  return (
-    <>
-      <PageHeader
-        title="Patient Resources"
-        subtitle="Information and resources to help you prepare for your visit and manage your healthcare."
-      />
+  return <>
+      <PageHeader title="Patient Resources" subtitle="Information and resources to help you prepare for your visit and manage your healthcare." />
 
       {/* Patient Portal */}
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div>
-              <img
-                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
-                alt="Patient using laptop for telehealth"
-                className="rounded-2xl shadow-lg"
-              />
+              <img alt="Patient using laptop for telehealth" className="rounded-2xl shadow-lg" src="/lovable-uploads/35cbd64e-9f91-4ff9-bf50-4bfe3225b0b2.jpg" />
             </div>
             <div className="space-y-6">
-              <SectionHeader
-                title="Patient Portal"
-                subtitle="Manage your health information online"
-                align="left"
-                className="mb-6"
-              />
+              <SectionHeader title="Patient Portal" subtitle="Manage your health information online" align="left" className="mb-6" />
               <p className="text-gray-600">
                 Our patient portal provides secure, 24/7 access to your health information and
                 convenient online services. Through the portal, you can:
@@ -78,10 +63,7 @@ const PatientResources = () => {
       {/* Insurance & Billing */}
       <section className="py-16">
         <div className="container mx-auto px-4">
-          <SectionHeader
-            title="Insurance & Billing Information"
-            subtitle="Understanding your healthcare costs and payment options."
-          />
+          <SectionHeader title="Insurance & Billing Information" subtitle="Understanding your healthcare costs and payment options." />
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <div className="space-y-6">
@@ -92,21 +74,10 @@ const PatientResources = () => {
               </p>
               <h4 className="font-semibold mt-6">We currently accept:</h4>
               <ul className="grid grid-cols-2 gap-2">
-                {[
-                  "Aetna",
-                  "Blue Cross Blue Shield",
-                  "Cigna",
-                  "Humana",
-                  "Medicare",
-                  "Medicaid",
-                  "United Healthcare",
-                  "Tricare"
-                ].map((insurance, index) => (
-                  <li key={index} className="flex items-center">
+                {["Aetna", "Blue Cross Blue Shield", "Cigna", "Humana", "Medicare", "Medicaid", "United Healthcare", "Tricare"].map((insurance, index) => <li key={index} className="flex items-center">
                     <div className="w-2 h-2 rounded-full bg-jax-primary mr-2"></div>
                     <span>{insurance}</span>
-                  </li>
-                ))}
+                  </li>)}
               </ul>
               <div className="flex items-center mt-2 text-sm bg-gray-50 p-3 rounded-lg">
                 <AlertCircle size={16} className="text-jax-primary mr-2 flex-shrink-0" />
@@ -153,55 +124,36 @@ const PatientResources = () => {
       {/* FAQs */}
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
-          <SectionHeader
-            title="Frequently Asked Questions"
-            subtitle="Find answers to common questions about our services and policies."
-          />
+          <SectionHeader title="Frequently Asked Questions" subtitle="Find answers to common questions about our services and policies." />
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {[
-              {
-                question: "What should I bring to my first appointment?",
-                answer: "Please bring your insurance card, photo ID, completed new patient forms, a list of current medications, and any relevant medical records or test results."
-              },
-              {
-                question: "How do I schedule a telehealth appointment?",
-                answer: "New patients can schedule a telehealth appointment by calling our office directly. We offer telehealth services in four states: New York, Illinois, Pennsylvania, and Florida. Telehealth is especially popular for our Medical Weight Loss program. Note that new patients won't have access to the patient portal until after their first appointment."
-              },
-              {
-                question: "Do you offer payment plans for med spa services?",
-                answer: "Yes, we offer payment plans for certain med spa packages. Please inquire during your consultation for more details about financing options."
-              },
-              {
-                question: "What is your cancellation policy?",
-                answer: "We request at least 24 hours' notice for cancellations. Late cancellations or no-shows may incur a fee, particularly for med spa services that require significant appointment time."
-              },
-              {
-                question: "How do I request a prescription refill?",
-                answer: "The easiest way to request a refill is through our patient portal. Alternatively, you can call our office or have your pharmacy send a refill request."
-              },
-              {
-                question: "Are medical and spa services billed separately?",
-                answer: "Yes, internal medicine services and med spa services are billed separately. Internal medicine services may be covered by insurance, while med spa services are typically self-pay."
-              }
-            ].map((faq, index) => (
-              <div key={index} className="bg-white p-6 rounded-xl shadow-sm">
+            {[{
+            question: "What should I bring to my first appointment?",
+            answer: "Please bring your insurance card, photo ID, completed new patient forms, a list of current medications, and any relevant medical records or test results."
+          }, {
+            question: "How do I schedule a telehealth appointment?",
+            answer: "New patients can schedule a telehealth appointment by calling our office directly. We offer telehealth services in four states: New York, Illinois, Pennsylvania, and Florida. Telehealth is especially popular for our Medical Weight Loss program. Note that new patients won't have access to the patient portal until after their first appointment."
+          }, {
+            question: "Do you offer payment plans for med spa services?",
+            answer: "Yes, we offer payment plans for certain med spa packages. Please inquire during your consultation for more details about financing options."
+          }, {
+            question: "What is your cancellation policy?",
+            answer: "We request at least 24 hours' notice for cancellations. Late cancellations or no-shows may incur a fee, particularly for med spa services that require significant appointment time."
+          }, {
+            question: "How do I request a prescription refill?",
+            answer: "The easiest way to request a refill is through our patient portal. Alternatively, you can call our office or have your pharmacy send a refill request."
+          }, {
+            question: "Are medical and spa services billed separately?",
+            answer: "Yes, internal medicine services and med spa services are billed separately. Internal medicine services may be covered by insurance, while med spa services are typically self-pay."
+          }].map((faq, index) => <div key={index} className="bg-white p-6 rounded-xl shadow-sm">
                 <h3 className="text-lg font-semibold mb-3">{faq.question}</h3>
                 <p className="text-gray-600">{faq.answer}</p>
-              </div>
-            ))}
+              </div>)}
           </div>
         </div>
       </section>
 
-      <CallToAction
-        title="Have More Questions?"
-        description="Our team is here to help. Contact us for any questions about your care, insurance, or appointments."
-        primaryButtonText="Request Consultation"
-        primaryButtonLink="/contact"
-      />
-    </>
-  );
+      <CallToAction title="Have More Questions?" description="Our team is here to help. Contact us for any questions about your care, insurance, or appointments." primaryButtonText="Request Consultation" primaryButtonLink="/contact" />
+    </>;
 };
-
 export default PatientResources;
