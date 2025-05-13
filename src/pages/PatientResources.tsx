@@ -1,3 +1,4 @@
+
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { FileText, ExternalLink, AlertCircle, Download, Shield, CreditCard } from "lucide-react";
@@ -12,8 +13,8 @@ const PatientResources = () => {
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div>
-              <img alt="Patient using laptop for telehealth" className="rounded-2xl shadow-lg" src="/lovable-uploads/35cbd64e-9f91-4ff9-bf50-4bfe3225b0b2.jpg" />
+            <div className="flex justify-center items-center">
+              <img alt="Patient using laptop for telehealth" className="rounded-2xl shadow-lg max-w-full" src="/lovable-uploads/35cbd64e-9f91-4ff9-bf50-4bfe3225b0b2.jpg" />
             </div>
             <div className="space-y-6">
               <SectionHeader title="Patient Portal" subtitle="Manage your health information online" align="left" className="mb-6" />
