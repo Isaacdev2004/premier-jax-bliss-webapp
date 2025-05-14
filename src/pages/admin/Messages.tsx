@@ -16,12 +16,13 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { Search, Trash2, Eye, Reply } from "lucide-react";
+import { Search, Trash2, Eye, Reply, Loader2 } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { useMessages } from "@/hooks/admin/use-messages";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 const Messages = () => {
   const { messages, isLoading, updateReadStatus, deleteMessage } = useMessages();
@@ -31,6 +32,7 @@ const Messages = () => {
   const [openDialog, setOpenDialog] = useState(false);
   const [replyMode, setReplyMode] = useState(false);
   const [replyText, setReplyText] = useState("");
+  const [isSending, setIsSending] = useState(false);
 
   const filteredMessages = messages.filter(
     (message) =>
@@ -59,7 +61,7 @@ const Messages = () => {
     setReplyMode(true);
   };
 
-  const handleSendReply = () => {
+  const handleSendReply = async () => {
     if (!replyText.trim()) {
       toast({
         title: "Error",
@@ -69,30 +71,39 @@ const Messages = () => {
       return;
     }
 
+    setIsSending(true);
+    
     try {
-      // Create email subject and body
-      const subject = encodeURIComponent(`Re: ${selectedMessage?.subject}`);
-      const body = encodeURIComponent(
-        `${replyText}\n\n--------------------\nOriginal message:\n${selectedMessage?.message}`
-      );
+      // Call our edge function to send the email
+      const { error } = await supabase.functions.invoke('send-reply', {
+        body: {
+          messageId: selectedMessage?.id,
+          replyText: replyText
+        }
+      });
       
-      // Open email client with pre-filled fields
-      window.open(`mailto:${selectedMessage?.email}?subject=${subject}&body=${body}`);
+      if (error) {
+        throw new Error(error.message || 'Failed to send reply');
+      }
       
       toast({
-        title: "Reply Initiated",
-        description: "Your email client has been opened with the reply",
+        title: "Reply Sent",
+        description: `Your reply was sent to ${selectedMessage?.email}`,
       });
       
       setReplyMode(false);
       setReplyText("");
+      setOpenDialog(false);
+      
     } catch (error) {
       console.error("Error sending reply:", error);
       toast({
         title: "Error",
-        description: "There was a problem opening your email client",
+        description: "Failed to send reply. Please try again.",
         variant: "destructive",
       });
+    } finally {
+      setIsSending(false);
     }
   };
 
@@ -245,15 +256,24 @@ const Messages = () => {
                 <Button
                   variant="outline"
                   onClick={() => setReplyMode(false)}
+                  disabled={isSending}
                 >
                   Cancel
                 </Button>
                 <Button
                   variant="default"
                   onClick={handleSendReply}
+                  disabled={isSending}
                   className="bg-jax-primary hover:bg-jax-primary/90"
                 >
-                  Send Reply
+                  {isSending ? (
+                    <>
+                      <Loader2 className="h-4 w-4 mr-2 animate-spin" />
+                      Sending...
+                    </>
+                  ) : (
+                    "Send Reply"
+                  )}
                 </Button>
               </div>
             </>
