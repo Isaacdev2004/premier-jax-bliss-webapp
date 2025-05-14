@@ -44,7 +44,7 @@ const AdminSidebar = ({ handleLogout }: AdminSidebarProps) => {
           </div>
           <div className="flex flex-col">
             <span className="text-sm font-semibold">Admin Portal</span>
-            <span className="text-xs text-muted-foreground">Dr. Ameera Donzo</span>
+            <span className="text-xs text-muted-foreground">Dr. Donzo</span>
           </div>
           <SidebarTrigger className="ml-auto" />
         </div>
