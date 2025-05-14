@@ -83,7 +83,9 @@ export type Database = {
           created_at: string
           date: string
           email: string
+          has_been_replied: boolean | null
           id: number
+          last_replied_at: string | null
           message: string
           name: string
           read: boolean
@@ -93,7 +95,9 @@ export type Database = {
           created_at?: string
           date: string
           email: string
+          has_been_replied?: boolean | null
           id?: number
+          last_replied_at?: string | null
           message: string
           name: string
           read?: boolean
@@ -103,7 +107,9 @@ export type Database = {
           created_at?: string
           date?: string
           email?: string
+          has_been_replied?: boolean | null
           id?: number
+          last_replied_at?: string | null
           message?: string
           name?: string
           read?: boolean
