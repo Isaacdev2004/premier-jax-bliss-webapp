@@ -14,13 +14,13 @@ const PageHeader = ({
   subtitle, 
   children, 
   className = "", 
-  backgroundImage = "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158" 
+  backgroundImage = "/lovable-uploads/34d28798-6a3b-4bfc-8144-7527883a3bd9.png" 
 }: PageHeaderProps) => {
   return (
     <div 
       className={`relative bg-gray-50 py-12 md:py-20 transform transition-all duration-500 ease-in-out hover:shadow-xl ${className}`}
       style={{ 
-        backgroundImage: `linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url(${backgroundImage})`,
+        backgroundImage: `linear-gradient(rgba(255,255,255,0.92), rgba(255,255,255,0.92)), url(${backgroundImage})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat'
