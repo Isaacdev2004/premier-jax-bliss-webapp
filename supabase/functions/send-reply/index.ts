@@ -65,17 +65,22 @@ const handler = async (req: Request): Promise<Response> => {
 
     console.log("Email sent successfully:", emailResponse);
 
-    // Update message with reply information
-    const { error: updateError } = await supabase
-      .from("messages")
-      .update({ 
-        last_replied_at: new Date().toISOString(),
-        has_been_replied: true
-      })
-      .eq("id", messageId);
-    
-    if (updateError) {
+    // Try to update message with reply information using snake_case for column names
+    try {
+      const { error: updateError } = await supabase
+        .from("messages")
+        .update({ 
+          has_been_replied: true,
+          last_replied_at: new Date().toISOString()
+        })
+        .eq("id", messageId);
+      
+      if (updateError) {
+        console.error("Error updating message status:", updateError);
+      }
+    } catch (updateError) {
       console.error("Error updating message status:", updateError);
+      // Continue execution even if this fails
     }
 
     return new Response(JSON.stringify({ success: true, emailResponse }), {

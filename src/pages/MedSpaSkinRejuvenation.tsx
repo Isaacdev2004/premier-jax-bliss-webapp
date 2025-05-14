@@ -76,8 +76,8 @@ const MedSpaSkinRejuvenation = () => {
       <CallToAction
         title="Ready to Rejuvenate Your Skin?"
         description="Schedule your consultation today to learn how our skin rejuvenation treatments can help you achieve healthier, more radiant skin."
-        buttonLabel="Book an Appointment"
-        buttonHref="/appointment"
+        primaryButtonText="Book an Appointment"
+        primaryButtonLink="/appointment"
       />
     </>
   );
