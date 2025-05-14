@@ -1,3 +1,4 @@
+
 @import "./styles/animations.css";
 @tailwind base;
 @tailwind components;
@@ -43,6 +44,12 @@
     --sidebar-accent-foreground: 168 75% 25%;
     --sidebar-border: 168 30% 91%;
     --sidebar-ring: 168 75% 60%;
+
+    /* New blue-themed colors */
+    --blue-light: 210 100% 95%;
+    --blue-medium: 210 100% 50%;
+    --blue-dark: 210 100% 30%;
+    --blue-accent: 195 100% 50%;
   }
 
   .dark {
@@ -90,6 +97,80 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-gradient-to-br from-white to-blue-50 text-foreground min-h-screen;
+  }
+}
+
+/* Enhanced Animation Classes */
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 0.8s ease forwards;
+}
+
+.slide-up {
+  transform: translateY(30px);
+  opacity: 0;
+  animation: slideUp 0.8s ease forwards;
+}
+
+.scale-in {
+  transform: scale(0.95);
+  opacity: 0;
+  animation: scaleIn 0.8s ease forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
+.stagger-5 { animation-delay: 0.5s; }
+
+/* Fancy Gradient Cards */
+.gradient-card {
+  background: linear-gradient(225deg, #e2f3ff 0%, #ffffff 100%);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+  transition: all 0.4s ease;
+}
+
+.gradient-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(31, 38, 135, 0.25);
+}
+
+/* Interactive elements */
+.pulse-element {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(31, 162, 255, 0.6);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(31, 162, 255, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(31, 162, 255, 0);
   }
 }
