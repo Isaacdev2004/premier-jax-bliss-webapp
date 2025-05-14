@@ -5,34 +5,75 @@ import { Calendar, ShieldCheck, Activity, HeartPulse, Stethoscope, PenTool } fro
 import SectionHeader from "@/components/SectionHeader";
 import ServiceCard from "@/components/ServiceCard";
 import CallToAction from "@/components/CallToAction";
+import PageHeader from "@/components/PageHeader";
 
 const InternalMedicine = () => {
   return (
     <>
-      {/* Custom Header */}
-      <section className="bg-gradient-to-r from-jax-medical/5 to-jax-medical/10 py-16">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-            <div className="space-y-6">
-              <h1 className="text-4xl md:text-5xl font-semibold text-gray-800 animate-slide-in">
-                Internal Medicine
+      {/* Updated Hero Section */}
+      <section className="relative overflow-hidden bg-gradient-to-br from-blue-50/70 via-white to-blue-100/50 py-20">
+        {/* Decorative elements */}
+        <div className="absolute top-20 left-10 w-32 h-32 blue-blob medium opacity-40 z-0"></div>
+        <div className="absolute bottom-10 right-20 w-24 h-24 blue-blob small opacity-30 z-0"></div>
+        
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+            <div className="space-y-8 fade-in">
+              <div className="inline-block px-4 py-2 bg-jax-medical/10 rounded-full">
+                <span className="text-jax-medical font-medium text-sm uppercase tracking-wider">Dr. Donzo's Practice</span>
+              </div>
+              
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold gradient-text leading-tight">
+                Internal Medicine Excellence
               </h1>
-              <p className="text-lg text-gray-600 max-w-xl animate-slide-in" style={{ animationDelay: '0.2s' }}>
-                Comprehensive primary care for adults focused on prevention, diagnosis, and treatment of diseases, provided by Dr. Donzo.
+              
+              <p className="text-lg text-gray-700 max-w-xl slide-up" style={{ animationDelay: '0.2s' }}>
+                Comprehensive primary care focused on prevention, diagnosis, and personalized treatment plans to enhance your overall health and wellbeing.
               </p>
-              <div className="animate-slide-in" style={{ animationDelay: '0.4s' }}>
-                <Button className="bg-jax-medical hover:bg-jax-medical/90" size="lg" asChild>
-                  <Link to="/contact">Request Consultation</Link>
+              
+              <div className="flex flex-wrap gap-4 slide-up" style={{ animationDelay: '0.4s' }}>
+                <Button className="gradient-button shadow-lg" size="lg" asChild>
+                  <Link to="/contact">Schedule Appointment</Link>
+                </Button>
+                <Button className="bg-white border border-jax-medical/20 text-jax-medical hover:bg-jax-medical/5" size="lg" asChild>
+                  <Link to="#services">Explore Services</Link>
                 </Button>
               </div>
+              
+              <div className="grid grid-cols-2 gap-4 pt-4 slide-up" style={{ animationDelay: '0.6s' }}>
+                <div className="flex items-center space-x-2">
+                  <div className="p-2 bg-blue-500/10 rounded-full">
+                    <ShieldCheck size={20} className="text-blue-600" />
+                  </div>
+                  <span className="text-sm font-medium">Preventive Care</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <div className="p-2 bg-teal-500/10 rounded-full">
+                    <HeartPulse size={20} className="text-teal-600" />
+                  </div>
+                  <span className="text-sm font-medium">Personalized Plans</span>
+                </div>
+              </div>
             </div>
-            <div className="flex justify-center md:justify-end">
+
+            <div className="flex justify-center relative group">
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-teal-500/20 rounded-3xl blur-xl transform group-hover:scale-105 transition-all duration-500 opacity-70"></div>
               <img 
                 src="/lovable-uploads/237c70b9-40ec-4070-97d7-5b907f2bc934.png"
-                alt="Internal Medicine Logo"
-                className="w-[400px] h-auto animate-slide-in transform hover:scale-105 transition-all duration-500"
-                style={{ animationDelay: '0.6s' }}
+                alt="Internal Medicine Practice"
+                className="relative z-10 w-[90%] h-auto rounded-2xl shadow-xl transform hover:scale-102 transition-all duration-500 float-animation"
               />
+              <div className="absolute -bottom-4 -right-4 bg-white/90 backdrop-blur-sm p-4 rounded-xl shadow-lg z-20 slide-up" style={{ animationDelay: '0.8s' }}>
+                <div className="flex items-center space-x-3">
+                  <div className="p-2 bg-jax-medical/10 rounded-full">
+                    <Calendar size={20} className="text-jax-medical" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold">Available Now</p>
+                    <p className="text-xs text-gray-500">Mon-Fri, 9am-5pm</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
