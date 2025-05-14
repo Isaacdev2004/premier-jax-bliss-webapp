@@ -195,7 +195,7 @@ const HomePage = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[{
             name: "Sarah Johnson",
-            text: "Dr. Anderson is incredibly thorough and caring. I've never felt rushed during my appointments, and she takes the time to explain everything clearly.",
+            text: "Dr. Donzo is incredibly thorough and caring. I've never felt rushed during my appointments, and she takes the time to explain everything clearly.",
             service: "Internal Medicine"
           }, {
             name: "Michael Rodriguez",
