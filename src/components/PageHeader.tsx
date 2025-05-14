@@ -20,7 +20,7 @@ const PageHeader = ({
     <div 
       className={`relative bg-gray-50 py-12 md:py-20 transform transition-all duration-500 ease-in-out hover:shadow-xl ${className}`}
       style={{ 
-        backgroundImage: `linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)), url(${backgroundImage})`,
+        backgroundImage: `linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url(${backgroundImage})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat'
