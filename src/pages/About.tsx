@@ -3,6 +3,7 @@ import PageHeader from "@/components/PageHeader";
 import SectionHeader from "@/components/SectionHeader";
 import CallToAction from "@/components/CallToAction";
 import { Star } from "lucide-react";
+
 const About = () => {
   return <>
       <PageHeader title="About JAX Premier Health Center" subtitle="Providing comprehensive internal medicine and med spa services to the Jacksonville community." />
@@ -16,7 +17,7 @@ const About = () => {
             <div className="space-y-6">
               <SectionHeader title="Our Story" align="left" className="mb-6" />
               <p className="text-gray-600">
-                Welcome to JAX Premier Health Center, a modern internal medicine and wellness clinic located in the heart of Jacksonville, Florida. Founded and led by Dr. Ameera Donzo, we specialize in adult care (ages 18+), offering a full spectrum of services including primary care, medical weight loss, IV therapy, mental health counseling, and aesthetic treatments through our in-house med spa, Vivid Bliss.
+                Welcome to JAX Premier Health Center, a modern internal medicine and wellness clinic located in the heart of Jacksonville, Florida. Founded and led by Dr. Donzo, we specialize in adult care (ages 18+), offering a full spectrum of services including primary care, medical weight loss, IV therapy, mental health counseling, and aesthetic treatments through our in-house med spa, Vivid Bliss.
               </p>
               <p className="text-gray-600">
                 Our philosophy is simple: healthcare should be personal, empowering, and holistic. Dr. Donzo takes time to listen, collaborate with patients on their goals, and provide evidence-based treatments in a supportive environment. Whether you're managing chronic conditions, striving for weight loss, or seeking preventative care, we're here to support your total well-being.
@@ -36,13 +37,13 @@ const About = () => {
           <div className="max-w-4xl mx-auto">
             <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col md:flex-row items-stretch">
               <div className="w-full md:w-2/5 h-[400px] relative overflow-hidden">
-                <img src="/lovable-uploads/8402697b-090a-4447-ad63-68d6ee38f7de.png" alt="Dr. Ameera Donzo" className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500" />
+                <img src="/lovable-uploads/8402697b-090a-4447-ad63-68d6ee38f7de.png" alt="Dr. Donzo" className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
               </div>
               <div className="p-8 lg:p-10 w-full md:w-3/5 flex flex-col justify-center bg-gradient-to-br from-white to-jax-secondary/10">
                 <div className="space-y-6">
                   <div className="space-y-2">
-                    <h3 className="text-3xl font-semibold text-gray-800">Dr. Ameera Donzo</h3>
+                    <h3 className="text-3xl font-semibold text-gray-800">Dr. Donzo</h3>
                     <p className="text-jax-primary font-medium text-lg flex items-center gap-2">
                       <Star className="h-5 w-5 fill-jax-primary" />
                       Founder & Medical Director
@@ -113,4 +114,5 @@ She saw the demand for Primary Care in the area. She loves the North Florida wea
       <CallToAction title="Experience the JAX Premier Difference" description="Schedule your consultation today with Dr. Donzo and discover comprehensive care for your health and wellness needs." primaryButtonText="Request Consultation" primaryButtonLink="/contact" />
     </>;
 };
+
 export default About;

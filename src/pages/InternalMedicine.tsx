@@ -18,7 +18,7 @@ const InternalMedicine = () => {
                 Internal Medicine
               </h1>
               <p className="text-lg text-gray-600 max-w-xl animate-slide-in" style={{ animationDelay: '0.2s' }}>
-                Comprehensive primary care for adults focused on prevention, diagnosis, and treatment of diseases, provided by Dr. Ameera Donzo.
+                Comprehensive primary care for adults focused on prevention, diagnosis, and treatment of diseases, provided by Dr. Donzo.
               </p>
               <div className="animate-slide-in" style={{ animationDelay: '0.4s' }}>
                 <Button className="bg-jax-medical hover:bg-jax-medical/90" size="lg" asChild>
