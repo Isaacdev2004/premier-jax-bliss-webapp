@@ -1,5 +1,6 @@
 
 @import "./styles/animations.css";
+@import "./styles/medSpa.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -45,7 +46,7 @@
     --sidebar-border: 168 30% 91%;
     --sidebar-ring: 168 75% 60%;
 
-    /* New blue-themed colors */
+    /* Blue-themed colors */
     --blue-light: 210 100% 95%;
     --blue-medium: 210 100% 50%;
     --blue-dark: 210 100% 30%;
@@ -139,6 +140,7 @@
   }
 }
 
+/* Staggered animations */
 .stagger-1 { animation-delay: 0.1s; }
 .stagger-2 { animation-delay: 0.2s; }
 .stagger-3 { animation-delay: 0.3s; }
@@ -173,4 +175,28 @@
   100% {
     box-shadow: 0 0 0 0 rgba(31, 162, 255, 0);
   }
+}
+
+/* Gradient text and buttons */
+.gradient-text {
+  @apply bg-gradient-to-r from-blue-600 to-teal-500 bg-clip-text text-transparent;
+}
+
+.gradient-button {
+  @apply bg-gradient-to-r from-blue-600 to-teal-500 hover:from-blue-700 hover:to-teal-600 text-white transition-all duration-300 hover:shadow-lg transform hover:-translate-y-0.5;
+}
+
+/* Blue theme specific styles */
+.blue-theme-section {
+  @apply relative overflow-hidden bg-gradient-to-br from-blue-50/50 via-white to-blue-50/30;
+}
+
+.blue-theme-section::before {
+  content: "";
+  @apply absolute -top-20 -left-20 w-40 h-40 rounded-full bg-blue-200/20 blur-3xl;
+}
+
+.blue-theme-section::after {
+  content: "";
+  @apply absolute -bottom-20 -right-20 w-64 h-64 rounded-full bg-teal-200/20 blur-3xl;
 }

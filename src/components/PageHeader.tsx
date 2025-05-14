@@ -20,22 +20,28 @@ const PageHeader = ({
     <div 
       className={`relative bg-gradient-to-r from-blue-50 to-teal-50 py-12 md:py-20 transform transition-all duration-500 ease-in-out hover:shadow-xl ${className}`}
       style={{ 
-        backgroundImage: `linear-gradient(rgba(255,255,255,0.4), rgba(255,255,255,0.4)), url(${backgroundImage})`,
+        backgroundImage: `linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)), url(${backgroundImage})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat'
       }}
     >
+      {/* Blue gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-teal-500/5"></div>
+      
+      {/* Content */}
       <div className="container mx-auto px-4 text-center relative z-10">
-        <h1 className="text-3xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-teal-600 mb-4 animate-slide-in">{title}</h1>
+        <h1 className="text-3xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-teal-600 mb-4 fade-in">
+          {title}
+        </h1>
         {subtitle && (
-          <p className="text-lg text-gray-700 max-w-2xl mx-auto mb-6 animate-slide-in" 
+          <p className="text-lg text-gray-700 max-w-2xl mx-auto mb-6 slide-up" 
              style={{ animationDelay: '0.2s' }}
           >
             {subtitle}
           </p>
         )}
-        <div className="animate-slide-in" style={{ animationDelay: '0.4s' }}>
+        <div className="slide-up" style={{ animationDelay: '0.4s' }}>
           {children}
         </div>
       </div>
