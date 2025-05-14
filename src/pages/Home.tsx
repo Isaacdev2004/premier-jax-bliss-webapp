@@ -1,3 +1,4 @@
+
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Calendar, Star, Users, Heart, Activity, ShieldCheck, Stethoscope, HomeIcon, User, MapPin } from "lucide-react";
@@ -257,7 +258,7 @@ const HomePage = () => {
         </div>
       </section>
 
-      <CallToAction title="Ready to Get Started?" description="Schedule your consultation today and take the first step toward better health and wellness." primaryButtonText="Request Consultation" primaryButtonLink="/contact" />
+      <CallToAction title="Ready to Get Started?" description="Schedule your consultation today and take the first step toward better health and wellness with Dr. Donzo." primaryButtonText="Request Consultation" primaryButtonLink="/contact" />
     </>;
 };
 export default HomePage;
