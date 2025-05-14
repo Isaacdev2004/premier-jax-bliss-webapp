@@ -3,37 +3,16 @@ import PageHeader from "@/components/PageHeader";
 import SectionHeader from "@/components/SectionHeader";
 import CallToAction from "@/components/CallToAction";
 import { Star } from "lucide-react";
-import { AspectRatio } from "@/components/ui/aspect-ratio";
-import { cn } from "@/lib/utils";
 
 const About = () => {
   return <>
-      <PageHeader 
-        title="About JAX Premier Health Center" 
-        subtitle="Providing comprehensive internal medicine and med spa services to the Jacksonville community." 
-        backgroundImage="/lovable-uploads/966c0437-8433-4d10-9131-1b3a1122f132.png"
-        className="bg-blend-screen"
-      />
+      <PageHeader title="About JAX Premier Health Center" subtitle="Providing comprehensive internal medicine and med spa services to the Jacksonville community." />
 
-      <section className="py-16 relative">
-        <div 
-          className="absolute inset-0 opacity-10 z-0" 
-          style={{ 
-            backgroundImage: "url('/lovable-uploads/966c0437-8433-4d10-9131-1b3a1122f132.png')",
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat'
-          }}
-        ></div>
-        <div className="container mx-auto px-4 relative z-10">
+      <section className="py-16">
+        <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div>
-              <AspectRatio ratio={16/9} className="bg-muted rounded-2xl overflow-hidden shadow-xl">
-                <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" 
-                  alt="JAX Premier Health Center" 
-                  className="object-cover h-full w-full rounded-2xl transition-transform duration-500 hover:scale-105" 
-                />
-              </AspectRatio>
+              <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="JAX Premier Health Center" className="rounded-2xl shadow-lg" />
             </div>
             <div className="space-y-6">
               <SectionHeader title="Our Story" align="left" className="mb-6" />
@@ -51,21 +30,12 @@ const About = () => {
         </div>
       </section>
 
-      <section className="py-16 bg-gradient-to-br from-jax-secondary/50 to-white relative">
-        <div 
-          className="absolute inset-0 opacity-5 z-0" 
-          style={{ 
-            backgroundImage: "url('/lovable-uploads/966c0437-8433-4d10-9131-1b3a1122f132.png')",
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat'
-          }}
-        ></div>
-        <div className="container mx-auto px-4 relative z-10">
+      <section className="py-16 bg-gradient-to-br from-jax-secondary/50 to-white">
+        <div className="container mx-auto px-4">
           <SectionHeader title="Our Founder" subtitle="Meet the visionary behind JAX Premier Health Center." />
 
           <div className="max-w-4xl mx-auto">
-            <div className="bg-white/90 backdrop-blur-sm rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col md:flex-row items-stretch">
+            <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col md:flex-row items-stretch">
               <div className="w-full md:w-2/5 h-[400px] relative overflow-hidden">
                 <img src="/lovable-uploads/8402697b-090a-4447-ad63-68d6ee38f7de.png" alt="Dr. Donzo" className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
@@ -106,17 +76,8 @@ She saw the demand for Primary Care in the area. She loves the North Florida wea
         </div>
       </section>
 
-      <section className="py-16 relative">
-        <div 
-          className="absolute inset-0 opacity-5 z-0" 
-          style={{ 
-            backgroundImage: "url('/lovable-uploads/966c0437-8433-4d10-9131-1b3a1122f132.png')",
-            backgroundSize: 'cover', 
-            backgroundPosition: 'center',
-            backgroundAttachment: 'fixed'
-          }}
-        ></div>
-        <div className="container mx-auto px-4 relative z-10">
+      <section className="py-16">
+        <div className="container mx-auto px-4">
           <SectionHeader title="Patient Testimonials" subtitle="Here's what our patients have to say about their experiences with Dr. Donzo at JAX Premier Health Center." />
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -136,11 +97,7 @@ She saw the demand for Primary Care in the area. She loves the North Florida wea
             quote: "The anti-aging treatments I've received from Dr. Donzo at Vivid Bliss have made a noticeable difference. Friends keep asking what my secret is!",
             name: "Patricia Miller",
             service: "Med Spa Patient"
-          }].map((testimonial, index) => (
-              <div 
-                key={index} 
-                className="bg-white/80 backdrop-blur-sm p-8 rounded-xl shadow hover:shadow-md transition-shadow"
-              >
+          }].map((testimonial, index) => <div key={index} className="bg-gray-50 p-8 rounded-xl">
                 <div className="flex mb-4">
                   {[...Array(5)].map((_, i) => <Star key={i} size={18} className="fill-jax-primary text-jax-primary" />)}
                 </div>
@@ -149,18 +106,12 @@ She saw the demand for Primary Care in the area. She loves the North Florida wea
                   <p className="font-semibold">{testimonial.name}</p>
                   <p className="text-sm text-gray-500">{testimonial.service}</p>
                 </div>
-              </div>
-            ))}
+              </div>)}
           </div>
         </div>
       </section>
 
-      <CallToAction 
-        title="Experience the JAX Premier Difference" 
-        description="Schedule your consultation today with Dr. Donzo and discover comprehensive care for your health and wellness needs." 
-        primaryButtonText="Request Consultation" 
-        primaryButtonLink="/contact" 
-      />
+      <CallToAction title="Experience the JAX Premier Difference" description="Schedule your consultation today with Dr. Donzo and discover comprehensive care for your health and wellness needs." primaryButtonText="Request Consultation" primaryButtonLink="/contact" />
     </>;
 };
 
