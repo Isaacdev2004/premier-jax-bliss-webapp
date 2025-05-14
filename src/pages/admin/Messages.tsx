@@ -16,13 +16,14 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { Search, Trash2, Eye, Reply, Loader2 } from "lucide-react";
+import { Search, Trash2, Eye, Reply, Loader2, CheckCircle2 } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { useMessages } from "@/hooks/admin/use-messages";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
+import { format } from "date-fns";
 
 const Messages = () => {
   const { messages, isLoading, updateReadStatus, deleteMessage } = useMessages();
@@ -107,6 +108,15 @@ const Messages = () => {
     }
   };
 
+  const formatReplyDate = (dateString?: string) => {
+    if (!dateString) return "";
+    try {
+      return format(new Date(dateString), "MMM d, yyyy 'at' h:mm a");
+    } catch (e) {
+      return dateString;
+    }
+  };
+
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
@@ -139,6 +149,7 @@ const Messages = () => {
               <TableHead>Email</TableHead>
               <TableHead>Subject</TableHead>
               <TableHead>Date</TableHead>
+              <TableHead>Replied</TableHead>
               <TableHead className="text-right">Actions</TableHead>
             </TableRow>
           </TableHeader>
@@ -150,6 +161,7 @@ const Messages = () => {
                   <TableCell><Skeleton className="h-4 w-24" /></TableCell>
                   <TableCell><Skeleton className="h-4 w-32" /></TableCell>
                   <TableCell><Skeleton className="h-4 w-40" /></TableCell>
+                  <TableCell><Skeleton className="h-4 w-20" /></TableCell>
                   <TableCell><Skeleton className="h-4 w-20" /></TableCell>
                   <TableCell className="text-right">
                     <div className="flex justify-end gap-2">
@@ -175,6 +187,16 @@ const Messages = () => {
                   <TableCell>{message.email}</TableCell>
                   <TableCell>{message.subject}</TableCell>
                   <TableCell>{message.date}</TableCell>
+                  <TableCell>
+                    {message.hasBeenReplied ? (
+                      <div className="flex items-center text-xs text-green-600">
+                        <CheckCircle2 className="h-3 w-3 mr-1" />
+                        <span>{formatReplyDate(message.lastRepliedAt)}</span>
+                      </div>
+                    ) : (
+                      <span className="text-xs text-muted-foreground">Not replied</span>
+                    )}
+                  </TableCell>
                   <TableCell className="text-right">
                     <div className="flex justify-end gap-2">
                       <Button
@@ -197,7 +219,7 @@ const Messages = () => {
               ))
             ) : (
               <TableRow>
-                <TableCell colSpan={6} className="text-center py-6">
+                <TableCell colSpan={7} className="text-center py-6">
                   No messages found
                 </TableCell>
               </TableRow>
@@ -221,6 +243,14 @@ const Messages = () => {
               <div className="mt-4 p-4 bg-muted rounded-md">
                 <p className="whitespace-pre-wrap">{selectedMessage?.message}</p>
               </div>
+              
+              {selectedMessage?.hasBeenReplied && (
+                <div className="mt-2 text-sm text-green-600 flex items-center">
+                  <CheckCircle2 className="h-4 w-4 mr-1" />
+                  <span>Replied on {formatReplyDate(selectedMessage?.lastRepliedAt)}</span>
+                </div>
+              )}
+              
               <div className="flex justify-between mt-4">
                 <Button
                   variant="secondary"
@@ -228,7 +258,7 @@ const Messages = () => {
                   className="flex items-center gap-2"
                 >
                   <Reply className="h-4 w-4" />
-                  Reply
+                  {selectedMessage?.hasBeenReplied ? "Reply Again" : "Reply"}
                 </Button>
                 <Button
                   variant="outline"

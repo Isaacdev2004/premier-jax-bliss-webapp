@@ -121,12 +121,14 @@ const MedSpaBotoxInjections = () => {
       </div>
       
       {/* Custom CSS for the animated elements */}
-      <style jsx="true">{`
+      <style>
+        {`
         .animated-element.visible {
           opacity: 1;
           transform: translateY(0);
         }
-      `}</style>
+        `}
+      </style>
     </div>
   );
 };

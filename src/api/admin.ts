@@ -1,4 +1,3 @@
-
 import { supabase } from "@/integrations/supabase/client";
 import { 
   Booking, 
@@ -80,7 +79,9 @@ export const fetchMessages = async (): Promise<Message[]> => {
     message: message.message,
     date: message.date,
     read: message.read,
-    createdAt: message.created_at
+    createdAt: message.created_at,
+    hasBeenReplied: message.has_been_replied || false,
+    lastRepliedAt: message.last_replied_at
   }));
 };
 

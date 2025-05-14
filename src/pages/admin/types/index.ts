@@ -1,4 +1,3 @@
-
 // Common types used across the admin portal
 export interface Booking {
   id: number;
@@ -22,6 +21,8 @@ export interface Message {
   date: string;
   read: boolean;
   createdAt: string;
+  hasBeenReplied?: boolean;
+  lastRepliedAt?: string;
 }
 
 export interface Notification {
