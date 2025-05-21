@@ -15,8 +15,8 @@ const HeroSection = () => {
           backgroundPosition: "center"
         }}
       >
-        {/* Enhanced overlay with a more professional gradient */}
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 via-blue-800/70 to-blue-700/60 backdrop-blur-[1px]"></div>
+        {/* Reduced opacity gradient overlay for better image visibility */}
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/40 via-blue-800/30 to-blue-700/20 backdrop-blur-[0px]"></div>
         
         {/* Professional visual elements */}
         <div className="absolute top-20 left-10 w-40 h-40 rounded-full bg-blue-400/10 blur-3xl"></div>
@@ -26,7 +26,7 @@ const HeroSection = () => {
         <div className="container mx-auto px-4 py-12 md:py-16 relative z-10">
           <div className="max-w-3xl mx-auto text-center space-y-6">
             <div className="inline-block animate-fade-in">
-              <span className="bg-white/10 backdrop-blur-sm text-white px-4 py-1 rounded-full text-sm font-medium border border-white/20">
+              <span className="bg-black/30 backdrop-blur-sm text-white px-4 py-1 rounded-full text-sm font-medium border border-white/20">
                 Advanced Healthcare Solutions
               </span>
             </div>
@@ -37,20 +37,20 @@ const HeroSection = () => {
               </span>
             </h1>
             
-            <p className="text-xl text-blue-50 animate-slide-in stagger-2">
+            <p className="text-xl text-white drop-shadow-md animate-slide-in stagger-2">
               Experience innovative medical care and premium wellness services 
               tailored to your unique health journey.
             </p>
             
             {/* Feature highlights */}
             <div className="grid grid-cols-2 gap-4 max-w-md mx-auto my-6 animate-slide-in stagger-2">
-              <div className="flex items-center space-x-2 bg-white/10 backdrop-blur-sm rounded-lg p-2">
+              <div className="flex items-center space-x-2 bg-black/30 backdrop-blur-sm rounded-lg p-2">
                 <Shield className="h-5 w-5 text-blue-200" />
-                <span className="text-sm text-blue-50">Advanced Care</span>
+                <span className="text-sm text-white">Advanced Care</span>
               </div>
-              <div className="flex items-center space-x-2 bg-white/10 backdrop-blur-sm rounded-lg p-2">
+              <div className="flex items-center space-x-2 bg-black/30 backdrop-blur-sm rounded-lg p-2">
                 <Heart className="h-5 w-5 text-blue-200" />
-                <span className="text-sm text-blue-50">Personalized Health</span>
+                <span className="text-sm text-white">Personalized Health</span>
               </div>
             </div>
             
@@ -58,7 +58,7 @@ const HeroSection = () => {
               <Button className="bg-jax-primary hover:bg-jax-primary/90 w-full sm:w-auto shadow-lg" size="lg" asChild>
                 <Link to="/contact?type=consultation">Book Consultation <ChevronRight className="h-4 w-4" /></Link>
               </Button>
-              <Button variant="outline" className="bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20 w-full sm:w-auto" size="lg" asChild>
+              <Button variant="outline" className="bg-black/30 backdrop-blur-sm border-white/20 text-white hover:bg-white/20 w-full sm:w-auto" size="lg" asChild>
                 <Link to="/internal-medicine">Our Services</Link>
               </Button>
             </div>
@@ -66,7 +66,7 @@ const HeroSection = () => {
         </div>
         
         {/* Professional floating element */}
-        <div className="absolute bottom-8 right-8 bg-white/15 backdrop-blur-md p-3 rounded-xl border border-white/20 shadow-xl hidden md:block animate-fade-in">
+        <div className="absolute bottom-8 right-8 bg-black/30 backdrop-blur-md p-3 rounded-xl border border-white/20 shadow-xl hidden md:block animate-fade-in">
           <div className="text-white text-sm">
             <div className="font-semibold">Healthcare Reimagined</div>
             <div className="text-xs text-blue-100">Advanced Medical Technology</div>
