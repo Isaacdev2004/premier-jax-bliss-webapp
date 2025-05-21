@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Calendar, ShieldCheck, Activity, HeartPulse, Stethoscope, PenTool } from "lucide-react";
@@ -269,9 +268,9 @@ const InternalMedicine = () => {
             </div>
             <div className="order-1 md:order-2">
               <img
-                src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
-                alt="Telehealth consultation"
-                className="rounded-2xl shadow-lg"
+                src="/lovable-uploads/14c1fc86-23fc-4ba3-a0c6-b0b2aa4f748d.png"
+                alt="Doctor providing telehealth consultation"
+                className="rounded-2xl shadow-lg w-full h-auto object-cover"
               />
             </div>
           </div>
