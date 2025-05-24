@@ -1,7 +1,7 @@
-
 import PageHeader from "@/components/PageHeader";
 import SectionHeader from "@/components/SectionHeader";
 import CallToAction from "@/components/CallToAction";
+import SocialMediaLinks from "@/components/SocialMediaLinks";
 import { Star } from "lucide-react";
 
 const About = () => {
@@ -25,6 +25,13 @@ const About = () => {
               <p className="text-gray-600">
                 We accept both insurance and cash-pay patients, and offer flexible membership models for our weight loss and wellness services.
               </p>
+              
+              {/* Connect with us section */}
+              <div className="pt-6 border-t border-gray-200">
+                <h4 className="font-semibold text-lg mb-3">Connect With Us</h4>
+                <p className="text-gray-600 mb-4">Follow us on social media for health tips, updates, and behind-the-scenes content from our practice.</p>
+                <SocialMediaLinks size="lg" iconColor="text-gray-600" hoverColor="hover:text-jax-primary" />
+              </div>
             </div>
           </div>
         </div>
