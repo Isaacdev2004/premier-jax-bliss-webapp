@@ -56,7 +56,7 @@ const HeroSection = () => {
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-slide-in stagger-3">
               <Button className="bg-jax-primary hover:bg-jax-primary/90 w-full sm:w-auto shadow-lg" size="lg" asChild>
-                <Link to="/contact?type=consultation">Book Consultation <ChevronRight className="h-4 w-4" /></Link>
+                <Link to="/contact?type=consultation">Schedule a Visit <ChevronRight className="h-4 w-4" /></Link>
               </Button>
               <Button variant="outline" className="bg-black/30 backdrop-blur-sm border-white/20 text-white hover:bg-white/20 w-full sm:w-auto" size="lg" asChild>
                 <Link to="/internal-medicine">Our Services</Link>

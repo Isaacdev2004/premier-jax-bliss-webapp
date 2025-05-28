@@ -28,7 +28,7 @@ const CallToAction = ({
         <p className="mx-auto mb-8 max-w-2xl text-lg text-gray-600">{description}</p>
         <div className="flex justify-center">
           <Button className="bg-jax-primary hover:bg-jax-primary/90" size="lg" asChild>
-            <Link to={primaryButtonLink}>{primaryButtonText}</Link>
+            <Link to={primaryButtonLink}>Schedule a Visit</Link>
           </Button>
         </div>
       </div>

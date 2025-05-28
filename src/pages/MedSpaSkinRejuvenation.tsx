@@ -67,7 +67,7 @@ const MedSpaSkinRejuvenation = () => {
               that addresses your unique concerns and helps you achieve your desired results.
             </p>
             <Button className="bg-jax-primary hover:bg-jax-primary/90 text-lg px-8 py-6 rounded-lg">
-              Book Your Consultation
+              Schedule a Visit
             </Button>
           </div>
         </div>
@@ -76,7 +76,7 @@ const MedSpaSkinRejuvenation = () => {
       <CallToAction
         title="Ready to Rejuvenate Your Skin?"
         description="Schedule your consultation today to learn how our skin rejuvenation treatments can help you achieve healthier, more radiant skin."
-        primaryButtonText="Book an Appointment"
+        primaryButtonText="Schedule a Visit"
         primaryButtonLink="/appointment"
       />
     </>

@@ -64,7 +64,7 @@ const Banner = () => (
           className="rounded-full bg-gradient-to-r from-blue-600 to-teal-500 hover:from-blue-700 hover:to-teal-600 text-white shadow-md hover:shadow-lg px-7 py-2 font-medium text-base uppercase tracking-wide mt-1 transform transition-all hover:translate-y-[-2px] flex gap-2 items-center"
         >
           <Link to="/contact">
-            Book Your Consultation
+            Schedule a Visit
             <ArrowRight className="h-4 w-4 ml-1" />
           </Link>
         </Button>

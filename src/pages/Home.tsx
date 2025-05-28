@@ -23,7 +23,7 @@ const HomePage = () => {
       <CallToAction 
         title="Ready to Get Started?" 
         description="Schedule your consultation today and take the first step toward better health and wellness with Dr. Donzo." 
-        primaryButtonText="Request Consultation" 
+        primaryButtonText="Schedule a Visit" 
         primaryButtonLink="/contact" 
       />
     </>

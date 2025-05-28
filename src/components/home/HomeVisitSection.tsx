@@ -73,7 +73,7 @@ const HomeVisitSection = () => {
                 </Card>
               </div>
               <Button className="bg-jax-medical hover:bg-jax-medical/90" size="lg" asChild>
-                <Link to="/contact?service=home-visit">Request Home Visit</Link>
+                <Link to="/contact?service=home-visit">Schedule a Visit</Link>
               </Button>
             </div>
           </div>

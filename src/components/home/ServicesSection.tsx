@@ -44,7 +44,7 @@ const ServicesSection = () => {
                 </li>
               </ul>
               <Button className="w-full bg-jax-medical hover:bg-jax-medical/90" asChild>
-                <Link to="/internal-medicine">Book Appointment</Link>
+                <Link to="/internal-medicine">Schedule a Visit</Link>
               </Button>
             </div>
           </div>
@@ -79,7 +79,7 @@ const ServicesSection = () => {
                 </li>
               </ul>
               <Button className="w-full bg-jax-spa hover:bg-jax-spa/90" asChild>
-                <Link to="/med-spa">Request Consultation</Link>
+                <Link to="/med-spa">Schedule a Visit</Link>
               </Button>
             </div>
           </div>
