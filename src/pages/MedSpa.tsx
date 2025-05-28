@@ -26,10 +26,16 @@ const updatedMedSpaServices = [
     delay: 0.3,
   },
   {
+    title: "Wellness Services",
+    image: "https://images.unsplash.com/photo-1518495973542-4542c06a5843?auto=format&fit=facearea&w=460&h=320&facepad=2.5&q=80",
+    link: "/med-spa/wellness",
+    delay: 0.4,
+  },
+  {
     title: "Personalized Skin Rejuvenation Program",
     image: "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=facearea&w=460&h=320&facepad=3.5&q=80",
     link: "/med-spa/personalized-rejuvenation",
-    delay: 0.4,
+    delay: 0.5,
   },
 ];
 
@@ -102,7 +108,7 @@ const MedSpa = () => {
           Explore our med spa treatments, designed to help you reveal your most radiant, healthy, and youthful skin.
         </p>
         
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 pt-3 relative z-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 pt-3 relative z-10">
           {updatedMedSpaServices.map((service, index) => (
             <div 
               key={service.title} 

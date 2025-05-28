@@ -1,3 +1,4 @@
+
 import { lazy, Suspense } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
@@ -17,6 +18,7 @@ const MedSpaSkinRejuvenation = lazy(() => import("./pages/MedSpaSkinRejuvenation
 const MedSpaAcneTreatment = lazy(() => import("./pages/MedSpaAcneTreatment"));
 const MedSpaBotoxInjections = lazy(() => import("./pages/MedSpaBotoxInjections"));
 const MedSpaPersonalizedRejuvenation = lazy(() => import("./pages/MedSpaPersonalizedRejuvenation"));
+const MedSpaWellness = lazy(() => import("./pages/MedSpaWellness"));
 
 // Lazy load admin pages
 const AdminLogin = lazy(() => import("./pages/admin/Login"));
@@ -60,6 +62,7 @@ const App = () => (
             <Route path="med-spa/acne-treatment" element={<MedSpaAcneTreatment />} />
             <Route path="med-spa/botox-injections" element={<MedSpaBotoxInjections />} />
             <Route path="med-spa/personalized-rejuvenation" element={<MedSpaPersonalizedRejuvenation />} />
+            <Route path="med-spa/wellness" element={<MedSpaWellness />} />
             <Route path="patient-resources" element={<PatientResources />} />
             <Route path="contact" element={<Contact />} />
             <Route path="*" element={<NotFound />} />
