@@ -11,10 +11,12 @@ import ServicesSection from "@/components/home/ServicesSection";
 import HomeVisitSection from "@/components/home/HomeVisitSection";
 import TestimonialsSection from "@/components/home/TestimonialsSection";
 import WhyChooseUsSection from "@/components/home/WhyChooseUsSection";
+import HolidayNotification from "@/components/HolidayNotification";
 
 const HomePage = () => {
   return (
     <>
+      <HolidayNotification />
       <HeroSection />
       <ServicesSection />
       <HomeVisitSection />
