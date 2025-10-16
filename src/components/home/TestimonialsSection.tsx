@@ -11,13 +11,13 @@ const TestimonialsSection = () => {
     },
     {
       name: "Michael Rodriguez",
-      text: "The acne treatment program at Vivid Bliss has completely transformed my skin. The staff is knowledgeable and personalized my treatment plan.",
-      service: "Vivid Bliss Med Spa"
+      text: "Dr. Donzo's comprehensive approach to my health has made a real difference. She addresses not just symptoms but the root causes of health issues.",
+      service: "Internal Medicine"
     },
     {
       name: "Emma Wilson",
-      text: "I love that I can get both my medical care and skincare treatments in one place. JAX Premier Health Center provides exceptional service across the board.",
-      service: "Internal Medicine & Med Spa"
+      text: "JAX Premier Health Center provides exceptional, personalized care. Dr. Donzo truly listens and creates treatment plans that work for me.",
+      service: "Internal Medicine"
     }
   ];
 

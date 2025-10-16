@@ -22,7 +22,7 @@ const WhyChooseUsSection = () => {
     {
       icon: <Clock className="h-8 w-8 text-jax-primary" />,
       title: "Flexible Scheduling",
-      description: "Both internal medicine and med spa services available on weekdays, with appointments available on weekends for your convenience."
+      description: "Walk-ins welcome Monday through Thursday. Weekend appointments available by advance booking for your convenience."
     },
     {
       icon: <Calendar className="h-8 w-8 text-jax-primary" />,

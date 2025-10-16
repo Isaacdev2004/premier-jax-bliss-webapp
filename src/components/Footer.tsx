@@ -12,14 +12,13 @@ const Footer = () => {
               <div className="font-bold text-2xl text-jax-primary">JAX</div>
               <div className="flex flex-col leading-tight">
                 <span className="font-semibold text-sm">Premier Health Center</span>
-                <div className="flex text-xs text-gray-500 font-medium">
-                  <span className="border-r border-gray-300 pr-2 mr-2">Internal Medicine</span>
-                  <span>Vivid Bliss Med Spa</span>
-                </div>
+              <div className="flex text-xs text-gray-500 font-medium">
+                <span>Internal Medicine</span>
+              </div>
               </div>
             </div>
             <p className="text-gray-600 text-sm">
-              Comprehensive internal medicine care and luxury med spa services in one convenient location.
+              Comprehensive internal medicine care and wellness services for your health needs.
             </p>
             <div className="flex space-x-3">
               <a 
@@ -116,7 +115,6 @@ const Footer = () => {
               <Link to="/" className="text-gray-600 hover:text-jax-primary">Home</Link>
               <Link to="/about" className="text-gray-600 hover:text-jax-primary">About Us</Link>
               <Link to="/internal-medicine" className="text-gray-600 hover:text-jax-primary">Internal Medicine</Link>
-              <Link to="/med-spa" className="text-gray-600 hover:text-jax-primary">Vivid Bliss Med Spa</Link>
               <Link to="/patient-resources" className="text-gray-600 hover:text-jax-primary">Patient Resources</Link>
               <Link to="/contact" className="text-gray-600 hover:text-jax-primary">Contact</Link>
             </nav>

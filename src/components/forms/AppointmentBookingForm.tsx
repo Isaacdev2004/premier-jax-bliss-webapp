@@ -41,8 +41,7 @@ const AppointmentBookingForm = ({ onClose }: { onClose: () => void }) => {
       
       // Create the service options mapping
       const serviceOptions = {
-        "internal-medicine": "Internal Medicine",
-        "med-spa": "Med Spa Services"
+        "internal-medicine": "Internal Medicine"
       };
       
       const selectedService = serviceOptions[formData.service as keyof typeof serviceOptions] || formData.service;
@@ -154,10 +153,6 @@ const AppointmentBookingForm = ({ onClose }: { onClose: () => void }) => {
             <div className="flex items-center space-x-2">
               <RadioGroupItem value="internal-medicine" id="internal-medicine" />
               <Label htmlFor="internal-medicine">Internal Medicine</Label>
-            </div>
-            <div className="flex items-center space-x-2">
-              <RadioGroupItem value="med-spa" id="med-spa" />
-              <Label htmlFor="med-spa">Med Spa</Label>
             </div>
           </RadioGroup>
         </div>
