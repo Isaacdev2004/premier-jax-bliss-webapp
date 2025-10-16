@@ -25,8 +25,7 @@ const DesktopNavLinks = () => {
 
   return (
     <>
-      {/* Render Home and About links first */}
-      {navItems.slice(0, 2).map((item) => (
+      {navItems.map((item) => (
         <Link
           key={item.name}
           to={item.path}
@@ -36,63 +35,12 @@ const DesktopNavLinks = () => {
         </Link>
       ))}
       
-      {/* Services dropdown - now as an anchor element wrapped around NavigationMenu */}
-      <NavigationMenu>
-        <NavigationMenuList>
-          <NavigationMenuItem>
-            <NavigationMenuTrigger className={`p-0 h-auto bg-transparent hover:bg-transparent focus:bg-transparent data-[state=open]:bg-transparent ${
-              location.pathname === "/internal-medicine" || location.pathname === "/med-spa" 
-                ? activeLinkStyle 
-                : baseLinkStyle
-            }`}>
-              Services
-            </NavigationMenuTrigger>
-            <NavigationMenuContent className="min-w-[200px]">
-              <ul className="grid gap-2 p-2">
-                <li>
-                  <NavigationMenuLink asChild>
-                    <Link 
-                      to="/internal-medicine"
-                      className={cn(
-                        "block select-none rounded-md p-3 hover:bg-accent hover:text-accent-foreground",
-                        location.pathname === "/internal-medicine" ? "bg-accent" : ""
-                      )}
-                    >
-                      <div className="text-sm font-medium">Internal Medicine</div>
-                      <p className="text-xs text-muted-foreground">Preventive care and chronic condition management</p>
-                    </Link>
-                  </NavigationMenuLink>
-                </li>
-                <li>
-                  <NavigationMenuLink asChild>
-                    <Link 
-                      to="/med-spa"
-                      className={cn(
-                        "block select-none rounded-md p-3 hover:bg-accent hover:text-accent-foreground",
-                        location.pathname === "/med-spa" ? "bg-accent" : ""
-                      )}
-                    >
-                      <div className="text-sm font-medium">Vivid Bliss Med Spa</div>
-                      <p className="text-xs text-muted-foreground">Aesthetic treatments and skin rejuvenation</p>
-                    </Link>
-                  </NavigationMenuLink>
-                </li>
-              </ul>
-            </NavigationMenuContent>
-          </NavigationMenuItem>
-        </NavigationMenuList>
-      </NavigationMenu>
-      
-      {/* Render Patient Resources and Contact links last */}
-      {navItems.slice(2).map((item) => (
-        <Link
-          key={item.name}
-          to={item.path}
-          className={location.pathname === item.path ? activeLinkStyle : baseLinkStyle}
-        >
-          {item.name}
-        </Link>
-      ))}
+      <Link
+        to="/internal-medicine"
+        className={location.pathname === "/internal-medicine" ? activeLinkStyle : baseLinkStyle}
+      >
+        Internal Medicine
+      </Link>
     </>
   );
 };

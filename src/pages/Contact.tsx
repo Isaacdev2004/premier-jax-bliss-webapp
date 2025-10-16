@@ -45,7 +45,6 @@ const Contact = () => {
     try {
       const serviceOptions = {
         "internal-medicine": "Internal Medicine",
-        "med-spa": "Vivid Bliss Med Spa",
         "telehealth": "Telehealth Appointment",
         "other": "Other Inquiry"
       };
@@ -121,7 +120,7 @@ const Contact = () => {
                   <MapPin size={24} className="mr-4 mt-1 text-jax-primary flex-shrink-0" />
                   <div>
                     <h3 className="font-semibold text-lg mb-1">Our Location</h3>
-                    <p className="text-gray-600">9010 R G Skinner Parkway, Jacksonville, FL 32068</p>
+                    <p className="text-gray-600">9050 Cypress Green Drive, Suites 104, Jacksonville, FL 32068</p>
                     <div className="mt-2">
                       <button
                         onClick={() => setShowMapOptions(!showMapOptions)}
@@ -133,7 +132,7 @@ const Contact = () => {
                       {showMapOptions && (
                         <div className="mt-2 ml-4 flex gap-4">
                           <a 
-                            href="https://maps.google.com/?q=9010+R+G+Skinner+Parkway,+Jacksonville,+FL+32068" 
+                            href="https://maps.google.com/?q=9050+Cypress+Green+Drive,+Jacksonville,+FL+32068" 
                             target="_blank" 
                             rel="noopener noreferrer" 
                             className="inline-flex items-center text-jax-primary hover:underline"
@@ -141,7 +140,7 @@ const Contact = () => {
                             Google Maps
                           </a>
                           <a 
-                            href="https://maps.apple.com/?q=9010+R+G+Skinner+Parkway,+Jacksonville,+FL+32068" 
+                            href="https://maps.apple.com/?q=9050+Cypress+Green+Drive,+Jacksonville,+FL+32068" 
                             target="_blank" 
                             rel="noopener noreferrer" 
                             className="inline-flex items-center text-jax-primary hover:underline"
@@ -176,12 +175,12 @@ const Contact = () => {
                     <h3 className="font-semibold text-lg mb-1">Hours of Operation</h3>
                     <div className="space-y-2">
                       <div>
-                        <p className="font-medium">Standard Hours:</p>
-                        <p className="text-gray-600">Monday - Friday: 9:00 AM - 5:00 PM</p>
+                        <p className="font-medium">Monday - Thursday:</p>
+                        <p className="text-gray-600">Business hours - Walk-in or same-day appointments welcome</p>
                       </div>
                       <div>
-                        <p className="font-medium">Weekend Appointments:</p>
-                        <p className="text-gray-600">Available by scheduling only</p>
+                        <p className="font-medium">Friday - Sunday:</p>
+                        <p className="text-gray-600">By advance appointment only</p>
                       </div>
                     </div>
                   </div>
@@ -216,12 +215,6 @@ const Contact = () => {
                         <RadioGroupItem value="internal-medicine" id="internal-medicine" />
                         <Label htmlFor="internal-medicine" className="cursor-pointer">
                           Internal Medicine
-                        </Label>
-                      </div>
-                      <div className="flex items-center space-x-2">
-                        <RadioGroupItem value="med-spa" id="med-spa" />
-                        <Label htmlFor="med-spa" className="cursor-pointer">
-                          Vivid Bliss Med Spa
                         </Label>
                       </div>
                       <div className="flex items-center space-x-2">

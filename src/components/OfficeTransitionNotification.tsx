@@ -10,21 +10,21 @@ const OfficeTransitionNotification = () => {
             <MapPin className="h-5 w-5 mr-2 flex-shrink-0" />
             <div>
               <p className="font-semibold text-lg">
-                We're Moving to Better Serve You!
+                We've Moved to Better Serve You!
               </p>
               <p className="text-blue-100 text-sm">
-                JAX Premier Health Center is transitioning to a new office location
+                9050 Cypress Green Drive, Suites 104, Jacksonville, FL 32068
               </p>
             </div>
           </div>
           <div className="flex flex-col md:flex-row gap-4 text-sm">
             <div className="flex items-center">
               <Calendar className="h-4 w-4 mr-1" />
-              <span>Transition in progress</span>
+              <span>Mon-Thu: Walk-ins welcome | Fri-Sun: By appointment</span>
             </div>
             <div className="flex items-center">
               <Phone className="h-4 w-4 mr-1" />
-              <span>Call (904) 468-2055 for updates</span>
+              <span>Call (904) 468-2055</span>
             </div>
           </div>
         </div>

@@ -91,92 +91,93 @@
   }
 }
 
-@layer components {
-  /* Page transitions */
-  .page-enter {
-    @apply animate-slide-in;
-  }
-  
-  .page-exit {
-    opacity: 1;
-    transition: opacity 0.3s ease-out;
-  }
-  
-  .page-exit-active {
-    opacity: 0;
-  }
 
-  /* Component animations */
-  .animate-hover {
-    @apply transition-transform duration-300 ease-in-out hover:scale-105;
-  }
-
-  /* Navbar animations */
-  .nav-link {
-    @apply relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-blue-500 
-    after:transition-all after:duration-300 after:ease-in-out hover:after:w-full;
-  }
-
-  /* Button hover effects */
-  .button-hover {
-    @apply transition-all duration-300 ease-in-out hover:shadow-lg;
-  }
-
-  /* Animation Classes */
-  .float-animation {
-    animation: float 4s ease-in-out infinite;
-  }
-  
-  .glow-animation {
-    animation: glow 3s ease-in-out infinite;
-  }
-  
-  .shimmer-animation {
-    background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,0.5), rgba(255,255,255,0));
-    background-size: 200% 100%;
-    animation: shimmer 2s infinite linear;
-  }
-  
-  .slide-right-animation {
-    animation: slideInRight 0.7s ease-out forwards;
-  }
-  
-  .slide-left-animation {
-    animation: slideInLeft 0.7s ease-out forwards;
-  }
-  
-  .rotate-in-animation {
-    animation: rotateIn 0.7s ease-out forwards;
-  }
-  
-  .pulse-animation {
-    animation: pulse 3s infinite ease-in-out;
-  }
-  
-  .fancy-border {
-    @apply relative overflow-hidden rounded-lg after:absolute after:inset-0 after:rounded-lg after:border-2 after:border-blue-400 after:content-[''] after:opacity-0 hover:after:opacity-100 after:transition-all after:duration-300;
-  }
-  
-  /* Transition classes */
-  .transition-all-fast {
-    @apply transition-all duration-200 ease-in-out;
-  }
-  
-  .transition-all-medium {
-    @apply transition-all duration-300 ease-in-out;
-  }
-  
-  .transition-all-slow {
-    @apply transition-all duration-500 ease-in-out;
-  }
-  
-  /* Staggered animation delays */
-  .delay-stagger-1 { animation-delay: 0.1s; }
-  .delay-stagger-2 { animation-delay: 0.2s; }
-  .delay-stagger-3 { animation-delay: 0.3s; }
-  .delay-stagger-4 { animation-delay: 0.4s; }
-  .delay-stagger-5 { animation-delay: 0.5s; }
+/* Component animations and utilities */
+/* Page transitions */
+.page-enter {
+  @apply animate-slide-in;
 }
+
+.page-exit {
+  opacity: 1;
+  transition: opacity 0.3s ease-out;
+}
+
+.page-exit-active {
+  opacity: 0;
+}
+
+/* Component animations */
+.animate-hover {
+  @apply transition-transform duration-300 ease-in-out hover:scale-105;
+}
+
+/* Navbar animations */
+.nav-link {
+  @apply relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-blue-500 
+  after:transition-all after:duration-300 after:ease-in-out hover:after:w-full;
+}
+
+/* Button hover effects */
+.button-hover {
+  @apply transition-all duration-300 ease-in-out hover:shadow-lg;
+}
+
+/* Animation Classes */
+.float-animation {
+  animation: float 4s ease-in-out infinite;
+}
+
+.glow-animation {
+  animation: glow 3s ease-in-out infinite;
+}
+
+.shimmer-animation {
+  background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,0.5), rgba(255,255,255,0));
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite linear;
+}
+
+.slide-right-animation {
+  animation: slideInRight 0.7s ease-out forwards;
+}
+
+.slide-left-animation {
+  animation: slideInLeft 0.7s ease-out forwards;
+}
+
+.rotate-in-animation {
+  animation: rotateIn 0.7s ease-out forwards;
+}
+
+.pulse-animation {
+  animation: pulse 3s infinite ease-in-out;
+}
+
+.fancy-border {
+  @apply relative overflow-hidden rounded-lg after:absolute after:inset-0 after:rounded-lg after:border-2 after:border-blue-400 after:content-[''] after:opacity-0 hover:after:opacity-100 after:transition-all after:duration-300;
+}
+
+/* Transition classes */
+.transition-all-fast {
+  @apply transition-all duration-200 ease-in-out;
+}
+
+.transition-all-medium {
+  @apply transition-all duration-300 ease-in-out;
+}
+
+.transition-all-slow {
+  @apply transition-all duration-500 ease-in-out;
+}
+
+/* Staggered animation delays */
+.delay-stagger-1 { animation-delay: 0.1s; }
+.delay-stagger-2 { animation-delay: 0.2s; }
+.delay-stagger-3 { animation-delay: 0.3s; }
+.delay-stagger-4 { animation-delay: 0.4s; }
+.delay-stagger-5 { animation-delay: 0.5s; }
+
 
 /* Slide in animation for page content */
 .content-section {

@@ -10,53 +10,34 @@ const PatientResources = () => {
   return <>
       <PageHeader title="Patient Resources" subtitle="Information and resources to help you prepare for your visit and manage your healthcare." />
 
-      {/* Patient Portal */}
+      {/* Patient Portal - Currently Unavailable */}
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div className="flex justify-center items-center">
-              <img alt="Patient using laptop for telehealth" className="rounded-2xl shadow-lg max-w-[80%]" src="/lovable-uploads/35cbd64e-9f91-4ff9-bf50-4bfe3225b0b2.jpg" />
-            </div>
-            <div className="space-y-6">
-              <SectionHeader title="Patient Portal" subtitle="Manage your health information online" align="left" className="mb-6" />
-              <p className="text-gray-600">
-                Our patient portal provides secure, 24/7 access to your health information and
-                convenient online services. Through the portal, you can:
+          <div className="max-w-3xl mx-auto text-center">
+            <SectionHeader title="Patient Portal" subtitle="Coming Soon" />
+            <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 mt-6">
+              <AlertCircle className="h-8 w-8 text-blue-600 mx-auto mb-3" />
+              <p className="text-gray-700 mb-4">
+                Our patient portal is currently being updated. Please call our office at (904) 468-2055 for:
               </p>
-              <ul className="space-y-3">
+              <ul className="text-left max-w-md mx-auto space-y-2">
                 <li className="flex items-start">
                   <div className="w-2 h-2 rounded-full bg-jax-primary mt-2 mr-2"></div>
-                  <span>Request prescription refills</span>
+                  <span>Prescription refills</span>
                 </li>
                 <li className="flex items-start">
                   <div className="w-2 h-2 rounded-full bg-jax-primary mt-2 mr-2"></div>
-                  <span>View lab and test results</span>
+                  <span>Lab and test results</span>
                 </li>
                 <li className="flex items-start">
                   <div className="w-2 h-2 rounded-full bg-jax-primary mt-2 mr-2"></div>
-                  <span>Schedule or request appointments</span>
+                  <span>Scheduling appointments</span>
                 </li>
                 <li className="flex items-start">
                   <div className="w-2 h-2 rounded-full bg-jax-primary mt-2 mr-2"></div>
-                  <span>Message your healthcare provider</span>
-                </li>
-                <li className="flex items-start">
-                  <div className="w-2 h-2 rounded-full bg-jax-primary mt-2 mr-2"></div>
-                  <span>View and pay bills</span>
-                </li>
-                <li className="flex items-start">
-                  <div className="w-2 h-2 rounded-full bg-jax-primary mt-2 mr-2"></div>
-                  <span>Update personal information</span>
+                  <span>Medical records and billing</span>
                 </li>
               </ul>
-              <Button className="bg-jax-primary hover:bg-jax-primary/90 flex items-center" asChild>
-                <a href="https://www.patientally.com/" target="_blank" rel="noopener noreferrer">
-                  Access Patient Portal <ExternalLink size={16} className="ml-2" />
-                </a>
-              </Button>
-              <p className="text-sm text-gray-500">
-                First-time users: Please contact our office to receive your portal invitation.
-              </p>
             </div>
           </div>
         </div>
@@ -108,16 +89,6 @@ const PatientResources = () => {
                   </div>
                 </div>
               </div>
-              <div className="bg-gray-50 p-6 rounded-lg mt-6">
-                <h4 className="font-semibold mb-3">Med Spa Services Payment Policy</h4>
-                <p className="text-gray-600 mb-4">
-                  Please note that most med spa services are considered cosmetic and are typically
-                  not covered by insurance. Payment is required at the time of service.
-                </p>
-                <Button variant="outline" asChild>
-                  <Link to="/contact">Contact Us About Pricing</Link>
-                </Button>
-              </div>
             </div>
           </div>
         </div>
@@ -136,17 +107,11 @@ const PatientResources = () => {
             question: "How do I schedule a telehealth appointment?",
             answer: "New patients can schedule a telehealth appointment by calling our office directly. We offer telehealth services in four states: New York, Illinois, Pennsylvania, and Florida. Telehealth is especially popular for our Medical Weight Loss program. Note that new patients won't have access to the patient portal until after their first appointment."
           }, {
-            question: "Do you offer payment plans for med spa services?",
-            answer: "Yes, we offer payment plans for certain med spa packages. Please inquire during your consultation for more details about financing options."
-          }, {
             question: "What is your cancellation policy?",
-            answer: "We request at least 24 hours' notice for cancellations. Late cancellations or no-shows may incur a fee, particularly for med spa services that require significant appointment time."
+            answer: "We request at least 24 hours' notice for cancellations. Late cancellations or no-shows may incur a fee."
           }, {
             question: "How do I request a prescription refill?",
-            answer: "The easiest way to request a refill is through our patient portal. Alternatively, you can call our office or have your pharmacy send a refill request."
-          }, {
-            question: "Are medical and spa services billed separately?",
-            answer: "Yes, internal medicine services and med spa services are billed separately. Internal medicine services may be covered by insurance, while med spa services are typically self-pay."
+            answer: "Please call our office at (904) 468-2055 or have your pharmacy send a refill request directly to us."
           }].map((faq, index) => <div key={index} className="bg-white p-6 rounded-xl shadow-sm">
                 <h3 className="text-lg font-semibold mb-3">{faq.question}</h3>
                 <p className="text-gray-600">{faq.answer}</p>

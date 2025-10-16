@@ -10,15 +10,9 @@ import Layout from "./components/Layout";
 const Home = lazy(() => import("./pages/Home"));
 const About = lazy(() => import("./pages/About"));
 const InternalMedicine = lazy(() => import("./pages/InternalMedicine"));
-const MedSpa = lazy(() => import("./pages/MedSpa"));
 const PatientResources = lazy(() => import("./pages/PatientResources"));
 const Contact = lazy(() => import("./pages/Contact"));
 const NotFound = lazy(() => import("./pages/NotFound"));
-const MedSpaSkinRejuvenation = lazy(() => import("./pages/MedSpaSkinRejuvenation"));
-const MedSpaAcneTreatment = lazy(() => import("./pages/MedSpaAcneTreatment"));
-const MedSpaBotoxInjections = lazy(() => import("./pages/MedSpaBotoxInjections"));
-const MedSpaPersonalizedRejuvenation = lazy(() => import("./pages/MedSpaPersonalizedRejuvenation"));
-const MedSpaWellness = lazy(() => import("./pages/MedSpaWellness"));
 
 // Lazy load admin pages
 const AdminLogin = lazy(() => import("./pages/admin/Login"));
@@ -57,12 +51,6 @@ const App = () => (
             <Route index element={<Home />} />
             <Route path="about" element={<About />} />
             <Route path="internal-medicine" element={<InternalMedicine />} />
-            <Route path="med-spa" element={<MedSpa />} />
-            <Route path="med-spa/skin-rejuvenation" element={<MedSpaSkinRejuvenation />} />
-            <Route path="med-spa/acne-treatment" element={<MedSpaAcneTreatment />} />
-            <Route path="med-spa/botox-injections" element={<MedSpaBotoxInjections />} />
-            <Route path="med-spa/personalized-rejuvenation" element={<MedSpaPersonalizedRejuvenation />} />
-            <Route path="med-spa/wellness" element={<MedSpaWellness />} />
             <Route path="patient-resources" element={<PatientResources />} />
             <Route path="contact" element={<Contact />} />
             <Route path="*" element={<NotFound />} />
