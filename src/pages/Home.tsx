@@ -12,10 +12,19 @@ import HomeVisitSection from "@/components/home/HomeVisitSection";
 import TestimonialsSection from "@/components/home/TestimonialsSection";
 import WhyChooseUsSection from "@/components/home/WhyChooseUsSection";
 import OfficeTransitionNotification from "@/components/OfficeTransitionNotification";
+import SEO from "@/components/SEO";
+import StructuredData from "@/components/StructuredData";
 
 const HomePage = () => {
   return (
     <>
+      <SEO 
+        title="JAX Premier Health Center | Internal Medicine & Wellness in Jacksonville FL"
+        description="JAX Premier Health Center offers comprehensive internal medicine, primary care, chronic disease management, and wellness services in Jacksonville, Florida. Led by Dr. Donzo. Book your appointment today."
+        keywords="internal medicine Jacksonville FL, primary care Jacksonville, med spa Jacksonville, wellness center Jacksonville, Dr. Donzo, chronic disease management, preventive care, telehealth Jacksonville, weight loss Jacksonville"
+        canonicalUrl="https://jaxpremierhealth.com"
+      />
+      <StructuredData type="organization" />
       <OfficeTransitionNotification />
       <HeroSection />
       <ServicesSection />

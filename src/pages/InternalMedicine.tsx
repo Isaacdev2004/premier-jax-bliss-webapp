@@ -5,10 +5,17 @@ import SectionHeader from "@/components/SectionHeader";
 import ServiceCard from "@/components/ServiceCard";
 import CallToAction from "@/components/CallToAction";
 import PageHeader from "@/components/PageHeader";
+import SEO from "@/components/SEO";
 
 const InternalMedicine = () => {
   return (
     <>
+      <SEO 
+        title="Internal Medicine Services in Jacksonville FL - Dr. Donzo"
+        description="Comprehensive internal medicine services including primary care, chronic disease management, preventive care, and telehealth consultations in Jacksonville, Florida. Expert care by Dr. Donzo."
+        keywords="internal medicine Jacksonville, primary care Jacksonville FL, chronic disease management, preventive care, telehealth Jacksonville, diabetes care, hypertension treatment, cardiovascular health Jacksonville"
+        canonicalUrl="https://jaxpremierhealth.com/internal-medicine"
+      />
       {/* Updated Hero Section */}
       <section className="relative overflow-hidden bg-gradient-to-br from-blue-50/70 via-white to-blue-100/50 py-20">
         {/* Decorative elements */}
@@ -59,7 +66,7 @@ const InternalMedicine = () => {
               <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-teal-500/20 rounded-3xl blur-xl transform group-hover:scale-105 transition-all duration-500 opacity-70"></div>
               <img 
                 src="/lovable-uploads/237c70b9-40ec-4070-97d7-5b907f2bc934.png"
-                alt="Internal Medicine Practice"
+                alt="Internal medicine practice at JAX Premier Health Center in Jacksonville, FL - modern healthcare facility"
                 className="relative z-10 w-[90%] h-auto rounded-2xl shadow-xl transform hover:scale-102 transition-all duration-500 float-animation"
               />
               <div className="absolute -bottom-4 -right-4 bg-white/90 backdrop-blur-sm p-4 rounded-xl shadow-lg z-20 slide-up" style={{ animationDelay: '0.8s' }}>
@@ -85,7 +92,7 @@ const InternalMedicine = () => {
             <div>
               <img
                 src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
-                alt="Doctor consulting with patient"
+                alt="Dr. Donzo consulting with patient at JAX Premier Health Center - comprehensive internal medicine care in Jacksonville"
                 className="rounded-2xl shadow-lg"
               />
             </div>
@@ -269,7 +276,7 @@ const InternalMedicine = () => {
             <div className="order-1 md:order-2">
               <img
                 src="/lovable-uploads/14c1fc86-23fc-4ba3-a0c6-b0b2aa4f748d.png"
-                alt="Doctor providing telehealth consultation"
+                alt="Telehealth consultation with Dr. Donzo - virtual healthcare services available in Florida, New York, Pennsylvania, and Illinois"
                 className="rounded-2xl shadow-lg w-full h-auto object-cover"
               />
             </div>

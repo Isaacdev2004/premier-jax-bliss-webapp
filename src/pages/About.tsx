@@ -2,17 +2,24 @@ import PageHeader from "@/components/PageHeader";
 import SectionHeader from "@/components/SectionHeader";
 import CallToAction from "@/components/CallToAction";
 import SocialMediaLinks from "@/components/SocialMediaLinks";
+import SEO from "@/components/SEO";
 import { Star } from "lucide-react";
 
 const About = () => {
   return <>
+      <SEO 
+        title="About JAX Premier Health Center - Meet Dr. Donzo"
+        description="Learn about JAX Premier Health Center and Dr. Donzo, board-certified Internal Medicine Doctor providing comprehensive healthcare in Jacksonville, Florida. Meet our founder and learn about our mission."
+        keywords="Dr. Donzo Jacksonville, about JAX Premier Health, internal medicine doctor Jacksonville, healthcare Jacksonville FL, board certified physician"
+        canonicalUrl="https://jaxpremierhealth.com/about"
+      />
       <PageHeader title="About JAX Premier Health Center" subtitle="Providing comprehensive internal medicine services to the Jacksonville community." />
 
       <section className="py-16">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div>
-              <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="JAX Premier Health Center" className="rounded-2xl shadow-lg" />
+              <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="JAX Premier Health Center modern medical clinic interior in Jacksonville, Florida" className="rounded-2xl shadow-lg" />
             </div>
             <div className="space-y-6">
               <SectionHeader title="Our Story" align="left" className="mb-6" />
@@ -44,7 +51,7 @@ const About = () => {
           <div className="max-w-4xl mx-auto">
             <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col md:flex-row items-stretch">
               <div className="w-full md:w-2/5 h-[400px] relative overflow-hidden">
-                <img src="/lovable-uploads/8402697b-090a-4447-ad63-68d6ee38f7de.png" alt="Dr. Donzo" className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500" />
+                <img src="/lovable-uploads/8402697b-090a-4447-ad63-68d6ee38f7de.png" alt="Dr. Donzo - Board Certified Internal Medicine Doctor and Founder of JAX Premier Health Center in Jacksonville, FL" className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
               </div>
               <div className="p-8 lg:p-10 w-full md:w-3/5 flex flex-col justify-center bg-gradient-to-br from-white to-jax-secondary/10">

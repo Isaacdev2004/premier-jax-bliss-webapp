@@ -14,6 +14,8 @@ const HeroSection = () => {
           backgroundSize: "cover",
           backgroundPosition: "center"
         }}
+        role="img"
+        aria-label="JAX Premier Health Center - Modern healthcare facility in Jacksonville, Florida offering internal medicine and wellness services"
       >
         {/* Reduced opacity gradient overlay for better image visibility */}
         <div className="absolute inset-0 bg-gradient-to-r from-blue-900/40 via-blue-800/30 to-blue-700/20 backdrop-blur-[0px]"></div>
@@ -56,10 +58,10 @@ const HeroSection = () => {
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-slide-in stagger-3">
               <Button className="bg-jax-primary hover:bg-jax-primary/90 w-full sm:w-auto shadow-lg" size="lg" asChild>
-                <Link to="/contact?type=consultation">Schedule a Visit <ChevronRight className="h-4 w-4" /></Link>
+                <Link to="/contact?type=consultation" aria-label="Schedule a visit with JAX Premier Health Center">Schedule a Visit <ChevronRight className="h-4 w-4" /></Link>
               </Button>
               <Button variant="outline" className="bg-black/30 backdrop-blur-sm border-white/20 text-white hover:bg-white/20 w-full sm:w-auto" size="lg" asChild>
-                <Link to="/internal-medicine">Our Services</Link>
+                <Link to="/internal-medicine" aria-label="Explore our internal medicine services">Our Services</Link>
               </Button>
             </div>
           </div>

@@ -5,9 +5,16 @@ import { FileText, ExternalLink, AlertCircle, Download, Shield, CreditCard } fro
 import PageHeader from "@/components/PageHeader";
 import SectionHeader from "@/components/SectionHeader";
 import CallToAction from "@/components/CallToAction";
+import SEO from "@/components/SEO";
 
 const PatientResources = () => {
   return <>
+      <SEO 
+        title="Patient Resources - JAX Premier Health Center Jacksonville FL"
+        description="Access patient resources at JAX Premier Health Center. Insurance information, billing, FAQs, and patient portal for Jacksonville healthcare services."
+        keywords="patient resources Jacksonville, insurance Jacksonville FL, patient portal, billing information, JAX Premier Health patient info"
+        canonicalUrl="https://jaxpremierhealth.com/patient-resources"
+      />
       <PageHeader title="Patient Resources" subtitle="Information and resources to help you prepare for your visit and manage your healthcare." />
 
       {/* Patient Portal - Currently Unavailable */}

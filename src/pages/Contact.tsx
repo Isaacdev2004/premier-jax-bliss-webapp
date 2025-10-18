@@ -8,6 +8,7 @@ import { useToast } from "@/hooks/use-toast";
 import { Phone, Mail, MapPin, Clock, ArrowRight } from "lucide-react";
 import PageHeader from "@/components/PageHeader";
 import SectionHeader from "@/components/SectionHeader";
+import SEO from "@/components/SEO";
 import { supabase } from "@/integrations/supabase/client";
 import { format } from "date-fns";
 import { z } from "zod";
@@ -143,6 +144,12 @@ const Contact = () => {
 
   return (
     <>
+      <SEO 
+        title="Contact JAX Premier Health Center - Schedule Appointment in Jacksonville FL"
+        description="Contact JAX Premier Health Center in Jacksonville, Florida. Schedule appointments for internal medicine, telehealth, and wellness services. Call (904) 468-2055 or book online."
+        keywords="contact JAX Premier Health, schedule appointment Jacksonville, Jacksonville internal medicine, telehealth appointment Florida, Dr. Donzo contact"
+        canonicalUrl="https://jaxpremierhealth.com/contact"
+      />
       <PageHeader title="Contact Us" subtitle="Get in touch with our team for appointments, consultations, or any questions." />
 
       <section className="py-16">
