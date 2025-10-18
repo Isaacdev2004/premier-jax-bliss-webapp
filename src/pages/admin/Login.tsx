@@ -1,5 +1,4 @@
-
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "@/hooks/use-toast";
 import { Button } from "@/components/ui/button";
@@ -14,66 +13,54 @@ const AdminLogin = () => {
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    // Check if user is already logged in
-    const checkAuth = async () => {
-      const { data: { session } } = await supabase.auth.getSession();
-      if (session) {
-        // Check if user has admin role
-        const { data: roles } = await supabase
-          .from('user_roles')
-          .select('role')
-          .eq('user_id', session.user.id);
-        
-        if (roles?.some(r => r.role === 'admin' || r.role === 'staff')) {
-          navigate("/admin/dashboard");
-        }
-      }
-    };
-    checkAuth();
-  }, [navigate]);
-
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
 
     try {
-      // Sign in with Supabase
-      const { data, error: signInError } = await supabase.auth.signInWithPassword({
+      const { data, error } = await supabase.auth.signInWithPassword({
         email,
         password,
       });
 
-      if (signInError) throw signInError;
-
-      if (data.session) {
-        // Check if user has admin or staff role
-        const { data: roles, error: rolesError } = await supabase
-          .from('user_roles')
-          .select('role')
-          .eq('user_id', data.session.user.id);
-
-        if (rolesError) throw rolesError;
-
-        if (roles && roles.length > 0 && roles.some(r => r.role === 'admin' || r.role === 'staff')) {
-          toast({
-            title: "Login successful",
-            description: "Welcome to the admin portal",
-          });
-          navigate("/admin/dashboard");
-        } else {
-          await supabase.auth.signOut();
-          toast({
-            title: "Access denied",
-            description: "You don't have permission to access the admin portal",
-            variant: "destructive",
-          });
-        }
+      if (error) {
+        toast({
+          title: "Login failed",
+          description: error.message,
+          variant: "destructive",
+        });
+        setIsLoading(false);
+        return;
       }
-    } catch (error: any) {
+
+      // Check if user has admin or staff role
+      const { data: roleData, error: roleError } = await supabase
+        .from("user_roles")
+        .select("role")
+        .eq("user_id", data.user.id)
+        .in("role", ["admin", "staff"]);
+
+      if (roleError || !roleData || roleData.length === 0) {
+        await supabase.auth.signOut();
+        toast({
+          title: "Access denied",
+          description: "You don't have permission to access the admin portal",
+          variant: "destructive",
+        });
+        setIsLoading(false);
+        return;
+      }
+
+      toast({
+        title: "Login successful",
+        description: "Welcome to the admin portal",
+      });
+      navigate("/admin/dashboard");
+    } catch (error) {
+      console.error("Login error:", error);
       toast({
         title: "Login failed",
-        description: error.message || "Invalid email or password",
+        description: "An unexpected error occurred",
         variant: "destructive",
       });
     } finally {
@@ -103,7 +90,7 @@ const AdminLogin = () => {
                 <Input
                   id="email"
                   type="email"
-                  placeholder="admin@jaxhealth.com"
+                  placeholder="admin@example.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   className="pl-9"
