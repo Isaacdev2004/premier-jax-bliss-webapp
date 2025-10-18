@@ -8,6 +8,25 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { useState } from "react";
 import { format } from "date-fns";
 import { supabase } from "@/integrations/supabase/client";
+import { z } from "zod";
+
+const bookingSchema = z.object({
+  name: z.string()
+    .trim()
+    .min(2, "Name must be at least 2 characters")
+    .max(100, "Name must be less than 100 characters")
+    .regex(/^[a-zA-Z\s'-]+$/, "Name can only contain letters, spaces, hyphens, and apostrophes"),
+  email: z.string()
+    .trim()
+    .email("Invalid email address")
+    .max(255, "Email must be less than 255 characters"),
+  phone: z.string()
+    .trim()
+    .regex(/^[\d\s\-\(\)]+$/, "Invalid phone number format")
+    .min(10, "Phone number must be at least 10 digits")
+    .max(20, "Phone number must be less than 20 characters"),
+  service: z.string(),
+});
 
 const AppointmentBookingForm = ({ onClose }: { onClose: () => void }) => {
   const { toast } = useToast();
@@ -25,6 +44,19 @@ const AppointmentBookingForm = ({ onClose }: { onClose: () => void }) => {
     setIsSubmitting(true);
 
     try {
+      // Validate form data
+      const validationResult = bookingSchema.safeParse(formData);
+      if (!validationResult.success) {
+        const firstError = validationResult.error.errors[0];
+        toast({
+          title: "Validation Error",
+          description: firstError.message,
+          variant: "destructive"
+        });
+        setIsSubmitting(false);
+        return;
+      }
+
       // Format the selected date
       const formattedDate = date ? format(date, "yyyy-MM-dd") : null;
       const displayDate = date ? format(date, "MMMM dd, yyyy") : "No date selected";

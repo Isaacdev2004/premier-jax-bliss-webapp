@@ -7,26 +7,56 @@ import AdminSidebar from "./components/AdminSidebar";
 import AdminLoader from "./components/AdminLoader";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { Toaster } from "@/components/ui/toaster";
+import { supabase } from "@/integrations/supabase/client";
 
 const AdminLayout = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   
   useEffect(() => {
-    // Check for admin authentication
-    const adminAuth = localStorage.getItem("adminAuth");
-    setIsAuthenticated(!!adminAuth);
-    
-    // Simulate API loading delay
-    const timer = setTimeout(() => {
+    const checkAuth = async () => {
+      const { data: { session } } = await supabase.auth.getSession();
+      
+      if (session) {
+        // Check if user has admin or staff role
+        const { data: roles } = await supabase
+          .from('user_roles')
+          .select('role')
+          .eq('user_id', session.user.id);
+        
+        if (roles?.some(r => r.role === 'admin' || r.role === 'staff')) {
+          setIsAuthenticated(true);
+        }
+      }
+      
       setIsLoading(false);
-    }, 600);
-    
-    return () => clearTimeout(timer);
+    };
+
+    checkAuth();
+
+    // Listen for auth changes
+    const { data: { subscription } } = supabase.auth.onAuthStateChange(
+      async (event, session) => {
+        if (event === 'SIGNED_OUT') {
+          setIsAuthenticated(false);
+        } else if (event === 'SIGNED_IN' && session) {
+          const { data: roles } = await supabase
+            .from('user_roles')
+            .select('role')
+            .eq('user_id', session.user.id);
+          
+          if (roles?.some(r => r.role === 'admin' || r.role === 'staff')) {
+            setIsAuthenticated(true);
+          }
+        }
+      }
+    );
+
+    return () => subscription.unsubscribe();
   }, []);
 
-  const handleLogout = () => {
-    localStorage.removeItem("adminAuth");
+  const handleLogout = async () => {
+    await supabase.auth.signOut();
     toast({
       title: "Logged out successfully",
       description: "You have been logged out of the admin portal",

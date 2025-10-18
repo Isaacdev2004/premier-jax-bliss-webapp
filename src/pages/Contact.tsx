@@ -10,6 +10,29 @@ import PageHeader from "@/components/PageHeader";
 import SectionHeader from "@/components/SectionHeader";
 import { supabase } from "@/integrations/supabase/client";
 import { format } from "date-fns";
+import { z } from "zod";
+
+const contactSchema = z.object({
+  name: z.string()
+    .trim()
+    .min(2, "Name must be at least 2 characters")
+    .max(100, "Name must be less than 100 characters")
+    .regex(/^[a-zA-Z\s'-]+$/, "Name can only contain letters, spaces, hyphens, and apostrophes"),
+  email: z.string()
+    .trim()
+    .email("Invalid email address")
+    .max(255, "Email must be less than 255 characters"),
+  phone: z.string()
+    .trim()
+    .regex(/^[\d\s\-\(\)]*$/, "Invalid phone number format")
+    .max(20, "Phone number must be less than 20 characters")
+    .optional(),
+  message: z.string()
+    .trim()
+    .min(10, "Message must be at least 10 characters")
+    .max(2000, "Message must be less than 2000 characters"),
+  service: z.string(),
+});
 
 const Contact = () => {
   const { toast } = useToast();
@@ -43,6 +66,19 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
+      // Validate form data
+      const validationResult = contactSchema.safeParse(formData);
+      if (!validationResult.success) {
+        const firstError = validationResult.error.errors[0];
+        toast({
+          title: "Validation Error",
+          description: firstError.message,
+          variant: "destructive"
+        });
+        setIsSubmitting(false);
+        return;
+      }
+
       const serviceOptions = {
         "internal-medicine": "Internal Medicine",
         "telehealth": "Telehealth Appointment",
