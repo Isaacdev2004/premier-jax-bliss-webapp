@@ -87,7 +87,7 @@ const Footer = () => {
             <div className="space-y-3 text-gray-600">
               <div className="flex items-start">
                 <MapPin size={18} className="mr-2 mt-0.5 flex-shrink-0 text-jax-primary" />
-                <span>9010 R G Skinner Parkway, Jacksonville, FL 32068</span>
+                <span>9050 Cypress Green Drive, Suites 104, Jacksonville, FL 32068</span>
               </div>
               <div className="flex items-center">
                 <Phone size={18} className="mr-2 flex-shrink-0 text-jax-primary" />
@@ -102,8 +102,8 @@ const Footer = () => {
               <div className="flex items-start">
                 <Clock size={18} className="mr-2 mt-0.5 flex-shrink-0 text-jax-primary" />
                 <div>
-                  <p><strong>Hours of Operation:</strong> Monday - Friday 9am-5pm</p>
-                  <p className="text-sm text-gray-600 mt-1">Weekend appointments available by scheduling only</p>
+                  <p><strong>Mon-Thu:</strong> Walk-ins welcome</p>
+                  <p className="text-sm text-gray-600 mt-1"><strong>Fri-Sun:</strong> By appointment only</p>
                 </div>
               </div>
             </div>
